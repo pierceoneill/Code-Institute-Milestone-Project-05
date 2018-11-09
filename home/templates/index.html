@@ -1,8 +1,64 @@
 {% extends 'base.html'%}
+{% load static %} 
 {% load bootstrap_tags %}
 {% block content %}
 
+<div class="container-fluid callout-container">
+        
+        <!-- Callout -->
+        <div class="row">
+            <div class="col-xs-12">
+                <section class="callout jumbotron text-center">
+                    <h1>The finest whiskeys delivered to your doorstep.</h1>
+                    <hr class='block-divider block-divider--orange'>
+                    <p class="lead">Sign up today to start receiving the world's best whiskeys every month. <s class="hidden-xs">€19.99</s> <span class="visible-xs"><br></span> <strong><mark>First one is free!</mark></strong></p>
+                    <p><button class="btn btn-lg btn--cta btn--red" data-toggle='modal' data-target='#signUpModal'>Sign Up!</button></p>
+                    <p class="text-muted"><small>You must be over 18 to sign up to our service. Please drink responsibly.</small></p>
+                </section>
+            </div>
+        </div>
+        <!-- /.callout -->
+</div>    
+<!-- Page Content-->
 
-
-
+<div class="jumbotron">
+  
+  <h1 class="display-3">We’re here to help you find a babysitter who is right for your family</h1>
+  <div class="card-deck">
+              <div class="card border-success col-lg-3 col-md-4 col-sm-3" >
+                  <center><h1 class="display-3 icon icon-lg fl-great-icon-set-ico fl-great-icon-set-monitor85 text-success"></h1></center>
+                    <center><div class="card-header"></div><h2 class="text-big text-bold text-success">Join the Network</h2></center>
+                <div class="card-body">
+                  <center><p class="card-text">SContact your babysitter; agree on date, time, pay rate and responsibilities..</p></center>
+                </div>
+              </div>
+              
+                <div class="card border-primary col-lg-3 col-md-4 col-sm-3" >
+                  <center><h1 class="display-3 icon icon-lg fl-great-icon-set-ico fl-great-icon-set-user156 text-primary"></h1></center>
+                    <center><div class="card-header"></div><h2 class="text-big text-bold text-primary">Find a Babysitter</h2></center>
+                <div class="card-body">
+                  <center><p class="card-text">Search for a babysitter or nanny in your local area or post a job to hire a qualified nanny.</p></center>
+                </div>
+              </div>
+              
+              <div class="card border-warning col-lg-3 col-md-4 col-sm-3" >
+                  <center><h1 class="display-3 icon icon-lg fl-great-icon-set-ico fl-great-icon-set-sportive64 text-warning"></h1></center>
+                    <center><div class="card-header"></div><h2 class="text-big text-bold text-warning">Check Their Credentials</h2></center>
+                <div class="card-body">
+                  <center><p class="card-text">We aim to validate all our babysitters and nannies but also recommend that you check all credentials.</p></center>
+                </div>
+              </div>
+              
+              
+              <div class="card border-danger col-lg-3 col-md-4 col-sm-3" >
+                  <center><h1 class="display-3 icon icon-lg fl-great-icon-set-ico fl-great-icon-set-user156 text-danger"></h1></center>
+                    <center><div class="card-header"></div><h2 class="text-big text-bold text-danger">Lock in a Date</h2></center>
+                <div class="card-body">
+                  <center><p class="card-text">Contact your babysitter; agree on date, time, pay rate and responsibilities..</p></center>
+                </div>
+              </div>
+              
+                                 
+        </div>
+</div>
 {% endblock %}
