@@ -1,0 +1,153 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Django E-Commerce{% endblock %}</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/devicon/2.2/devicon.min.css">
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://cdn.linearicons.com/free/1.0.0/icon-font.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css'>
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    {% block head_js %}
+    {% endblock head_js %}
+</head>
+<body>
+
+
+    <!-- Fixed masthead -->
+    
+<nav class="navbar navbar-expand-md fixed-top" style="font-weight: bold; background-color: #263171;">
+       
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2"  [ngbCollapse]="isCollapsed">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a routerLink="profiles" *ngIf="this.auth.isLoggedIn()"  class="nav-link" ngbTooltip="Developers Profiles" placement="bottom" (click)="isCollapsed = !isCollapsed">
+						<i class="fas fa-users d-none d-lg-inline-block"></i> Developers List
+					</a>
+				</li>
+				<li class="nav-item" >
+				    <a routerLink="profiles" class="nav-link"  href="{% url 'profile' %}" placement="bottom" (click)="isCollapsed = !isCollapsed">
+				        <li><i class="fas fa-users d-none d-lg-inline-block"></i> Profile</a></li>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="nav-item">
+			<a class="navbar-brand" img alt="Logo">	<img class="navbar-brand" src="{% static 'images/logo.png' %}" style="max-width:500px"class="img-responsive"></a>
+			
+		</div>
+		<div class="navbar-collapse collapse w-100 order-3 dual-collapse2" [ngbCollapse]="isCollapsed">
+			<ul class="navbar-nav ml-auto">
+				
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'register' %}">
+						<button class="btn btn-outline-white">Register
+							<i class="fas fa-user-plus"></i>
+						</button>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'login' %}">
+						<button class="btn btn-outline-white">Login
+							<i class="fas fa-sign-in-alt"></i>
+						</button>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-right" href="{% url 'logout' %}"> 
+						<button class="btn btn-danger">Logout
+							<i class="fas fa-sign-out-alt"></i>
+						</button>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor03">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+    <header class="container">
+        <div class="row text-center">
+            <div class="col-xs-12">
+                <h1>
+                    {% block header %}
+                    {% endblock %}
+                    <hr>
+                </h1>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+         {% if messages %}
+        <div class="alert alert-success">
+            <div class="messages">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+        
+        {% block content %} {% endblock %}
+        
+    {% block search %}
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+                <div class="display">
+                    <form action="{% url 'search' %}" method="get">
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="q" placeholder="Search babysitters...">
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+    
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.min.js'></script>
+
+
+
+<script src="{% static 'js/jquery.material-cards.js' %}"></script> 
+<script src="{% static 'js/index.js' %}"></script> 
+
+
+</body>
+</html
