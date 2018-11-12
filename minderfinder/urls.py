@@ -20,6 +20,7 @@ from home.views import get_index
 from accounts import urls as urls_accounts
 from babysitters import urls as urls_babysitters
 from babysitters.views import all_babysitters
+from blog import urls as urls_blog
 from bookings import urls as urls_bookings
 from search import urls as urls_search
 from checkout import urls as urls_checkout
@@ -36,4 +37,5 @@ urlpatterns = [
     url(r'^checkout/', include(urls_checkout)),
     url(r'^search/', include(urls_search)),
     url(r'^media/(?P<path>.*)$', static.serve,{'document_root': MEDIA_ROOT}),
+    url(r'^blog/', include(urls_blog)),
 ]

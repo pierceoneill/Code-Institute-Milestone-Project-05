@@ -8,102 +8,179 @@
     <title>{% block title %}Django E-Commerce{% endblock %}</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/devicon/2.2/devicon.min.css">
-	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
     <link rel='stylesheet' href='https://cdn.linearicons.com/free/1.0.0/icon-font.min.css'>
     <link href="https://fonts.googleapis.com/css?family=Oregano" rel="stylesheet">
-      
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     {% block head_js %}
     {% endblock head_js %}
 </head>
 <body>
-
-
-    <!-- Fixed masthead -->
     
-<nav class="navbar navbar-expand-md fixed-top" style="font-weight: bold; background-color: #263171;">
-       
-    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2"  [ngbCollapse]="isCollapsed">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active">
-					<a routerLink="profiles" *ngIf="this.auth.isLoggedIn()"  class="nav-link" ngbTooltip="Developers Profiles" placement="bottom" (click)="isCollapsed = !isCollapsed">
-						<i class="fas fa-users d-none d-lg-inline-block"></i> Developers List
-					</a>
-				</li>
-				<li class="nav-item" >
-				    <a routerLink="profiles" class="nav-link"  href="{% url 'profile' %}" placement="bottom" (click)="isCollapsed = !isCollapsed">
-				        <li><i class="fas fa-users d-none d-lg-inline-block"></i> Profile</a></li>
-					</a>
-				</li>
-			</ul>
-		</div>
-		<div class="nav-item">
-			<a class="navbar-brand" img alt="Logo">	<img class="navbar-brand" src="{% static 'images/logo.png' %}" style="max-width:500px"class="img-responsive"></a>
-			
-		</div>
-		<div class="navbar-collapse collapse w-100 order-3 dual-collapse2" [ngbCollapse]="isCollapsed">
-			<ul class="navbar-nav ml-auto">
-				
-				<li class="nav-item">
-					<a class="nav-link" href="{% url 'register' %}">
-						<button class="btn btn-outline-white">Register
-							<i class="fas fa-user-plus"></i>
-						</button>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="{% url 'login' %}">
-						<button class="btn btn-outline-white">Login
-							<i class="fas fa-sign-in-alt"></i>
-						</button>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link text-right" href="{% url 'logout' %}"> 
-						<button class="btn btn-danger">Logout
-							<i class="fas fa-sign-out-alt"></i>
-						</button>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarColor03">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
+      <!-- Navigation -->
+    <div class="page_topline">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4 ">
+                <div class="login-controls">
+                    <div class="dropdown">
+                        <a class="login-btn dropdown-toggle" data-toggle="dropdown">
+                            <i class="rt-icon2-lock-open-outline"></i>Login
+                        </a>
+                        <div class="login-form-wrap">
+                            <form class="form-horizontal dropdown-menu" method="post" action="/">
+                                <input type="text" class="form-control" id="login" placeholder="Login">
+                                <input type="password" class="form-control" id="pwd" placeholder="Password">
+                                <a href="#" class="forg-pass">Forgot Password?</a>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="checkbox"><label for="checkbox"> Remember</label>
+                                </div>
+                                <button type="submit" id="login_form_submit" name="login_submit" class="btn-default btn-type1">Login</button>
+                            </form>
+                        </div>
+                    </div>
+                    <a href="#" class="register-btn dropdown-toggle" data-toggle="dropdown">
+                        <i class="rt-icon2-user-outline"></i>Register
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-4 text-center second-column">
+                <div class="widget widget_search">
+                    <form method="get" class="searchform form-inline" action="/">
+                        <div class="form-group">
+                            <label class="screen-reader-text" for="page_search">Search for:</label>
+                            <input id="page_search" type="text" value="" name="search" class="form-control" placeholder="Type Search Keyword here">
+                        </div>
+                        <button type="submit" class="rt-icon2-zoom-outline">Search</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-4 text-right third-column">
+                <div class="address">
+                    <i class="rt-icon2-location-outline"></i> 23 Harper St. Owensboro
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
- 
-    
+
+<header class="page_header header_white">
+    <div class="header-top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-4">
+                    <a href="index.html">
+                        <img src="{% static 'images/logo.png' %}" alt="Babysitter logo" class="top-logo">
+                    </a>
+                </div>
+                <div class="col-sm-4 text-center">
+                    <div class="social-icons">
+                        <a href="#" class="social-icon color-bg-icon rounded-icon soc-facebook"></a>
+                        <a href="#" class="social-icon color-bg-icon rounded-icon soc-twitter"></a>
+                        <a href="#" class="social-icon color-bg-icon rounded-icon soc-google"></a>
+                        <a href="#" class="social-icon color-bg-icon rounded-icon soc-skype"></a>
+                        <a href="#" class="social-icon color-bg-icon rounded-icon rt-icon2-youtube5"></a>
+                    </div>
+                </div>
+                <div class="col-sm-4 text-right ">
+                    <div class="contact-info">
+                        <div class="contact-number">
+                            <span>800</span> 353 7587
+                        </div>
+                        <div class="work-hours">
+                            9:00 a.m. - 5:00 p.m.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <!-- main nav start -->
+                <nav class="mainmenu_wrapper">
+                    <ul class="mainmenu sf-menu">
+                        <li  class="active">
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="calendar.html">Pages</a>
+                            <ul>
+                                <li>
+                                    <a href="calendar.html">Calendar</a>
+                                </li>
+                                <li>
+                                    <a href="404.html">404</a>
+                                </li>
+                                <li>
+                                    <a href="faq.html">FAQ</a>
+                                </li>
+                                <li>
+                                    <a href="terms.html">Terms</a>
+                                </li>
+                                <li>
+                                    <a href="calculator.html">Service Calculator</a>
+                                </li>
+                                <li>
+                                    <a href="courses.html">Courses</a>
+                                </li>
+                                <li>
+                                    <a href="elements.html">Elements</a>
+                                </li>
+                                <li>
+                                    <a href="typography.html">Typography</a>
+                                </li>
+                                <li>
+                                    <a href="widgets.html">Widgets</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="about.html">About</a>
+                        </li>
+                        <li>
+                            <a href="services.html">Services</a>
+                        </li>
+
+                        <li>
+                            <a href="blog.html">Blog</a>
+                        </li>
+
+                        <li>
+                            <a href="gallery_fullwidth.html">Galery</a>
+                        </li>
+
+                        <li>
+                            <a href="appointment.html">Appointment</a>
+                        </li>
+
+                        <li>
+                            <a href="contacts.html">Contacts</a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- eof main nav -->
+                <div class="toggle_menu-wrap" data-spy="affix" data-offset-top="425">
+                    <span class="toggle_menu"><span></span></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</header>
     <div class="container">
          {% if messages %}
         <div class="alert alert-success">
@@ -137,89 +214,66 @@
     
 
 
- <footer>
-    <div class="footer" id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-                    <h3> Specials</h3>
-                    <ul>
-                        <li> <a href="#"> Product 1</a> </li>
-                        <li> <a href="#"> Product 1 </a> </li>
-                        <li> <a href="#"> Product 3 </a> </li>
-                        <li> <a href="#"> Product 4 </a> </li>
-                        <li> <a href="#"> Product 5 </a> </li>
-                    </ul>
-                </div>
-                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-                    <h3> Services </h3>
-                    <ul>
-                        <li> <a href="#"> Services 1 </a> </li>
-                        <li> <a href="#"> Services 2 </a> </li>
-                        <li> <a href="#"> Services 3 </a> </li>
-                        <li> <a href="#"> Services 4 </a> </li>
-                        <li> <a href="#"> Services 5 </a> </li>
-                    </ul>
-                </div>
-                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-                    <h3> About </h3>
-                    <ul>
-                        <li> <a href="#"> Our Company </a> </li>
-                        <li> <a href="#"> About Us </a> </li>
-                        <li> <a href="#"> Terms of Services </a> </li>
-                        <li> <a href="#"> Our Team </a> </li>
-                    </ul>
-                </div>
-                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-                    <h3> Contact </h3>
-                    <ul>
-                        <li> <a href="#"> Contact Marketing </a> </li>
-                        <li> <a href="#"> Contact Sales </a> </li>
-                        <li> <a href="#"> Contact HR </a> </li>
-                        <li> <a href="#"> Contact Admin </a> </li>
-                    </ul>
-                </div>
-                <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12 ">
-                    <h3> Subscribe Us </h3>
-                    <ul>
-                        <li>
-                            <div class="input-append subscribe-btn text-center">
-                                <input type="text" class="full text-center" placeholder="Email ">
-                                <button class="btn  btn-success" type="button"> Subscribe <i class="fa fa-save"> </i> </button>
-                            </div>
-                        </li>
-                    </ul>
-                    <ul class="social">
-                        <li> <a href="#"> <i class=" fab fa-facebook">   </i> </a> </li>
-                        <li> <a href="#"> <i class="fab fa-twitter">   </i> </a> </li>
-                        <li> <a href="#"> <i class="fab fa-google-plus">   </i> </a> </li>
-                        <li> <a href="#"> <i class="fab fa-pinterest">   </i> </a> </li>
-                        <li> <a href="#"> <i class="fab fa-youtube">   </i> </a> </li>
-                    </ul>
+ <footer class="page_footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="banner-wrap bottom-banner">
+                    <div class="flexslider">
+                        <ul class="slides">
+                            <li>
+                                <img src="images/banner-slide.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="images/banner-slide.jpg" alt="">
+                            </li>
+                        </ul>
+                    </div> <!-- eof flexslider -->
                 </div>
             </div>
-            <!--/.row--> 
         </div>
-        <!--/.container--> 
-    </div>
-    <!--/.footer-->
-    
-    <div class="footer-bottom">
-        <div class="container">
-            <p class="pull-left"> Copyright � 2004-2018. All rights reserved. </p>
-            <div class="pull-right"> 
-                <ul class="nav nav-pills payments">
-                    <li>We Accept:  </li>
-                    <li><i class="fab fa-cc-paypal"></i></li>
-                    <li><i class="fab fa-cc-mastercard"></i></li>
-                    <li><i class="fab fa-cc-amex"></i></li>
-                    <li><i class="fab fa-cc-visa"></i></li>                    
-                </ul> 
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <div class="open-hours">
+                    <h3>Open <span>Hours</span></h3>
+                    <div>Monday - Friday <span>9:00 - 17:00</span></div>
+                    <div>Saturday <span>11:00 - 15:00</span></div>
+                    <div>Sunday <span>Closed</span></div>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="widget widget_flickr">
+                    <h3 class="widget-title">Flickr</h3>
+                    <ul id="flickr"></ul>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="widget widget_mailchimp">
+                    <h3 class="widget-title">Mailchimp</h3>
+                    <form class="signup form-inline" action="/" method="get">
+                        <div class="form-group">
+                            <input name="email" type="email" class="mailchimp_email form-control" placeholder="Email">
+                        </div>
+                        <button type="submit" class="theme_button rt-icon2-pen2"></button>
+                        <div class="response"></div>
+                    </form>
+                    <p>Subscribe to our latest news to be updated, we promise not to spam!</p>
+                </div>
             </div>
         </div>
     </div>
-    <!--/.footer-bottom--> 
+    <img src="{% static 'images/logo.png' %}" alt="Babysitter logo" class="logo-footer">
 </footer>
+
+<section class="page_copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <p>&copy; Copyright 2016 by <a href="#">MW Templates</a>. All Rights Reserved</p>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
@@ -228,6 +282,8 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.min.js'></script>
 <script src="{% static 'js/jquery.material-cards.js' %}"></script> 
 <script src="{% static 'js/index.js' %}"></script> 
+<script src="{% static 'js/new-age.js' %}"></script> 
+<script src="{% static 'js/jquery.easing.js' %}"></script> 
 
 </body>
 </html
