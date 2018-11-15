@@ -322,10 +322,10 @@ animated elements
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    color: #666566;
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 300 !important;
+    font-size: 16px !important;
+    color: #666566 !important;
 }
 
 .vcenter {
@@ -1147,7 +1147,7 @@ End of address
 }
 
 .header_white {
-  color: #666565;
+  color: #fafafa;
   background-color: #ffffff;
 }
 
@@ -1216,17 +1216,17 @@ End of address
 Logo
 */
 .header-top {
-    background-color: #f0f1eb;
+    background-color: #263171;
 }
 
 .top-logo {
     margin: 25px 0;
-    width: 188px;
+    width: 300px;
 }
 
 .page_header.affix .top-logo {
-    width: 127px;
-    /*height: 61px;*/
+    width: 200px;
+    /*height: 100px;*/
     margin: 10px 0 9px;
 }
 /*
@@ -4437,7 +4437,7 @@ Form
     /*height: 730px;*/
     padding-top: 20px;
     padding-bottom: 100px;
-    background: url(static/images/form-map.jpg);
+    
 }
 
 .contacts .form-wrap {

@@ -1,4 +1,5 @@
 {% extends 'base.html'%}
+{% load static %}
 {% load bootstrap_tags %}
 {% block content %}
 
@@ -9,9 +10,9 @@
         <div class="row">
             <div class="col-xs-12">
                 <section class="callout jumbotron text-center">
-                    <h1>The finest whiskeys delivered to your doorstep.</h1>
+                    <h1>Book a babysitter with confidence and peace of mind.</h1>
                     <hr class='block-divider block-divider--orange'>
-                    <p class="lead">Sign up today to start receiving the world's best whiskeys every month. <s class="hidden-xs">€19.99</s> <span class="visible-xs"><br></span> <strong><mark>First one is free!</mark></strong></p>
+                    <p class="lead">Sign up today to find fully vetted, qualified & resposible childcare. <s class="hidden-xs">€2.99 per Month</s> <span class="visible-xs"><br></span> <strong><mark>First one is free!</mark></strong></p>
                     <p><button class="btn btn-lg btn--cta btn--red" data-toggle='modal' data-target='#signUpModal'>Sign Up!</button></p>
                     <p class="text-muted"><small>You must be over 18 to sign up to our service. Please drink responsibly.</small></p>
                 </section>
@@ -165,10 +166,16 @@
             </div>
         </div>
     </section>
-     <section class="pricing">
+    <style>
+    #hero2 {
+        background: url("{% static 'images/bg-white.png' %}") no-repeat center;
+        background-size: cover;
+    }
+    </style>
+     <section class="pricing" id="hero2">
         <div class="container">
-            <p class="grand-hotel text-center">Hello, Parents!</p>
-            <h3 class="poppins text-center">Welcome to <span class="pink">Our Website</span></h3>
+            <p class="grand-hotel text-center">Get Started!</p>
+            <h3 class="poppins text-center">Sample <span class="pink">Rates</span></h3>
             <div class="row">
                 <div class="col-md-4">
                     <div class="price-1 text-center">
@@ -296,82 +303,24 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid parallax" src="">
-            
-<section class="mb-4">
-
-
-    <div class="row">
-
-        <!--Grid column-->
-        <div class="col-md-12 mb-md-12 mb-12">
-            <form id="contact-form" name="contact-form" action="mail.php" method="POST">
-
-                <!--Grid row-->
-                <div class="row">
-
-                    <!--Grid column-->
-                    <div class="col-md-6">
-                        <div class="md-form mb-0">
-                            <input type="text" id="name" name="name" class="form-control">
-                            <label for="name" class="">Your name</label>
-                        </div>
-                    </div>
-                    <!--Grid column-->
-
-                    <!--Grid column-->
-                    <div class="col-md-6">
-                        <div class="md-form mb-0">
-                            <input type="text" id="email" name="email" class="form-control">
-                            <label for="email" class="">Your email</label>
-                        </div>
-                    </div>
-                    <!--Grid column-->
-
-                </div>
-                <!--Grid row-->
-
-                <!--Grid row-->
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="md-form mb-0">
-                            <input type="text" id="subject" name="subject" class="form-control">
-                            <label for="subject" class="">Subject</label>
-                        </div>
-                    </div>
-                </div>
-                <!--Grid row-->
-
-                <!--Grid row-->
-                <div class="row">
-
-                    <!--Grid column-->
-                    <div class="col-md-12">
-
-                        <div class="md-form">
-                            <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
-                            <label for="message">Your message</label>
-                        </div>
-
-                    </div>
-                </div>
-                <!--Grid row-->
-                
-                <!--Grid row-->
-                <div class="row">
-
-                    <!--Grid column-->
-                    <div class="col-md-6">
-                        <div class="md-form mb-0">
+        
+    <style>
+    #hero {
+        background: url("{% static 'images/bg-stiky.jpg' %}") no-repeat center;
+        background-size: cover;
+    }
+    </style>
+ <div class="container-fluid parallax" id="hero">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-wrap">
+                        <form class="contact-form" method="post" action="/">
+                            <input type="text" aria-required="true" size="30" value="" name="name" id="name" class="form-control" placeholder="Full Name">
+                            <input type="email" aria-required="true" size="30" value="" name="email" id="email" class="form-control" placeholder="Email Adress">
+                            <input type="text" aria-required="true" size="30" value="" name="phone" id="phone" class="form-control" placeholder="Phone Number">
                             <div class="form-control-group">
                                 <input type="text" aria-required="true" class="form-control" value="" name="date" id="datepicker" placeholder="Date">
                             </div>
-                        </div>
-                    </div>
-                    <!--Grid column-->
-
-                    <!--Grid column-->
-                    <div class="col-md-6">
                             <select aria-required="true" id="time" name="time">
                                 <option value="" disabled selected>Time</option>
                                 <option value="12:00 AM">12:00 AM</option>
@@ -423,294 +372,15 @@
                                 <option value="11:00 PM">11:00 PM</option>
                                 <option value="11:30 PM">11:30 PM</option>
                             </select>
-                        </div>
-                    </div>
-                    <!--Grid column-->
-
-                </div>
-                <!--Grid row-->
-
-            </form>
-                <div class="col-xs-12">
-                    <div class="form-wrap">
-                        <form class="contact-form" method="post" action="/">
-                            
+                            <textarea rows="6" cols="45" name="message" id="message" placeholder="Additional Info"></textarea>
                             <button type="submit" id="contact_form_submit" name="contact_submit" class="btn-type1">Send Message</button>
                         </form>
                     </div>
                 </div>
-                
-        <!--MDB Forms-->
-    <div class="container mt-4">
-
-      <div class="text-center darken-grey-text mb-4">
-        <h1 class="font-bold mt-4 mb-3 h5">Built with Material Design for Bootstrap 4</h1>
-        <a class="btn btn-danger btn-md" href="https://mdbootstrap.com/material-design-for-bootstrap/" target="_blank">Free download<i class="fa fa-download pl-2"></i></a>
-      </div>
-
-      <!-- Grid row -->
-      <div class="row">
-        <!-- Grid column -->
-        <div class="col-md-6 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <h3 class="text-center default-text py-3"><i class="fa fa-lock"></i> Login:</h3>
-              <!--Body-->
-              <div class="md-form">
-                <i class="fa fa-envelope prefix grey-text"></i>
-                <input type="text" id="defaultForm-email" class="form-control">
-                <label for="defaultForm-email">Your email</label>
-              </div>
-              <div class="md-form">
-                <i class="fa fa-lock prefix grey-text"></i>
-                <input type="password" id="defaultForm-pass" class="form-control">
-                <label for="defaultForm-pass">Your password</label>
-              </div>
-              <div class="text-center">
-                <button class="btn btn-default waves-effect waves-light">next</button>
-              </div>
             </div>
-          </div>
         </div>
-        <!-- Grid column -->
-        <!-- Grid column -->
-        <div class="col-md-6 mb-4">
-          <div class="card indigo form-white">
-            <div class="card-body">
-              <h3 class="text-center white-text py-3"><i class="fa fa-user"></i> Login:</h3>
-              <!--Body-->
-              <div class="md-form">
-                <i class="fa fa-envelope prefix white-text"></i>
-                <input type="text" id="defaultForm-email1" class="form-control">
-                <label for="defaultForm-email1">Your email</label>
-              </div>
-              <div class="md-form">
-                <i class="fa fa-lock prefix white-text"></i>
-                <input type="password" id="defaultForm-pass1" class="form-control">
-                <label for="defaultForm-pass1">Your password</label>
-              </div>
-              <div class="text-center">
-                <button class="btn btn-outline-white waves-effect waves-light">next</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Grid column -->
-      </div>
-      <!-- Grid row -->
-      <!-- Grid row -->
-      <div class="row">
-        <!-- Grid column -->
-        <div class="col-md-6 mb-4">
-          <div class="card ripe-malinka-gradient form-white">
-            <div class="card-body">
-              <!-- Form register -->
-              <form>
-                <h2 class="text-center font-up font-bold py-4 white-text">Sign up</h2>
-                <div class="md-form">
-                  <i class="fa fa-user prefix white-text"></i>
-                  <input type="text" id="orangeForm-name2" class="form-control">
-                  <label for="orangeForm-name2">Your name</label>
-                </div>
-                <div class="md-form">
-                  <i class="fa fa-envelope prefix white-text"></i>
-                  <input type="text" id="orangeForm-email2" class="form-control">
-                  <label for="orangeForm-email2">Your email</label>
-                </div>
-                <div class="md-form">
-                  <i class="fa fa-lock prefix white-text"></i>
-                  <input type="password" id="orangeForm-pass2" class="form-control">
-                  <label for="orangeForm-pass2">Your password</label>
-                </div>
-                <div class="text-center">
-                  <button class="btn btn-outline-white waves-effect waves-light">next</button>
-                </div>
-              </form>
-              <!-- Form register -->
-            </div>
-          </div>
-        </div>
-        <!-- Grid column -->
-        <!-- Grid column -->
-        <div class="col-md-6 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <!-- Form register -->
-              <form>
-                <h2 class="text-center font-up font-bold deep-orange-text py-4">Sign up</h2>
-                <div class="md-form">
-                  <i class="fa fa-user prefix grey-text"></i>
-                  <input type="text" id="orangeForm-name3" class="form-control">
-                  <label for="orangeForm-name3">Your name</label>
-                </div>
-                <div class="md-form">
-                  <i class="fa fa-envelope prefix grey-text"></i>
-                  <input type="text" id="orangeForm-email3" class="form-control">
-                  <label for="orangeForm-email3">Your email</label>
-                </div>
-                <div class="md-form">
-                  <i class="fa fa-lock prefix grey-text"></i>
-                  <input type="password" id="orangeForm-pass3" class="form-control">
-                  <label for="orangeForm-pass3">Your password</label>
-                </div>
-                <div class="text-center">
-                  <button class="btn btn-deep-orange">next<i class="fa fa-angle-double-right pl-2" aria-hidden="true"></i></button>
-                </div>
-              </form>
-              <!-- Form register -->
-            </div>
-          </div>
-        </div>
-        <!-- Grid column -->
-      </div>
-      <!-- Grid row -->
-      <!-- Grid row -->
-      <div class="row">
-        <!-- Grid column -->
-        <div class="col-md-6 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <!-- Form contact -->
-              <form>
-                <h2 class="text-center py-4 font-bold font-up danger-text">Contact us</h2>
-                <div class="md-form">
-                  <i class="fa fa-user prefix grey-text"></i>
-                  <input type="text" id="form31" class="form-control">
-                  <label for="form31">Your name</label>
-                </div>
-                <div class="md-form">
-                  <i class="fa fa-envelope prefix grey-text"></i>
-                  <input type="text" id="form21" class="form-control">
-                  <label for="form21">Your email</label>
-                </div>
-                <div class="md-form">
-                  <i class="fa fa-tag prefix grey-text"></i>
-                  <input type="text" id="form321" class="form-control">
-                  <label for="form341">Subject</label>
-                </div>
-                <div class="md-form">
-                  <i class="fa fa-pencil prefix grey-text"></i>
-                  <textarea type="text" id="form81" class="md-textarea" style="height: 100px"></textarea>
-                  <label for="form81">Your message</label>
-                </div>
-                <div class="text-center">
-                  <button class="btn btn-outline-danger btn-lg">Send</button>
-                </div>
-              </form>
-              <!-- Form contact -->
-            </div>
-          </div>
-        </div>
-        <!-- Grid column -->
-        <!-- Grid column -->
-        <div class="col-md-6 mb-4">
-          <div class="card bg-secondary form-white">
-            <div class="card-body">
-              <!-- Form contact -->
-              <form>
-                <h2 class="text-center py-4 font-bold font-up white-text">Contact us</h2>
-                <div class="md-form">
-                  <i class="fa fa-user prefix white-text"></i>
-                  <input type="text" id="form32" class="form-control">
-                  <label for="form32">Your name</label>
-                </div>
-                <div class="md-form">
-                  <i class="fa fa-envelope prefix white-text"></i>
-                  <input type="text" id="form22" class="form-control">
-                  <label for="form22">Your email</label>
-                </div>
-                <div class="md-form">
-                  <i class="fa fa-tag prefix white-text"></i>
-                  <input type="text" id="form322" class="form-control">
-                  <label for="form342">Subject</label>
-                </div>
-                <div class="md-form">
-                  <i class="fa fa-pencil prefix white-text"></i>
-                  <textarea type="text" id="form82" class="md-textarea" style="height: 100px"></textarea>
-                  <label for="form82">Your message</label>
-                </div>
-                <div class="text-center">
-                  <button class="btn btn-info btn-lg">Send</button>
-                </div>
-              </form>
-              <!-- Form contact -->
-            </div>
-          </div>
-        </div>
-        <!-- Grid column -->
-      </div>
-      <!-- Grid row -->
-      <!-- Grid row -->
-      <div class="row">
-        <!-- Grid column -->
-        <div class="col-md-6 mb-4">
-          <div class="card near-moon-gradient form-white">
-            <div class="card-body">
-              <!-- Form subscription -->
-              <form>
-                <h3 class="text-center indigo-text font-bold py-4"><strong>Subscribe</strong></h3>
-                <div class="md-form">
-                  <i class="fa fa-user prefix white-text"></i>
-                  <input type="text" id="form35" class="form-control">
-                  <label for="form35">Your name</label>
-                </div>
-                <div class="md-form">
-                  <i class="fa fa-envelope prefix white-text"></i>
-                  <input type="text" id="form25" class="form-control">
-                  <label for="form25">Your email</label>
-                </div>
-                <div class="text-center py-4">
-                  <button class="btn btn-indigo">Send <i class="fa fa-paper-plane-o ml-1"></i></button>
-                </div>
-              </form>
-              <!-- Form subscription -->
-            </div>
-          </div>
-        </div>
-        <!-- Grid column -->
-        <!-- Grid column -->
-        <div class="col-md-6 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <!-- Form register -->
-              <form>
-                <h3 class="text-center pink-text font-bold py-4"><strong>Subscribe</strong></h3>
-                <div class="md-form">
-                  <i class="fa fa-user prefix grey-text"></i>
-                  <input type="text" id="orangeForm-name37" class="form-control">
-                  <label for="orangeForm-name37">Your name</label>
-                </div>
-                <div class="md-form">
-                  <i class="fa fa-envelope prefix grey-text"></i>
-                  <input type="text" id="orangeForm-email37" class="form-control">
-                  <label for="orangeForm-email37">Your email</label>
-                </div>
-                <div class="text-center py-4">
-                  <button class="btn btn-outline-pink">Send <i class="fa fa-paper-plane-o ml-1"></i></button>
-                </div>
-              </form>
-              <!-- Form register -->
-            </div>
-          </div>
-        </div>
-        <!-- Grid column -->
-      </div>
-      <!-- Grid row -->
-
-      <hr class="my-4">
-
-      <div class="text-center darken-grey-text mb-4">
-        <h3 class="font-bold mb-3">Here you can find more Forms:</h3>
-        <a class="btn btn-danger" href="https://mdbootstrap.com/components/forms/" target="_blank">Bootstrap Forms</a>
-      </div>
-
-    </div>
-    <!--MDB Forms-->
-
-  </main>
-
-
-	<div id="dropDownSelect1"></div>
+    </section>
+</main>
 </section>
 <!--Section: Contact v.2-->
     </section>

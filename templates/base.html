@@ -13,9 +13,9 @@
     <link href='https://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto:900,700' rel='stylesheet' type='text/css'>
     <script src="{% static 'js/modernizr-2.8.3.min.js' %}"></script> 
-    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
     <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
     <link rel="stylesheet" href="{% static 'css/animations.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     {% block head_js %}
@@ -23,47 +23,7 @@
 </head>
 <body>
 
-    
-      <!-- Navigation -->
-    <div class="page_topline">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-4 ">
-                <div class="login-controls">
-                    <div class="dropdown">
-                        <a href="{% url 'login' %}" >
-                            <i href="{% url 'login' %}" class="rt-icon2-lock-open-outline"></i>Login
-                        </a>
-                    </div>
-                    <div class="dropdown">
-                        <a href="{% url 'register' %}" >
-                            <i href="{% url 'register' %}" class="rt-icon2-user-outline"></i>Register
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4 text-center second-column">
-                <div class="widget widget_search">
-                    <form method="get" class="searchform form-inline" action="/">
-                        <div class="form-group">
-                            <label class="screen-reader-text" for="page_search">Search for:</label>
-                            <input id="page_search" type="text" value="" name="search" class="form-control" placeholder="Type Search Keyword here">
-                        </div>
-                        <button type="submit" class="rt-icon2-zoom-outline">Search</button>
-                    </form>
-                </div>
-            </div>
-         
-            <div class="col-sm-4 text-right third-column">
-                <div class="address">
-                    <i class="rt-icon2-location-outline"></i> Kenmare, Co. Kerry, Ireland
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
+<!-- Navigation -->
 
 <header class="page_header header_white">
     <div class="header-top">
@@ -172,6 +132,7 @@
         </div>
     </div>
 </header>
+    
     <div class="container">
          {% if messages %}
         <div class="alert alert-success">
@@ -202,7 +163,8 @@
         </div>
         {% endblock %}
     </div>
-    
+    <br>
+    <br>
 
 
  <footer class="page_footer">
