@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 class Babysitter(models.Model):
     firstName = models.CharField(max_length=50, blank=True, null=True)
     lastName = models.CharField(max_length=50, blank=True, null=True)
+    minderType = models.CharField(max_length=50, blank=True, null=True)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     image = models.ImageField(upload_to='images')

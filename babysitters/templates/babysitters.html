@@ -5,41 +5,42 @@
           
     </div>
 <div class="row active-with-click">
-    {% for babysitter in babysitters %}
-
     
-        <div class="col-md-4 col-sm-6 col-xs-12">
-            <article class="material-card Orange">
-                <h2>
-                    <span>{{ babysitter.firstName }} {{ babysitter.lastName }}</span>
-                    <strong>
-                        <i class="fas fa-fw fa-star"></i>
-                        {{ babysitter.description }}
-                        <p>Price Per Hour {{ babysitter.price }}</p>
-                    </strong>
-                </h2>
-                <div class="mc-content">
-                    <div class="img-container">
-                        <div class="babysitter" style="background-image: url('{{ MEDIA_URL }}{{ babysitter.image }}')"></div>
-                    </div>
-                    <div class="mc-description">
-                        a mother of 4 young children, Charlotte has plenty of experience with children
-                    </div>
+        
+{% for babysitter in babysitters %}
+        <section class="team-page">
+            
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="team-person">
+                            <img src="{{ MEDIA_URL }}{{ babysitter.image }}">
+                            <div class="about-person">
+                                <p class="grand-hotel">{{ babysitter.minderType }}</p>
+                                <h3>{{ babysitter.firstName }} {{ babysitter.lastName }}</h3>
+                                <div class="person-divider"></div>
+                                <p>
+                                    {{ babysitter.description }}
+                                </p>
+                            </div>
+                            <div class="person-social">
+                                <p>
+                                    Lorem ipsum dolor
+                                    sit amet, consetetur sadipscing elitr, sed diam nonumy
+                                </p>
+                                <div class="social-icons">
+                                    <a href="#" class="social-icon color-bg-icon rounded-icon soc-facebook"></a>
+                                    <a href="#" class="social-icon color-bg-icon rounded-icon soc-twitter"></a>
+                                    <a href="#" class="social-icon color-bg-icon rounded-icon soc-skype"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
                 </div>
-                <a class="mc-btn-action">
-                    <i class="fa fa-bars"></i>
-                </a>
-                <div class="mc-footer">
-                    <h4>
-                        Social
-                    </h4>
-                    <a class="fab fa-facebook"></a>
-                    <a class="fab fa-fw fa-twitter"></a>
-                    <a class="fab fa-fw fa-linkedin"></a>
-                    <a class="fab fa-fw fa-google-plus"></a>
-                </div>
-            </article>
-        </div>
+            </div>
+        </section>
+    
+        
 
 
     {% endfor %}

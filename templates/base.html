@@ -1,29 +1,28 @@
-{% load staticfiles %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}Django E-Commerce{% endblock %}</title>
+    <title>{% block title %}Minder Finder{% endblock %}</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/devicon/2.2/devicon.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <link rel='stylesheet' href='https://cdn.linearicons.com/free/1.0.0/icon-font.min.css'>
-    <link href="https://fonts.googleapis.com/css?family=Oregano" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:900,700' rel='stylesheet' type='text/css'>
+    <script src="{% static 'js/modernizr-2.8.3.min.js' %}"></script> 
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
     <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animations.css' %}">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     {% block head_js %}
     {% endblock head_js %}
 </head>
 <body>
+
     
       <!-- Navigation -->
     <div class="page_topline">
@@ -32,24 +31,15 @@
             <div class="col-sm-4 ">
                 <div class="login-controls">
                     <div class="dropdown">
-                        <a class="login-btn dropdown-toggle" data-toggle="dropdown">
-                            <i class="rt-icon2-lock-open-outline"></i>Login
+                        <a href="{% url 'login' %}" >
+                            <i href="{% url 'login' %}" class="rt-icon2-lock-open-outline"></i>Login
                         </a>
-                        <div class="login-form-wrap">
-                            <form class="form-horizontal dropdown-menu" method="post" action="/">
-                                <input type="text" class="form-control" id="login" placeholder="Login">
-                                <input type="password" class="form-control" id="pwd" placeholder="Password">
-                                <a href="#" class="forg-pass">Forgot Password?</a>
-                                <div class="checkbox">
-                                    <input type="checkbox" id="checkbox"><label for="checkbox"> Remember</label>
-                                </div>
-                                <button type="submit" id="login_form_submit" name="login_submit" class="btn-default btn-type1">Login</button>
-                            </form>
-                        </div>
                     </div>
-                    <a href="#" class="register-btn dropdown-toggle" data-toggle="dropdown">
-                        <i class="rt-icon2-user-outline"></i>Register
-                    </a>
+                    <div class="dropdown">
+                        <a href="{% url 'register' %}" >
+                            <i href="{% url 'register' %}" class="rt-icon2-user-outline"></i>Register
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="col-sm-4 text-center second-column">
@@ -63,9 +53,10 @@
                     </form>
                 </div>
             </div>
+         
             <div class="col-sm-4 text-right third-column">
                 <div class="address">
-                    <i class="rt-icon2-location-outline"></i> 23 Harper St. Owensboro
+                    <i class="rt-icon2-location-outline"></i> Kenmare, Co. Kerry, Ireland
                 </div>
             </div>
         </div>
@@ -95,10 +86,10 @@
                 <div class="col-sm-4 text-right ">
                     <div class="contact-info">
                         <div class="contact-number">
-                            <span>800</span> 353 7587
+                            <span>089</span> 424 0146
                         </div>
                         <div class="work-hours">
-                            9:00 a.m. - 5:00 p.m.
+                            Open 08:00  - 17:30
                         </div>
                     </div>
                 </div>
@@ -113,7 +104,7 @@
                 <nav class="mainmenu_wrapper">
                     <ul class="mainmenu sf-menu">
                         <li  class="active">
-                            <a href="index.html">Home</a>
+                            <a href="{% url 'index' %}">Home</a>
                         </li>
                         <li>
                             <a href="calendar.html">Pages</a>
@@ -152,11 +143,11 @@
                             <a href="about.html">About</a>
                         </li>
                         <li>
-                            <a href="services.html">Services</a>
+                            <a href="{% url 'babysitters' %}">Babysitters</a>
                         </li>
 
                         <li>
-                            <a href="blog.html">Blog</a>
+                            <a href="{% url 'post_list' %}">Blog</a>
                         </li>
 
                         <li>
@@ -215,53 +206,37 @@
 
 
  <footer class="page_footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="banner-wrap bottom-banner">
-                    <div class="flexslider">
-                        <ul class="slides">
-                            <li>
-                                <img src="images/banner-slide.jpg" alt="">
-                            </li>
-                            <li>
-                                <img src="images/banner-slide.jpg" alt="">
-                            </li>
-                        </ul>
-                    </div> <!-- eof flexslider -->
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4 text-center">
-                <div class="open-hours">
-                    <h3>Open <span>Hours</span></h3>
-                    <div>Monday - Friday <span>9:00 - 17:00</span></div>
-                    <div>Saturday <span>11:00 - 15:00</span></div>
-                    <div>Sunday <span>Closed</span></div>
-                </div>
-            </div>
-            <div class="col-md-4 text-center">
-                <div class="widget widget_flickr">
-                    <h3 class="widget-title">Flickr</h3>
-                    <ul id="flickr"></ul>
-                </div>
-            </div>
-            <div class="col-md-4 text-center">
-                <div class="widget widget_mailchimp">
-                    <h3 class="widget-title">Mailchimp</h3>
-                    <form class="signup form-inline" action="/" method="get">
-                        <div class="form-group">
-                            <input name="email" type="email" class="mailchimp_email form-control" placeholder="Email">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <div class="open-hours">
+                            <h3>Open <span>Hours</span></h3>
+                            <div>Monday - Friday <span>9:00 - 17:00</span></div>
+                            <div>Saturday <span>11:00 - 15:00</span></div>
+                            <div>Sunday <span>Closed</span></div>
                         </div>
-                        <button type="submit" class="theme_button rt-icon2-pen2"></button>
-                        <div class="response"></div>
-                    </form>
-                    <p>Subscribe to our latest news to be updated, we promise not to spam!</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="widget widget_flickr">
+                            <h3 class="widget-title">Flickr</h3>
+                            <ul id="flickr"></ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="widget widget_mailchimp">
+                            <h3 class="widget-title">Mailchimp</h3>
+                            <form class="signup form-inline" action="/" method="get">
+                                <div class="form-group">
+                                    <input name="email" type="email" class="mailchimp_email form-control" placeholder="Email">
+                                </div>
+                                <button type="submit" class="theme_button rt-icon2-pen2"></button>
+                                <div class="response"></div>
+                            </form>
+                            <p>Subscribe to our latest news to be updated, we promise not to spam!</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
     <img src="{% static 'images/logo.png' %}" alt="Babysitter logo" class="logo-footer">
 </footer>
 
@@ -269,21 +244,18 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12 text-center">
-                <p>&copy; Copyright 2016 by <a href="#">MW Templates</a>. All Rights Reserved</p>
+                <p>&copy; Made with Love by <a href="#">Pierce O'Neill</a></p>
             </div>
         </div>
     </div>
 </section>
 
-
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.min.js'></script>
-<script src="{% static 'js/jquery.material-cards.js' %}"></script> 
-<script src="{% static 'js/index.js' %}"></script> 
-<script src="{% static 'js/new-age.js' %}"></script> 
-<script src="{% static 'js/jquery.easing.js' %}"></script> 
+<script src="{% static 'js/main.js' %}"></script> 
+<script src="{% static 'js/plugins.js' %}"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.14/js/mdb.min.js"></script>
 
 </body>
 </html

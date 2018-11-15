@@ -17,6 +17,7 @@ from django.conf.urls import url, include
 from django.views.generic import RedirectView
 from django.contrib import admin
 from home.views import get_index
+from blog.views import PostListView
 from accounts import urls as urls_accounts
 from babysitters import urls as urls_babysitters
 from babysitters.views import all_babysitters
@@ -25,17 +26,17 @@ from bookings import urls as urls_bookings
 from search import urls as urls_search
 from checkout import urls as urls_checkout
 from django.views import static
+from django.contrib.auth import views
 from .settings import MEDIA_ROOT
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^home/', get_index, name='index'),
-    url(r'^$', RedirectView.as_view(url='babysitters/')),
+    url(r'^$', get_index, name='index'),
     url(r'^accounts/', include(urls_accounts)),
     url(r'^babysitters/', include(urls_babysitters)),
     url(r'^bookings/', include(urls_bookings)),
     url(r'^checkout/', include(urls_checkout)),
     url(r'^search/', include(urls_search)),
     url(r'^media/(?P<path>.*)$', static.serve,{'document_root': MEDIA_ROOT}),
-    url(r'^blog/', include(urls_blog)),
+    url(r'^blog/', PostListView.as_view(),name='post_list'),
 ]
