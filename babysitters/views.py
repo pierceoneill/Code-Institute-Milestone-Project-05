@@ -1,5 +1,5 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Babysitter
+from django.shortcuts import render, get_object_or_404, get_list_or_404
+from .models import Babysitter, Education, Work, Reference
 
 
 # Create your views here.
@@ -10,4 +10,6 @@ def all_babysitters(request):
 def babysitter_profile(request, id):
     """A view that displays the profile page of a registered babysitter"""
     babysitter = get_object_or_404(Babysitter, id=id)
-    return render(request, "babysitter_profile.html", {'babysitter': babysitter}, )
+    reference = get_object_or_404(Reference)
+    educations = Education.objects.all()
+    return render(request, "babysitter_profile.html", {'babysitter': babysitter, 'education': educations, 'reference': reference} )

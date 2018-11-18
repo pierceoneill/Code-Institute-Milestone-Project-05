@@ -8,6 +8,7 @@
  <section class="team-member padding-v100">
             <div class="container">
                 <div class="row">
+                
                     <div class="col-lg-5 col-sm-6">
                         <div class="member-meta">
                             <img src="{{ MEDIA_URL }}{{ babysitter.image }}">
@@ -25,11 +26,11 @@
                                 </div>
                                 <div class="mbr-phone">
                                     <i class="rt-icon2-mail2 blue large-icon"></i>
-                                    <span>0(800) 642-65-35</span>
+                                    <span>{{ babysitter.email }}</span>
                                 </div>
                                 <div class="mbr-email">
                                     <i class="rt-icon2-phone-outline light-green large-icon"></i>
-                                    <span>amanda@babytime.com</span>
+                                    <span>{{ babysitter.phone }}</span>
                                 </div>
                             </div>
                         </div>
@@ -45,42 +46,45 @@
                         <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam onumy eirmod tempor invidunt ut labore.</p>
                         <div class="light-green-tab tab-container">
                             <ul class="nav nav-tabs" role="tablist">
-                                <li class="active"><a href="#tab4" role="tab" data-toggle="tab">Biography</a></li>
+                                <li class="active"><a href="#tab4" role="tab" data-toggle="tab">Education</a></li>
                                 <li class=""><a href="#tab5" role="tab" data-toggle="tab">Skills</a></li>
-                                <li class=""><a href="#tab6" role="tab" data-toggle="tab">Send Message</a></li>
+                                <li class=""><a href="#tab6" role="tab" data-toggle="tab">References</a></li>
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane fade active in" id="tab4">
-                                    <h4>Biography:</h4>
+                                    <h4>{{ education.qualification }}</h4>
                                     <p>
-                                        {{ babysitter.biography }}
+                                    	<ul class="list2">
+                            				<li><p class="blue"><strong>School:</strong> {{ education.school }}</p></li>
+                            				<li><p class="blue"><strong>Qualification:</strong> {{ education.qualification }}</p></li>
+                            				<li><p class="blue"><strong>Field of Study:</strong> {{ education.fieldOfStudy }}</p></li>
+                            				<li><p class="blue"><strong>School:</strong> {{ education.school }}</p></li>
+                            				<li><p class="blue"><strong>Date:</strong> {{ education.dateFrom }} - {{ education.dateTo }}</p></li>
+                        				</ul>
                                     </p>
-                                    <h4>Professional Life:</h4>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                        consequat.
-                                    </p>
+                                
                                 </div>
                                 <div class="tab-pane fade" id="tab5">
+                                    {% for education in educations %}
+                                	<h4>Education:</h4>
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                        consequat.
+                                       <h5>School</h5> {{ education.school }}
                                     </p>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, enim saepe libero iure tenetur optio nisi aliquam molestias ratione magnam ab ut quod possimus hic suscipit doloremque, deleniti ipsa quia!</p>
+                                    {% endfor %}
                                 </div>
                                 <div class="tab-pane fade" id="tab6">
+                                    <h4>References:</h4>
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                        consequat.
+                                        <ul class="list2">
+                            				<li><p class="blue"><strong>Reference Family:</strong> {{ reference.refFamily }}</p></li>
+                            				<li><p class="blue"><strong>Contact:</strong> {{ reference.contact }}</p></li>
+                            				<li><p class="blue"><strong>Location:</strong> {{ reference.location }}</p></li>
+                            				<li><p class="blue"><strong>School:</strong> {{ reference.email }}</p></li>
+                            				<li><p class="blue"><strong>School:</strong> {{ reference.reference }}</p></li>
+                            				<li><p class="blue"><strong>Date:</strong> {{ reference.date }}</p></li>
+                        				</ul>
                                     </p>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis est, dolores, ex ducimus cumque iusto ipsam odit voluptatum autem error impedit obcaecati quisquam molestiae, optio porro inventore nostrum deleniti cupiditate.</p>
                                 </div>
                             </div>
                         </div>
@@ -90,10 +94,10 @@
                         <div class="mbr-testimonial">
                             <i class="rt-icon2-quotes-left blue"></i>
                             <div class="mbr-testimonial-body">
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore.</p>
+                                <p>{{ reference.reference }}.</p>
                                 <img src="images/author-2.jpg" alt="">
                                 <span class="testimonial-author">
-                                    <span><strong>Shirry K. Lykins</strong></span>
+                                    <span><strong>{{ reference.contact }}</strong></span>
                                     Parent
                                 </span>
                             </div>
@@ -105,210 +109,5 @@
                 </div>
             </div>
         </section>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-12 col-lg-4 text-center">
-				<p class="lead">Welcome <b>{{ babysitter.firstName }}</b></p>
-				<div class="babysitter_profile" style="background-image: url('{{ MEDIA_URL }}{{ babysitter.image }}')"></div>
-				<div *ngIf="support" class="supporter text-center mx-auto my-2">
-					<span>Supporter
-						<i class="fas fa-star"></i>
-					</span>
-				</div><br>
-				<button type="button" class="btn btn-secondary mx-auto my-2" (click)="open($event, profile.id)" id="editProfile">
-					<i class="fas fa-info-circle"></i> Edit Profile</button>
-				<ul class="list-group">
-					<li class="list-group-item d-flex justify-content-between align-items-center">
-						<span><i class="fas fa-user"></i> Name:</span>
-						{{ babysitter.firstName }} {{babysitter.lastName}}
-					</li>
-					<li class="list-group-item d-flex justify-content-between align-items-center" *ngIf="profile.title">
-						<span><i class="far fa-id-card"></i> Title:</span>
-						{{babysitter.title}}
-					</li>
-					<li class="list-group-item d-flex justify-content-between align-items-center" *ngIf="profile.location">
-						<span><i class="fas fa-map-marker-alt"></i> Location:</span>
-						{{babysitter.location}}
-					</li>
-					<li class="list-group-item d-flex justify-content-between align-items-center" *ngIf="profile.company">
-						<span><i class="fas fa-building"></i> Company:</span>
-						{{profile.company}}
-					</li>
-					<li class="list-group-item d-flex justify-content-between align-items-center" *ngIf="profile.website">
-						<span><i class="fas fa-globe"></i> Website:</span>
-						<a class="link text-truncate" (click)="openLink()" placement="top" ngbTooltip="{{profile.website}}">{{profile.website}}</a>
-					</li>
-					<li class="list-group-item d-flex justify-content-between align-items-center" *ngIf="profile.facebook || profile.twitter || profile.github || profile.linkedin || profile.youtube || profile.instagram">
-						<span>Social Links:</span>
-						<div class="social-profile">
-							<a href="https://www.facebook.com/{{profile.facebook}}" target="_blank" *ngIf="profile.facebook" placement="top"
-							   ngbTooltip="Facebook">
-								<i class="fab fa-facebook"></i>
-							</a>
-							<a href="https://www.github.com/{{profile.github}}" target="_blank" *ngIf="profile.github" placement="top"
-							   ngbTooltip="GitHub">
-								<i class="fab fa-github"></i>
-							</a>
-							<a href="https://www.linkedin.com/in/{{profile.linkedin}}" target="_blank" *ngIf="profile.linkedin" placement="top"
-							   ngbTooltip="LinkedIn">
-								<i class="fab fa-linkedin"></i>
-							</a>
-							<a href="https://www.youtube.com/channel/{{profile.youtube}}" target="_blank" *ngIf="profile.youtube"
-							   placement="top" ngbTooltip="Youtube">
-								<i class="fab fa-youtube"></i>
-							</a>
-							<a href="https://www.twitter.com/{{profile.twitter}}" target="_blank" *ngIf="profile.twitter" placement="top"
-							   ngbTooltip="Twitter">
-								<i class="fab fa-twitter"></i>
-							</a>
-							<a href="https://www.instagram.com/{{profile.instagram}}" target="_blank" *ngIf="profile.instagram" placement="top"
-							   ngbTooltip="Instagram">
-								<i class="fab fa-instagram"></i>
-							</a>
-						</div>
-					</li>
-				</ul>
-<form method="post" action="{% url 'add_to_bookings' babysitter.id %}">
-                {% csrf_token %}
-                <div class="input-group">
-                    <input name='quantity' type="number" min="1" max="999" class="form-control" placeholder="Quantity">
-                    <span class="input-group-btn">
-                            <button class="btn btn-primary" type="submit">Add</button>
-                          </span>
-                </div>
-                <!-- /input-group -->
 
-            </form>
-
-			</div>
-			<div class="col-md-12 col-lg-8 mt-5">
-				<div class="row">
-					<div class="col-sm-4">
-						<button type="button" class="btn btn-secondary" (click)="open($event)" id="addExp">
-							<i class="fas fa-briefcase"></i> Add Experience</button>
-					</div>
-					<div class="col-sm-4">
-						<button type="button" class="btn btn-secondary" (click)="open($event)" id="addEdu">
-							<i class="fas fa-graduation-cap"></i> Add Education</button>
-					</div>
-					<div class="col-sm-4">
-						<button type="button" class="btn btn-secondary" (click)="open($event)" id="editSkills">
-							<i class="fas fa-briefcase"></i> Add / Edit Skills</button>
-					</div>
-				</div>
-				<div class="row my-3 d-none d-md-block">
-					<div class="col-sm-12">
-						<div id="experience" *ngIf="user.experience.length > 0">
-							<h4 class="mb-2">Experience</h4>
-							<div class="table-responsive">
-								<table class="table table-hover">
-									<thead class="thead-dark">
-										<tr>
-											<th scope="col">Company</th>
-											<th scope="col">Title</th>
-											<th scope="col">Location</th>
-											<th scope="col">Years</th>
-											<th scope="col">Action</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr *ngFor="let exp of user?.experience">
-											<td scope="row">{{experience.company}}</td>
-											<td scope="row">{{experience.jobTitle}}</td>
-											<td scope="row">{{experience.location}}</td>
-											<td scope="row">{{experience.dateFrom}}- {{experience.dateTo}}</span>
-												<span *ngIf="experience.current  || experience.dateTo"> - Present</span>
-											</td>
-											<td scope="row">
-												<a class="btn btn-info btn-md text-white" (click)="open($event, exp?.id)" id="editExp">
-													Edit
-												</a>
-												<a class="btn btn-danger btn-md text-white ml-2" (click)="deleteDetail($event, exp?.id, exp?.company)" id="deleteExp">
-													Delete
-												</a>
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-12">
-						<div id="education" *ngIf="user.education.length > 0">
-							<h4 class="mb-2">Education</h4>
-							<div class="table-responsive">
-								<table class="table table-hover">
-									<thead class="thead-dark">
-										<tr>
-											<th scope="col">School</th>
-											<th scope="col">Degree</th>
-											<th scope="col">Field of Study</th>
-											<th scope="col">Years</th>
-											<th scope="col">Actions</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr *ngFor="let edu of user.education">
-											<td scope="row">{{edu.school}}</td>
-											<td scope="row">{{edu.qualification}}</td>
-											<td scope="row">{{edu.fieldOfStudy}}</td>
-										
-											<td scope="row">
-												<a class="btn btn-info btn-md text-white" (click)="open($event, edu.id)" id="editEdu">
-													Edit
-												</a>
-												<a class="btn btn-danger btn-md text-white ml-2" (click)="deleteDetail($event, edu.id, edu.school)" id="deleteEdu">
-													Delete
-												</a>
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-12 d-none d-lg-block">
-						<div id="donation" *ngIf="user.donation.length > 0">
-							<h4 class="mb-2">Donations</h4>
-							<div class="table-responsive">
-								<table class="table table-hover">
-									<thead class="thead-dark">
-										<tr>
-											<th scope="col">Amount</th>
-											<th scope="col">Date</th>
-											<th scope="col">Token</th>
-											<th scope="col">IP Address</th>
-										</tr>
-									</thead>
-									<tbody>
-									
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="row d-lg-none d-md-block" *ngIf="user.experience.length > 0">
-					<div class="col-md-12">
-						<experience-mobile-view [user]="user"></experience-mobile-view>
-					</div>
-				</div>
-				<div>
-					<div class="row d-lg-none d-md-block" *ngIf="user.education.length > 0">
-						<div class="col-md-12">
-							<education-mobile-view [user]="user"></education-mobile-view>
-						</div>
-					</div>
-					<div class="row d-lg-none d-md-block" *ngIf="user.donation.length > 0">
-						<div class="col-md-12">
-							<donations-mobile-view [user]="user"></donations-mobile-view>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-</section>
 {% endblock %}

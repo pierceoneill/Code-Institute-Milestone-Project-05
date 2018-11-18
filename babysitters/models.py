@@ -8,6 +8,8 @@ class Babysitter(models.Model):
     lastName = models.CharField(max_length=50, blank=True, null=True)
     minderType = models.CharField(max_length=50, blank=True, null=True)
     image = models.ImageField(upload_to='images')
+    phone = models.CharField(max_length=20, blank=True, null=True)
+    email = models.CharField(max_length=50, blank=True, null=True)
     address1 = models.CharField(max_length=100, null=True)
     address2 = models.CharField(max_length=100, null=True)
     city = models.CharField(max_length=20, null=True)
@@ -16,3 +18,27 @@ class Babysitter(models.Model):
     biography = models.TextField(max_length=280,blank=True)
     def __str__(self):
         return self.firstName + ' ' + self.lastName
+
+        
+class Work(models.Model):
+    babysitter = models.ForeignKey(Babysitter)
+    family = models.CharField(max_length=50)
+    role = models.CharField(max_length=50)
+    location = models.CharField(max_length=50)
+    dateFrom = models.DateField(auto_now=False, auto_now_add=False)
+    dateTo = models.DateField(
+        auto_now=False, auto_now_add=False, null=True, blank=True)
+    current = models.BooleanField(default=False)
+    def __str__(self):
+        return self.work
+        
+class Reference(models.Model):
+    babysitter = models.ForeignKey(Babysitter)
+    refFamily = models.CharField(max_length=50)
+    contact = models.CharField(max_length=50)
+    location = models.CharField(max_length=50)
+    email = models.CharField(max_length=50, blank=True, null=True)
+    reference = models.CharField(max_length=300)
+    date = models.DateField(auto_now=False, auto_now_add=False)
+    def __str__(self):
+        return self.refFamily
