@@ -8696,19 +8696,19 @@ End of Elements
 /* Jumbotron */
 
 .jumbotron {
-    background-color: transparent;
+    background-color: transparent !important;
 }
 
 .jumbotron h1 {
-    color: white;
-    font-weight: bold;
+    color: white !important;
+    font-weight: bold !important;
     margin-bottom: 30px;
-    color: white;
+    color: white !important;
 }
 
 .jumbotron .lead {
-    color: #a7a7a7;
-    margin: 25px 0;
+    color: #a7a7a7 !important;
+    margin: 25px 0 !important;
 }
 
 .jumbotron small {
@@ -8896,3 +8896,4 @@ footer .menu li a:hover{
 .fa.fa-tumblr:hover {
 	color:#6794c2;
 }
+

@@ -43,66 +43,78 @@
                             <li><p class="blue">Quisque velit nisi, pretium ut lacinia in, elementum id enim.</p></li>
                             <li><p class="blue">Donec rutrum congue leo eget malesuada.</p></li>
                         </ul>
-                        <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam onumy eirmod tempor invidunt ut labore.</p>
+                        <p>{{ babysitter.biography }}</p>
                         <div class="light-green-tab tab-container">
                             <ul class="nav nav-tabs" role="tablist">
                                 <li class="active"><a href="#tab4" role="tab" data-toggle="tab">Education</a></li>
-                                <li class=""><a href="#tab5" role="tab" data-toggle="tab">Skills</a></li>
+                                <li class=""><a href="#tab5" role="tab" data-toggle="tab">Jobs</a></li>
                                 <li class=""><a href="#tab6" role="tab" data-toggle="tab">References</a></li>
                             </ul>
                             <div class="tab-content">
+                                
                                 <div class="tab-pane fade active in" id="tab4">
-                                    <h4>{{ education.qualification }}</h4>
+                                    {% for ed in education_qs %}
+                                    <h4>{{ ed.qualification }}</h4>
                                     <p>
                                     	<ul class="list2">
-                            				<li><p class="blue"><strong>School:</strong> {{ education.school }}</p></li>
-                            				<li><p class="blue"><strong>Qualification:</strong> {{ education.qualification }}</p></li>
-                            				<li><p class="blue"><strong>Field of Study:</strong> {{ education.fieldOfStudy }}</p></li>
-                            				<li><p class="blue"><strong>School:</strong> {{ education.school }}</p></li>
-                            				<li><p class="blue"><strong>Date:</strong> {{ education.dateFrom }} - {{ education.dateTo }}</p></li>
+                            				<li><p class="blue"><strong>School:</strong> {{ ed.school }}</p></li>
+                            				<li><p class="blue"><strong>Qualification:</strong> {{ ed.qualification }}</p></li>
+                            				<li><p class="blue"><strong>Field of Study:</strong> {{ ed.fieldOfStudy }}</p></li>
+                            				<li><p class="blue"><strong>School:</strong> {{ ed.school }}</p></li>
+                            				<li><p class="blue"><strong>Date:</strong> {{ ed.dateFrom }} - {{ ed.dateTo }}</p></li>
                         				</ul>
-                                    </p>
-                                
-                                </div>
-                                <div class="tab-pane fade" id="tab5">
-                                    {% for education in educations %}
-                                	<h4>Education:</h4>
-                                    <p>
-                                       <h5>School</h5> {{ education.school }}
-                                    </p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, enim saepe libero iure tenetur optio nisi aliquam molestias ratione magnam ab ut quod possimus hic suscipit doloremque, deleniti ipsa quia!</p>
+                                    </p>  
                                     {% endfor %}
                                 </div>
+                                
+                                
+                                
+                                <div class="tab-pane fade active in" id="tab5">  
+                                    {% for work in work_qs %}
+                                    <h4><strong>Job</strong> {{ work.family }}</h4>
+                                    <p>
+                                    	<ul class="list2">
+                            				<li><p class="blue"><strong>Position:</strong> {{ work.role }}</p></li>
+                            				<li><p class="blue"><strong>Qualification:</strong> {{ work.location }}</p></li>
+                            				<li><p class="blue"><strong>Date:</strong> {{ work.dateFrom }} - {{ work.dateTo }}</p></li>
+                        				</ul>
+                                    </p>
+                                    {% endfor %}
+                                </div>
+                                
+                                
+                                {% for ref in reference_qs %}
                                 <div class="tab-pane fade" id="tab6">
                                     <h4>References:</h4>
                                     <p>
                                         <ul class="list2">
-                            				<li><p class="blue"><strong>Reference Family:</strong> {{ reference.refFamily }}</p></li>
-                            				<li><p class="blue"><strong>Contact:</strong> {{ reference.contact }}</p></li>
-                            				<li><p class="blue"><strong>Location:</strong> {{ reference.location }}</p></li>
-                            				<li><p class="blue"><strong>School:</strong> {{ reference.email }}</p></li>
-                            				<li><p class="blue"><strong>School:</strong> {{ reference.reference }}</p></li>
-                            				<li><p class="blue"><strong>Date:</strong> {{ reference.date }}</p></li>
+                            				<li><p class="blue"><strong>Reference Family:</strong> {{ ref.refFamily }}</p></li>
+                            				<li><p class="blue"><strong>Contact:</strong> {{ ref.contact }}</p></li>
+                            				<li><p class="blue"><strong>Location:</strong> {{ ref.location }}</p></li>
+                            				<li><p class="blue"><strong>School:</strong> {{ ref.email }}</p></li>
+                            				<li><p class="blue"><strong>School:</strong> {{ ref.reference }}</p></li>
+                            				<li><p class="blue"><strong>Date:</strong> {{ ref.date }}</p></li>
                         				</ul>
                                     </p>
                                 </div>
+                                {% endfor %}
                             </div>
                         </div>
 
                         <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere.</p>
-
+                        {% for ref in reference_qs %}
                         <div class="mbr-testimonial">
                             <i class="rt-icon2-quotes-left blue"></i>
                             <div class="mbr-testimonial-body">
-                                <p>{{ reference.reference }}.</p>
+                                <p>{{ ref.reference }}.</p>
                                 <img src="images/author-2.jpg" alt="">
                                 <span class="testimonial-author">
-                                    <span><strong>{{ reference.contact }}</strong></span>
+                                    <span><strong>{{ ref.contact }}</strong></span>
                                     Parent
                                 </span>
                             </div>
                         </div>
-
+                        {% endfor %}
                         <p>Proin eget tortor risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
 
                     </div>

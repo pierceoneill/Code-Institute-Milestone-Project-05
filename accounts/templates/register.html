@@ -11,6 +11,11 @@
 <section class="container">
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="card-header bg-primary text-white">
+              <h4>
+                <i class="fas fa-user-plus"></i> Register</h4>
+            </div>
+            <div class="card-body">
             <form method="post" action="{% url 'register' %}" class="accountform">
                 <fieldset class="form-group">
                     <legend>Create a new account</legend>
@@ -23,4 +28,5 @@
         </div>
     </div>
 </section>
+
 {% endblock %}

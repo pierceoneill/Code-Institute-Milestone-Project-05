@@ -18,7 +18,19 @@ class Babysitter(models.Model):
     biography = models.TextField(max_length=280,blank=True)
     def __str__(self):
         return self.firstName + ' ' + self.lastName
-
+        
+class Education(models.Model):
+    babysitter = models.ForeignKey(Babysitter)
+    school = models.CharField(max_length=50)
+    qualification = models.CharField(max_length=50)
+    fieldOfStudy = models.CharField(max_length=50)
+    dateFrom = models.DateField(auto_now=False, auto_now_add=False)
+    dateTo = models.DateField(
+        auto_now=False, auto_now_add=False, null=True, blank=True)
+    current = models.BooleanField(default=False)
+    graduated = models.BooleanField(default=False)
+    def __str__(self):
+        return self.school
         
 class Work(models.Model):
     babysitter = models.ForeignKey(Babysitter)
@@ -30,7 +42,7 @@ class Work(models.Model):
         auto_now=False, auto_now_add=False, null=True, blank=True)
     current = models.BooleanField(default=False)
     def __str__(self):
-        return self.work
+        return self.family
         
 class Reference(models.Model):
     babysitter = models.ForeignKey(Babysitter)
