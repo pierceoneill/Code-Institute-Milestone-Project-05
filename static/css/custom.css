@@ -8897,3 +8897,25 @@ footer .menu li a:hover{
 	color:#6794c2;
 }
 
+/* Buttons */
+
+.btn--cta {
+    font-weight: bold !important;
+    border-radius: 23px !important;
+    width: 160px;
+}
+
+.btn--red {
+    color: white;
+    background-color: #f05f40 !important;
+    border-color: #f05f40 !important;
+}
+
+.btn--red:hover,
+.btn--red:active,
+.btn--red:focus,
+.btn--red:active:focus {
+    background-color: #df4929 !important;
+    border-color: #df4929 !important;
+    color: white!important;
+}
