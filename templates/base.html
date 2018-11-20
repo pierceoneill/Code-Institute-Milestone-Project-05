@@ -16,45 +16,47 @@
     <link rel="stylesheet" href="{% static 'css/animations.css' %}">
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     {% block head_js %}
     {% endblock head_js %}
 </head>
 <body>
 
 <!-- Navigation -->
-
-<header class="page_header header_white">
+<div id="canvas">
+    <div id="box_wrapper">
+ <header class="page_header header_white affix-top">
     <div class="header-top">
         <div class="container-fluid">
             <div class="row">
+    
+               
+          <div class="col-sm-4 ">     
+          
+						<li class="nav-item">
+							<a class="nav-link">
+								<span "loggedIn"><img src="{{ MEDIA_URL }}{{user.profile.image}}" alt="{{username}}"  class="rounded-circle avatar d-none d-md-inline-block">Welcome {{ user.username }}</a></span>
+								<a class="nav-link" href=""></a>
+							</a>
+						</li>
+			
+		  </div>
+		   
+		    <div class="row">
                 <div class="col-sm-4">
                     <a href="index.html">
                         <img src="{% static 'images/logo.png' %}" alt="Babysitter logo" class="top-logo">
                     </a>
                 </div>
-                <div class="col-sm-4 text-center">
-                    <div class="social-icons">
-                        <a href="#" class="social-icon color-bg-icon rounded-icon soc-facebook"></a>
-                        <a href="#" class="social-icon color-bg-icon rounded-icon soc-twitter"></a>
-                        <a href="#" class="social-icon color-bg-icon rounded-icon soc-google"></a>
-                        <a href="#" class="social-icon color-bg-icon rounded-icon soc-skype"></a>
-                        <a href="#" class="social-icon color-bg-icon rounded-icon rt-icon2-youtube5"></a>
-                    </div>
-                </div>
-                <div class="col-sm-4 text-right ">
-                    <div class="contact-info">
-                        <div class="contact-number">
-                            <span>089</span> 424 0146
-                        </div>
-                        <div class="work-hours">
-                            Open 08:00  - 17:30
-                        </div>
-                    </div>
-                </div>
+            </div>
+            
+          <div class="col-sm-4">
+				<a class="nav-link" href="{% url 'register' %}"><button type="button" class=" nav-link btn btn-success btn-lg"><i class="fas fa-user-plus">Register</i></button></a>
+				<a class="nav-link" href="{% url 'login' %}"><button type="button" class="btn btn-danger btn-lg"><i class="fas fa-sign-in-alt">Login</i></button></a>
+                <a class="nav-link text-right" href="{% url 'logout' %}"> <button type="button" class="btn btn-warning btn-lg" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt">Logout</i></button></a>
             </div>
         </div>
     </div>
+</div>
 
     <div class="container-fluid">
         <div class="row">
@@ -67,35 +69,6 @@
                         </li>
                         <li>
                             <a href="calendar.html">Pages</a>
-                            <ul>
-                                <li>
-                                    <a href="calendar.html">Calendar</a>
-                                </li>
-                                <li>
-                                    <a href="404.html">404</a>
-                                </li>
-                                <li>
-                                    <a href="faq.html">FAQ</a>
-                                </li>
-                                <li>
-                                    <a href="terms.html">Terms</a>
-                                </li>
-                                <li>
-                                    <a href="calculator.html">Service Calculator</a>
-                                </li>
-                                <li>
-                                    <a href="courses.html">Courses</a>
-                                </li>
-                                <li>
-                                    <a href="elements.html">Elements</a>
-                                </li>
-                                <li>
-                                    <a href="typography.html">Typography</a>
-                                </li>
-                                <li>
-                                    <a href="widgets.html">Widgets</a>
-                                </li>
-                            </ul>
                         </li>
 
                         <li>
@@ -110,11 +83,11 @@
                         </li>
 
                         <li>
-                            <a href="gallery_fullwidth.html">Galery</a>
+                            <a href="gallery_fullwidth.html">Gallery</a>
                         </li>
 
                         <li>
-                            <a href="appointment.html">Appointment</a>
+                            <a href="appointment.html">Appointments</a>
                         </li>
 
                         <li>
@@ -130,8 +103,12 @@
 
         </div>
     </div>
-</header>
-    
+  </header>
+</div>
+    </div>
+</div>
+
+
     <div class="container">
          {% if messages %}
         <div class="alert alert-success">
@@ -173,29 +150,17 @@
                            <li>
                                 <a href="#"><i class="fa fa-facebook fa-2x"></i></a>
                            </li>
-                           
                            <li>
-                                <a href="#"><i class="fa fa-dropbox fa-2x"></i></a>
+                                <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
                            </li>
-                           
-                           <li>
-                                <a href="#"><i class="fa fa-flickr fa-2x"></i></a> 
-                           </li>
-                          
-                           <li>
-                                <a href="#"><i class="fa fa-github fa-2x"></i></a>
-                           </li>
-                            
                            <li>
                                 <a href="#"><i class="fa fa-linkedin fa-2x"></i></a>
                            </li>
-                           
                            <li>
-                                <a href="#"><i class="fa fa-tumblr fa-2x"></i></a>
-                           </li>
-                            
+                                <a href="#"><i class="fa fa-youtube fa-2x"></i></a>
+                          </li>
                            <li>
-                                <a href="#"><i class="fa fa-google-plus fa-2x"></i></a>
+                                <a href="#"><i class="fa fa-instagram fa-2x"></i></a>
                           </li>
                           
                  </ul>
@@ -223,11 +188,8 @@
                       <li>
                         <a href="#">Contact</a>
                      </li>
-           
              </ul>
            </div>
-       
-       
        </div> 
     </div>
 </footer>
@@ -236,7 +198,7 @@
  <div class="container">
    
      <div class="row text-center">
-     	<p>Copyright © 2017 All rights reserved</p>
+     	<p>Made with <i class="fa fa-heart" aria-hidden="true" style="color:#be1931"></i>by Pierce O'Neill 2018</p>
      </div>
      
     </div>

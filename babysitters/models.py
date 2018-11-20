@@ -14,7 +14,7 @@ class Babysitter(models.Model):
     address2 = models.CharField(max_length=100, null=True)
     city = models.CharField(max_length=20, null=True)
     county = models.CharField(max_length=100, null=True)
-    eircode = models.CharField(max_length=7, null=True)
+    postcode = models.CharField(max_length=7, null=True)
     biography = models.TextField(max_length=280,blank=True)
     def __str__(self):
         return self.firstName + ' ' + self.lastName

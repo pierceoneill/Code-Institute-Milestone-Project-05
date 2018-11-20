@@ -8818,12 +8818,7 @@ End of Elements
   background-image: linear-gradient(to bottom, #5ee7df 0%, #b490ca 100%);
 }
 
-/*FOOTER START///////////////////*/
-@import url('https://fonts.googleapis.com/css?family=Poppins');
 
-body{
-    font-family: 'Poppins', sans-serif;
-}
 
 .search-text{
 	background-color:#7dabdb;
@@ -8918,4 +8913,160 @@ footer .menu li a:hover{
     background-color: #df4929 !important;
     border-color: #df4929 !important;
     color: white!important;
+}
+.bday {
+  cursor: default;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: box;
+  box-pack: center;
+  box-align: center;
+  display: -ms-flexbox;
+  -ms-flex-pack: center;
+  -ms-flex-align: center;
+  display: -moz-box;
+  -moz-box-pack: center;
+  -moz-box-align: center;
+  display: -webkit-box;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  font-family: sans-serif;
+  font-size: 175pt;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+  -webkit-text-stroke: 5px #FFF;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+}
+
+.dashboard {
+	padding: 10px 80px;
+}
+@media screen and (min-width: 768px) {
+	.dashboard {	min-height: 110vh;
+	}
+}
+@media screen and (max-width: 576px) {
+	.dashboard {	padding: 0;
+	}
+}
+
+.profile-image {
+	width: 250px;
+	height: 250px;
+}
+
+.supporter {
+	background: -webkit-gradient(linear, left top, right top, from(#ff4e50), to(#f9d423));
+	background: linear-gradient(to right, #ff4e50, #f9d423);
+	width: 200px;
+	border-radius: 10px;
+	padding: 10px;
+	font-family: "Ubuntu";
+	font-size: 1rem;
+	font-weight: 700;
+	color: #fff;
+}
+.supporterfa-star {
+		color: #ff5722;
+		font-size: 1rem;
+	}
+
+
+.link {
+	cursor: pointer;
+}
+
+.thead-dark th,
+.btn-secondary {
+	background-color: #112938;
+	border-color: #112938;
+}
+
+.social-profile {
+	position: relative;
+	text-align: center;
+	margin: 0 center;
+	margin-top: 20px;
+}
+.social-profile a {
+		display: inline-block;
+		width: 36px;
+		height: 36px;
+		border-radius: 24px;
+		background-color: #112938;
+		margin: 0 1px;
+		color: #fff;
+		text-align: center;
+		line-height: 36px;
+}
+
+.social-profile i {
+			height: 24px;
+			width: 24px;
+		}
+		
+.social-profile :hover {
+			background-color: #772953;
+		}
+	
+
+@media screen and (max-width: 576px) {
+	.dashboard {
+		padding: 0;
+	}
+	.profile-image {
+		width: 128px;
+		height: 128px;
+	}
+	button {
+		width: 100%;
+		margin-top: 15px;
+		display: block;
+	}
+}
+@media screen and (max-width: 768px) {
+	.btn {
+		margin-left: 0 !important;
+	}
+}
+.rounded-circle {
+  border-radius: 50% !important; }
+  
+.age {
+  cursor: default;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: box;
+  box-pack: center;
+  box-align: center;
+  display: -ms-flexbox;
+  -ms-flex-pack: center;
+  -ms-flex-align: center;
+  display: -moz-box;
+  -moz-box-pack: center;
+  -moz-box-align: center;
+  display: -webkit-box;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  font-family: sans-serif;
+  font-size: 175pt;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+  -webkit-text-stroke: 5px #FFF;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+}
+
+.avatar {
+	height: 60px;
+	width: 60px;
 }
