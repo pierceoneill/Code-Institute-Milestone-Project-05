@@ -3,9 +3,6 @@
 {% load gravatar %}
 {% block content %}
 
-  
-  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-
 
 <div class="modal fade" id="kiddy" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -48,11 +45,7 @@
 			<div class="col-lg-5 col-md-5 col-sm-5 text-center">
 				<p class="lead">Welcome <b>{{user.username}}</b></p>
 				<img class="rounded-circle profile-image my-2 img-fluid" src="{{ MEDIA_URL }}{{user.profile.image}}" alt="{{user.username}}">
-				<div *ngIf="support" class="supporter text-center mx-auto my-2">
-					<span>Premium Client
-						<i class="fas fa-star"></i>
-					</span>
-				</div><br>
+				<br>
 				<button type="button" class="btn btn-secondary mx-auto my-2" (click)="open($event, profile.id)" id="editProfile">
 					<i class="fas fa-info-circle"></i> Edit Profile</button>
 				<ul class="list-group">
@@ -84,15 +77,13 @@
 					<li class="list-group-item d-flex justify-content-between align-items-center">
 						<span>Social Links:</span>
 						<div class="social-profile">
-							<a href="https://www.facebook.com/{{profile.facebook}}" target="_blank" placement="top"
+							<a href="https://www.facebook.com/{{profile.facebook}}" target="_blank" placement="top">
 								<i class="fab fa-facebook"></i>
 							</a>
-							<a href="https://www.twitter.com/{{profile.twitter}}" target="_blank" placement="top"
-							   ngbTooltip="Twitter">
+							<a href="https://www.twitter.com/{{profile.twitter}}" target="_blank" placement="top">
 								<i class="fab fa-twitter"></i>
 							</a>
-							<a href="https://www.youtube.com/channel/{{profile.youtube}}" target="_bla placement="top"
-							   ngbTooltip="Instagram">
+							<a href="https://www.youtube.com/channel/{{profile.youtube}}" target="_blank" placement="top">
 								<i class="fab fa-instagram"></i>
 							</a>
 							    
@@ -112,11 +103,11 @@
             <td></td>
                         <td><button class="btn btn-primary" type="submit">Update</button>
                         <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#kiddy">Add kid</button></td>
+            
             <div class="kidsFormCenter">
                
                     {% for kid in kids %}
                     <table class="kidsTable kidForm">
-                        <br>
                         <form action="{% url 'update_profile_kid' kid.id %}" method="post">
                             {% csrf_token %}
                             <tr>
@@ -126,39 +117,147 @@
                             <tr>
                                 <td>Date of Birth:</td>
                                 <td><input type="text" maxlength="10" value="{{ kid.dob }}" name="dob"></td>
+                                <td><input type="text" id="age" class="form-control" required readonly></td>
                             </tr>
-                          
                             <tr>
                                 <td>Gender:</td>
                                 <td><input type="text" maxlength="1" value="{{ kid.gender }}" name="gender"></td>
+                                
                             </tr>
                             <tr>
-                             <div class='indent-20'>
-
-  <p>
-    
-    Date of birth:  
-    <input id="dob">
-  </p> 
-
-  <p>
-    Your age: <span id="age"></span>
-  </p> 
-  
-</div>
-                                <td></td>
-                                <td><button class="btn buttonAdd" formaction="{% url 'update_profile_kid' kid.id %}" type="submit">Edit</button>
+                                <td><button class="btn btn-primary" formaction="{% url 'update_profile_kid' kid.id %}" type="submit">Edit</button>
                                     <form action="{% url 'delete_profile_kid' kid.id %}" method="POST">
-                                        {% csrf_token %}<button class="btn buttonDelete" formaction="{% url 'delete_profile_kid' kid.id %}" type="submit">Delete</button></td>
+                                        {% csrf_token %}<button class="btn btn-info" formaction="{% url 'delete_profile_kid' kid.id %}" type="submit">Delete</button></td>
                                     </form>        
                             </tr>
                         </form>
                     </table>
-                    
-                     <div class="form-group">
-                
+                    <br>
 
             {% endfor %}
+            	<div class="col-md-12 col-lg-8 mt-5">
+				<div class="row">
+					<div class="col-sm-4">
+						<button type="button" class="btn btn-secondary" (click)="open($event)" id="addExp">
+							<i class="fas fa-briefcase"></i> Add Experience</button>
+					</div>
+					<div class="col-sm-4">
+						<button type="button" class="btn btn-secondary" (click)="open($event)" id="addEdu">
+							<i class="fas fa-graduation-cap"></i> Add Education</button>
+					</div>
+					<div class="col-sm-4">
+						<button type="button" class="btn btn-secondary" (click)="open($event)" id="editSkills">
+							<i class="fas fa-briefcase"></i> Add / Edit Skills</button>
+					</div>
+				</div>
+				<div class="row my-3 d-none d-md-block">
+					<div class="col-sm-12">
+						<div id="experience" *ngIf="user.experience.length > 0">
+							<h4 class="mb-2">Experience</h4>
+							<div class="table-responsive">
+								<table class="table table-hover">
+									<thead class="thead-dark">
+										<tr>
+											<th scope="col">Company</th>
+											<th scope="col">Title</th>
+											<th scope="col">Location</th>
+											<th scope="col">Years</th>
+											<th scope="col">Action</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr *ngFor="let exp of user.experience">
+											<td scope="row">{{exp.company}}</td>
+											<td scope="row">{{exp.jobTitle}}</td>
+											<td scope="row">{{exp.location}}</td>
+										
+											<td scope="row">
+												<a class="btn btn-info btn-md text-white" (click)="open($event, exp.id)" id="editExp">
+													Edit
+												</a>
+												<a class="btn btn-danger btn-md text-white ml-2" (click)="deleteDetail($event, exp.id, exp.company)" id="deleteExp">
+													Delete
+												</a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-12">
+						<div id="education" *ngIf="user.education.length > 0">
+							<h4 class="mb-2">Education</h4>
+							<div class="table-responsive">
+								<table class="table table-hover">
+									<thead class="thead-dark">
+										<tr>
+											<th scope="col">School</th>
+											<th scope="col">Degree</th>
+											<th scope="col">Field of Study</th>
+											<th scope="col">Years</th>
+											<th scope="col">Actions</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr *ngFor="let edu of user.education">
+											<td scope="row">{{edu.school}}</td>
+											<td scope="row">{{edu.qualification}}</td>
+											<td scope="row">{{edu.fieldOfStudy}}</td>
+										
+											<td scope="row">
+												<a class="btn btn-info btn-md text-white" (click)="open($event, edu.id)" id="editEdu">
+													Edit
+												</a>
+												<a class="btn btn-danger btn-md text-white ml-2" (click)="deleteDetail($event, edu.id, edu.school)" id="deleteEdu">
+													Delete
+												</a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-12 d-none d-lg-block">
+						<div id="donation" *ngIf="user.donation.length > 0">
+							<h4 class="mb-2">Donations</h4>
+							<div class="table-responsive">
+								<table class="table table-hover">
+									<thead class="thead-dark">
+										<tr>
+											<th scope="col">Amount</th>
+											<th scope="col">Date</th>
+											<th scope="col">Token</th>
+											<th scope="col">IP Address</th>
+										</tr>
+									</thead>
+									<tbody>
+								
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row d-lg-none d-md-block" *ngIf="user.experience.length > 0">
+					<div class="col-md-12">
+						<experience-mobile-view [user]="user"></experience-mobile-view>
+					</div>
+				</div>
+				<div>
+					<div class="row d-lg-none d-md-block" *ngIf="user.education.length > 0">
+						<div class="col-md-12">
+							<education-mobile-view [user]="user"></education-mobile-view>
+						</div>
+					</div>
+					<div class="row d-lg-none d-md-block" *ngIf="user.donation.length > 0">
+						<div class="col-md-12">
+							<donations-mobile-view [user]="user"></donations-mobile-view>
+						</div>
+					</div>
+				</div>
             </div>
         </div>
     </div>

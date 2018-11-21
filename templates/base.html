@@ -28,36 +28,26 @@
     <div class="header-top">
         <div class="container-fluid">
             <div class="row">
-    
-               
-          <div class="col-sm-4 ">     
-          
-						<li class="nav-item">
-							<a class="nav-link">
-								<span "loggedIn"><img src="{{ MEDIA_URL }}{{user.profile.image}}" alt="{{username}}"  class="rounded-circle avatar d-none d-md-inline-block">Welcome {{ user.username }}</a></span>
-								<a class="nav-link" href=""></a>
-							</a>
-						</li>
-			
-		  </div>
-		   
-		    <div class="row">
-                <div class="col-sm-4">
+                 <div class="col-sm-4">
                     <a href="index.html">
                         <img src="{% static 'images/logo.png' %}" alt="Babysitter logo" class="top-logo">
                     </a>
                 </div>
-            </div>
-            
-          <div class="col-sm-4">
-				<a class="nav-link" href="{% url 'register' %}"><button type="button" class=" nav-link btn btn-success btn-lg"><i class="fas fa-user-plus">Register</i></button></a>
-				<a class="nav-link" href="{% url 'login' %}"><button type="button" class="btn btn-danger btn-lg"><i class="fas fa-sign-in-alt">Login</i></button></a>
+              <div class="col-sm-4 text-center ">
+							<a class="nav-link">
+								<span "loggedIn"><img src="{{ MEDIA_URL }}{{user.profile.image}}" alt="{{username}}"  class="rounded-circle avatar d-none d-md-inline-block"></span>
+								<a class="nav-link" href="{% url 'profile' %}"><h4>Welcome <strong>{{ user.username }}</strong></h4></a>
+							</a>
+		      </div>
+               
+              <div class="col-sm-4 text-center">
+				<a class="nav-link" href="{% url 'register' %}"><button type="button" class=" nav-link btn btn-primary btn-lg"><i class="fas fa-user-plus">Register</i></button></a>
+				<a class="nav-link" href="{% url 'login' %}"><button type="button" class="btn btn-info btn-lg "><i class="fas fa-sign-in-alt">Login</i></button></a>
                 <a class="nav-link text-right" href="{% url 'logout' %}"> <button type="button" class="btn btn-warning btn-lg" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt">Logout</i></button></a>
+              </div>
             </div>
-        </div>
+       </div>
     </div>
-</div>
-
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12 text-center">
@@ -68,7 +58,7 @@
                             <a href="{% url 'index' %}">Home</a>
                         </li>
                         <li>
-                            <a href="calendar.html">Pages</a>
+                            <a href="{% url 'profile' %}">Client Dashboard</a>
                         </li>
 
                         <li>
@@ -103,10 +93,10 @@
 
         </div>
     </div>
-  </header>
+ </header>
 </div>
-    </div>
 </div>
+
 
 
     <div class="container">
