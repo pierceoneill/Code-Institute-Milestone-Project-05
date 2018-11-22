@@ -3724,8 +3724,8 @@ fieldset[disabled] a.btn {
 }
 
 .btn-default {
-    color: #333;
-    background-color: #fff;
+    color: #fff;
+    background-color: #9ed7c8;
     border-color: #ccc
 }
 
@@ -4050,6 +4050,12 @@ fieldset[disabled] .btn-warning:hover {
 }
 
 .btn-danger {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a
+}
+
+.badge-danger  {
     color: #fff;
     background-color: #d9534f;
     border-color: #d43f3a

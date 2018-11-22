@@ -43,7 +43,11 @@
               <div class="col-sm-4 text-center">
 				<a class="nav-link" href="{% url 'register' %}"><button type="button" class=" nav-link btn btn-primary btn-lg"><i class="fas fa-user-plus">Register</i></button></a>
 				<a class="nav-link" href="{% url 'login' %}"><button type="button" class="btn btn-info btn-lg "><i class="fas fa-sign-in-alt">Login</i></button></a>
-                <a class="nav-link text-right" href="{% url 'logout' %}"> <button type="button" class="btn btn-warning btn-lg" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt">Logout</i></button></a>
+                <a class="nav-link text-right" href="{% url 'logout' %}"> <button type="button" class="btn btn-warning btn-lg"><i class="fas fa-sign-out-alt">Logout</i></button></a>
+                <a class="nav-link text-right" href="{% url 'view_bookings' %}"> <button type="button" class="btn btn-default btn-lg" ><i class="fas fa-shopping-cart">Bookings</i>{% if babysitter_count > 0 %}
+                            <label class="badge badge-warning">{{ babysitter_count }}</label>
+                            {% endif %}</button></a>
+              
               </div>
             </div>
        </div>
@@ -198,8 +202,9 @@
 
 <script src="{% static 'js/main.js' %}"></script> 
 <script src="{% static 'js/plugins.js' %}"></script>
-<script src="{% static 'js/jquery-ui.js' %}"></script>
 <script src="{% static 'js/compressed.js' %}"></script>
+<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+
 
 </body>
 </html
