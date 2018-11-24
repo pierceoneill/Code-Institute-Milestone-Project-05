@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}Minder Finder{% endblock %}</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.0/css/all.css">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/v4-shims.css">
+     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto:900,700' rel='stylesheet' type='text/css'>
@@ -41,11 +42,11 @@
 		      </div>
                
               <div class="col-sm-4 text-center">
-				<a class="nav-link" href="{% url 'register' %}"><button type="button" class=" nav-link btn btn-primary btn-lg"><i class="fas fa-user-plus">Register</i></button></a>
-				<a class="nav-link" href="{% url 'login' %}"><button type="button" class="btn btn-info btn-lg "><i class="fas fa-sign-in-alt">Login</i></button></a>
-                <a class="nav-link text-right" href="{% url 'logout' %}"> <button type="button" class="btn btn-warning btn-lg"><i class="fas fa-sign-out-alt">Logout</i></button></a>
-                <a class="nav-link text-right" href="{% url 'view_bookings' %}"> <button type="button" class="btn btn-default btn-lg" ><i class="fas fa-shopping-cart">Bookings</i>{% if babysitter_count > 0 %}
-                            <label class="badge badge-warning">{{ babysitter_count }}</label>
+				<a class="nav-link" href="{% url 'register' %}"><button type="button" class=" nav-link btn btn-primary"><i class="fas fa-user-plus">Register</i></button></a>
+				<a class="nav-link" href="{% url 'login' %}"><button type="button" class="btn btn-info"><i class="fas fa-sign-in-alt">Login</i></button></a>
+                <a class="nav-link text-right" href="{% url 'logout' %}"> <button type="button" class="btn btn-warning"><i class="fas fa-sign-out-alt">Logout</i></button></a>
+                <a class="nav-link text-right" href="{% url 'view_bookings' %}"> <button type="button" class="btn btn-default" ><i class="fas fa-shopping-cart">Bookings</i>{% if babysitter_count > 0 %}
+                <label class="badge badge-warning">{{ babysitter_count }}</label>
                             {% endif %}</button></a>
               
               </div>
@@ -100,6 +101,73 @@
  </header>
 </div>
 </div>
+<!-- Register Modal -->
+<div class="modal fade" id="modalRegister" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content modal-height">
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Registration</h4>
+
+      <div class="modal-body">
+        <form method="post" action="{% url 'register' %}">
+                  {% csrf_token %}
+  
+      <i class="fa fa-user fa-2x" style="color:white" aria-hidden="true"></i>
+      <input type="text" class="textfield" placeholder="User name" name="username" >
+      
+      <i class="fa fa-envelope-o fa-2x" style="color:white" aria-hidden="true" ></i>
+      <input type="email" class="textfield" placeholder="Email" name="email">
+
+      <i class="fa fa-lock fa-2x" style="color:white" aria-hidden="true" ></i>
+      <input type="password" class="textfield" placeholder="Your password" name="password1">
+      
+      
+      <i class="fa fa-lock fa-2x" style="color:white" aria-hidden="true" ></i>
+      <i class="fa fa-repeat passreapeat" aria-hidden="true"></i>
+      
+      <input type="password" class="textfield" placeholder="Reapeat your password" name="password2">
+
+  <button type="submit" class="btn btn-success buttonreg" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Register</button>
+  <!--<button type="submit" class="btn btn-danger buttonrs"><i class="fa fa-link" aria-hidden="true"></i> Full Registration Form</button>-->
+</form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Log in Modal -->
+<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content loginsize">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Login</h4>
+            <div class="modal-body">
+              <form method="post" action="{% url 'login' %}">
+                  {% csrf_token %}
+                    <i class="fa fa-user fa-2x" style="color:white" aria-hidden="true"></i>
+                    <input type="text" class="textfield" name="username_or_email" >
+                    <i class="fa fa-lock fa-2x" style="color:white" aria-hidden="true" ></i>
+                    <input type="password" class="textfield" name="password">
+                    <button type="submit" class="btn btn-success buttonlg" >Login</button>
+              </form>
+                  <div class="footer">
+                      <button type="submit" class="btn btn-danger buttonrs" data-toggle="collapse" data-target="#resetfield"><i class="fa fa-key fa-rotate-90" aria-hidden="true"></i> Reset</button>
+                      <div id="resetfield" class="collapse">
+                    {% csrf_token %}
+                        <i class="fa fa-cogs fa-2x reset-user" style="color:white" aria-hidden="true"></i>
+                        <input type="email" class="textfield reset-field" name="email" name="csrfmiddlewaretoken">
+                        <button type="submit" name="password_reset" class="btn btn-warning buttonwr"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Reset confirmation</button>
+              </form>
+                      </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 
 

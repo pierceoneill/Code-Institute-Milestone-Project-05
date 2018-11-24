@@ -1,32 +1,19 @@
 {% extends "base.html" %}
 {% load bootstrap_tags %}
 {% block content %}
- <section class="container">
+<section class="container">
     <div class="page-header">
-        <h1>Parents / Guardian Account Register</h1><br>
+        <h1>Register for a Client account</h1>
           
     </div>
+    <form method="post" action="{% url 'register' %}" class="accountform">
+        <fieldset class="form-group">
+            <legend>Create a new account</legend>
+            <p>Already got an account? <a href="{% url 'login' %}">Sign In</a></p>
+            {% csrf_token %}
+            {{  user_form | as_bootstrap }}
+            <button type="submit" class="btn btn-primary">Create account</button>
+        </fieldset>
+    </form>
 </section>
-
-<section class="container">
-    <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="card-header bg-primary text-white">
-              <h4>
-                <i class="fas fa-user-plus"></i> Register</h4>
-            </div>
-            <div class="card-body">
-            <form method="post" action="{% url 'register' %}" class="accountform">
-                <fieldset class="form-group">
-                    <legend>Create a new account</legend>
-                        <p>Already got an account? <a href="{% url 'login' %}">Sign In</a></p>
-                    {% csrf_token %}
-                    {{  user_form | as_bootstrap }}
-                    <button type="submit" class="btn btn-primary">Create account</button>
-                </fieldset>
-            </form>
-        </div>
-    </div>
-</section>
-
 {% endblock %}

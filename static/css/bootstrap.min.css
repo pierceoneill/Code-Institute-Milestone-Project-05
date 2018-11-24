@@ -2830,7 +2830,6 @@ th {
     padding: 8px;
     line-height: 1.42857143;
     vertical-align: top;
-    border-top: 1px solid #ddd
 }
 
 .table>thead>tr>th {
@@ -5974,8 +5973,6 @@ a.badge:hover {
 
 .container .jumbotron,
 .container-fluid .jumbotron {
-    padding-right: 15px;
-    padding-left: 15px;
     border-radius: 6px
 }
 
@@ -8046,6 +8043,3 @@ button.close {
         display: none!important
     }
 }
-
-
-/*# sourceMappingURL=bootstrap.min.css.map *

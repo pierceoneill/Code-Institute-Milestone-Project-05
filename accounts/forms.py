@@ -15,7 +15,7 @@ class UserLoginForm(forms.Form):
 # class FullUserDetailsForm(forms.ModelForm):
 #      class Meta:
 #          model=UserProfile
-#          fields = ['user','address1','address2','postcode','phone', 'dob', 'gender']
+#          fields = ['user', 'first_name', 'last_name', 'address1', 'address2','postcode','phone', 'dob', 'gender']
 
 class FullUserDetailsForm(forms.Form):
     first_name = forms.CharField(max_length=None, required=False)
@@ -28,6 +28,10 @@ class FullUserDetailsForm(forms.Form):
     phone = forms.CharField(max_length=10, required=False)
     dob = forms.CharField(max_length=10, required=False)
     gender = forms.CharField(max_length=1, required=False)
+    facebook = forms.CharField(max_length=50, required=False)
+    twitter = forms.CharField(max_length=50, required=False)
+    instagram = forms.CharField(max_length=50, required=False)
+
     # finish this
 
 
@@ -35,12 +39,13 @@ class KidDetailsForm(forms.Form):
     name = forms.CharField(max_length=None, required=False)
     dob = forms.CharField(max_length=10, required=False)
     gender = forms.CharField(max_length=1, required=False)
+    needs = forms.CharField(max_length=3, required=False)
 
 
 # class KidProfileForm(forms.ModelForm):
 #     class Meta:
 #         model=KidProfile
-#         fields = ['name', 'dob', 'gender']
+#         fields = ['name', 'dob', 'gender', 'needs']
         # Finish this
 
 

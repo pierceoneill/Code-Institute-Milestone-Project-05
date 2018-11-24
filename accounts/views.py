@@ -20,10 +20,13 @@ def update_profile(request):
         request.user.email=form.cleaned_data['email']
         request.user.profile.address1=form.cleaned_data['address1']
         request.user.profile.address2=form.cleaned_data['address2']
-        request.user.profile.eircode=form.cleaned_data['eircode']
+        request.user.profile.postcode=form.cleaned_data['postcode']
         request.user.profile.phone=form.cleaned_data['phone']
         request.user.profile.dob=form.cleaned_data['dob']
         request.user.profile.gender=form.cleaned_data['gender']
+        request.user.profile.facebook=form.cleaned_data['facebook']
+        request.user.profile.twitter=form.cleaned_data['twitter']
+        request.user.profile.instagram=form.cleaned_data['instagram']
         request.user.save()
         return redirect(reverse('profile'))
     else:
@@ -36,6 +39,7 @@ def update_profile_kid(request, id):
         kid.name=form.cleaned_data['name']
         kid.dob=form.cleaned_data['dob']
         kid.gender=form.cleaned_data['gender']
+        kid.needs=form.cleaned_data['needs']
         kid.save()
         return redirect(reverse('profile'))
     else:
@@ -48,6 +52,7 @@ def create_profile_kid(request):
         kid.name=form.cleaned_data['name']
         kid.dob=form.cleaned_data['dob']
         kid.gender=form.cleaned_data['gender']
+        kid.needs=form.cleaned_data['needs']
         kid.parent=request.user
         kid.save()
         return redirect(reverse('profile'))

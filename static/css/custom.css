@@ -8956,8 +8956,8 @@ footer .menu li a:hover{
 }
 
 .profile-image {
-	width: 150px;
-	height: 150px;
+	width: 250px;
+	height: 250px;
 }
 
 .supporter {
@@ -9037,72 +9037,70 @@ footer .menu li a:hover{
 .rounded-circle {
   border-radius: 50% !important; }
   
-.age {
-  cursor: default;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: box;
-  box-pack: center;
-  box-align: center;
-  display: -ms-flexbox;
-  -ms-flex-pack: center;
-  -ms-flex-align: center;
-  display: -moz-box;
-  -moz-box-pack: center;
-  -moz-box-align: center;
-  display: -webkit-box;
-  -webkit-box-pack: center;
-  -webkit-box-align: center;
-  font-family: sans-serif;
-  font-size: 175pt;
-  color: #333;
-  font-weight: bold;
-  text-align: center;
-  -webkit-text-stroke: 5px #FFF;
-  font-smooth: always;
-  -webkit-font-smoothing: antialiased;
+
+
+label {
+  display: block;
+  position: relative;
+  margin: 40px 0px;
 }
 
+
+.line-box {
+  position: relative;
+  width: 100%;
+  height: 2px;
+  background: #BCBCBC;
+}
+
+.line {
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #8BC34A;
+  transition: ease .6s;
+}
+
+input:focus + .line-box .line {
+  width: 100%;
+}
+
+.label-txt {
+  position: absolute;
+  top: -1.6em;
+  padding: 10px;
+  font-family: sans-serif;
+  font-size: .8em;
+  letter-spacing: 1px;
+  color: rgb(120,120,120);
+  transition: ease .3s;
+}
+
+.label-active {
+  top: -3em;
+}
+
+button {
+  display: inline-block;
+  padding: 12px 24px;
+  background: rgb(220,220,220);
+  font-weight: bold;
+  color: rgb(120,120,120);
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: ease .3s;
+}
+
+button:hover {
+  background: #8BC34A;
+  color: #ffffff;
+}
 .avatar {
-	height: 50px;
-	width: 50px;
-	margin-top:25px;
-}
-
-.btn{
-
-     margin-top:25px;
-
-}
-
-#age {
-  cursor: default;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: box;
-  box-pack: center;
-  box-align: center;
-  display: -ms-flexbox;
-  -ms-flex-pack: center;
-  -ms-flex-align: center;
-  display: -moz-box;
-  -moz-box-pack: center;
-  -moz-box-align: center;
-  display: -webkit-box;
-  -webkit-box-pack: center;
-  -webkit-box-align: center;
-  font-family: sans-serif;
-  font-size: 175pt;
-  color: #333;
-  font-weight: bold;
-  text-align: center;
-  -webkit-text-stroke: 5px #FFF;
-  font-smooth: always;
-  -webkit-font-smoothing: antialiased;
+	height: 60px;
+	width: 60px;
 }
