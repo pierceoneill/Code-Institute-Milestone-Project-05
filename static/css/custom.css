@@ -8956,8 +8956,8 @@ footer .menu li a:hover{
 }
 
 .profile-image {
-	width: 250px;
-	height: 250px;
+	width: 175px;
+	height: 175px;
 }
 
 .supporter {
@@ -9042,7 +9042,6 @@ footer .menu li a:hover{
 label {
   display: block;
   position: relative;
-  margin: 40px 0px;
 }
 
 
@@ -9169,18 +9168,7 @@ label{
     left: 210px;
     top: -92px;
 }
-.name-filed {
-    width: 70%;
-    height: 40px;
-    background-color: rgba(0,0,0,0.1);
-    border-radius: 4px;
-    color: black!important;
-    text-align: center;
-    top: -90px;
-    border: none;
-    font-size: 12px!important;
-    position: relative!important;
-}
+
 .address-box{
     width: 70%;
     text-align: center;
@@ -9393,14 +9381,7 @@ input .name-field{
 }
 }
 
-.modal-contentPay{
-    background-color: white;
-    border-radius: 0px;
-    text-align: right;
-    max-width: 300px;
-    margin: auto;
-    border-radius: 10px;
-}
+
 .modal-contentAdd{
     background-color: rgba(0,0,0,0.8);
     text-align: center;
@@ -9482,7 +9463,6 @@ input::placeholder {
     background-color: white;
     border-radius: 0px;
     text-align: right;
-    max-width: 300px;
     margin: auto;
     border-radius: 10px;
 }
@@ -10154,7 +10134,7 @@ label{
     text-align: center;
     top: -90px;
     border: none;
-    font-size: 12px!important;
+    font-size: 16px!important;
     position: relative!important;
 }
 .address-box{

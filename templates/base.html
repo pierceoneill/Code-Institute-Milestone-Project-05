@@ -41,24 +41,25 @@
               <div class="nav navbar-nav navbar-right">
 			
                 {% if user.is_authenticated %}
-                    <li class="righticons"  data-balloon="You are logged in as {{ user.first_name }} {{ user.last_name }}" data-balloon-pos="down"><a href="{% url 'profile' %}"><span><img src="{{ MEDIA_URL }}{{user.profile.image}}" class="gravatarImage"></span></i><h4> Profile</h4></a></li>
-                    <li class="righticons"><a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt fa-3x"></i></i><h4>Log Out</h4></a></li>
+                    <li class="righticons"  data-balloon="You are logged in as {{ user.first_name }} {{ user.last_name }}" data-balloon-pos="down"><a href="{% url 'profile' %}"><span><img src="{{ MEDIA_URL }}{{user.profile.image}}" class="gravatarImage"></span></i><h4 style="font-family: poppins">Profile </h4></a></li>
+                    <li class="righticons"><a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt fa-3x"></i></i><h4 style="font-family: poppins" >Log Out</h4></a></li>
                 {%  else %}
-                    <button type="button" class="righticons" data-toggle="modal" data-target="#modalLogin"><i class="fas fa-plus fa-3x" aria-hidden="true"></i><h4>Login</h4></button>
+                    <button type="button" class="righticons" data-toggle="modal" font="poppins" data-target="#modalLogin"><i class="fas fa-plus fa-3x" aria-hidden="true"><h4 style="font-family: poppins" >Login</h4></i></button>
                 
             <!-- Button trigger modal -->
-                    <button type="button" class="righticons" data-toggle="modal" data-target="#modalRegister"><i class="fas fa-sign-out-alt fa-3x"></i><h4> SignUp</h4></button>
+                    <button type="button" class="righticons" data-toggle="modal" data-target="#modalRegister"><i class="fas fa-sign-out-alt fa-3x"></i><h4 style="font-family: poppins"> SignUp</h4></button>
           {% endif %}
           <div class="nav navbar-nav navbar-right cart">
                 {% if user.is_authenticated %}
-                    <li class="righticons"><a href="{% url 'cart' %}"><i class="fas fa-cart-plus fa-3x"></i> <h4>Cart</h4></a></li>
+                    <li class="righticons"><a href="{% url 'cart' %}"><i class="fas fa-cart-plus fa-3x"></i><h4 style="font-family: poppins">Cart</h4> </a></li>
                 {% else %}
-                    <button type="button" class="righticons" data-toggle="modal" data-target="#modalLogin"><i class="fas fa-cart-plus fa-3x"></i><h4>Cart</h4>
+                    <button type="button" class="righticons" data-toggle="modal" data-target="#modalLogin"><i class="fas fa-cart-plus fa-3x"></i> Cart
                 {% endif %}
                 
-                {% if babysitter_count > 0 %}
-                            <label class="badge badge-warning">{{ babysitter_count }}</label>
+                {% if num_cart_items > 0 %}
+                            <label class="badge badge-warning">{{ num_cart_items }}</label>
                 {% endif %}
+               
                 
           </div>
         </div>  

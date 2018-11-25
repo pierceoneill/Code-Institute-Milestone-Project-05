@@ -17,7 +17,7 @@
                             <span class="author-social">
                                 <a href="url('{{ babysitter.facebook }}')" class="social-icon color-bg-icon rounded-icon soc-facebook"></a>
                                 <a href="#" class="social-icon color-bg-icon rounded-icon soc-twitter"></a>
-                                <a href="#" class="social-icon color-bg-icon rounded-icon soc-google"></a>
+                                <a href="#" class="social-icon color-bg-icon rounded-icon soc-instagram"></a>
                             </span>
                             <div class="member-contacts">
                                 <div class="mbr-addres">
@@ -41,7 +41,7 @@
                 <div class="input-group">
                     <input name='quantity' type="number" min="1" max="999" class="form-control" placeholder="Quantity">
                     <span class="input-group-btn">
-                            <button class="btn btn-success" type="submit">Add</button>
+                            <button class="btn btn-success" type="submit">Add Hours</button>
                           </span>
                 </div>
                 <!-- /input-group -->
@@ -58,6 +58,19 @@
                             <li><p class="blue">Quisque velit nisi, pretium ut lacinia in, elementum id enim.</p></li>
                             <li><p class="blue">Donec rutrum congue leo eget malesuada.</p></li>
                         </ul>
+                        {% for ref in reference_qs %}
+                        <div class="mbr-testimonial">
+                            <i class="rt-icon2-quotes-left blue"></i>
+                            <div class="mbr-testimonial-body">
+                                <p>{{ ref.reference }}.</p>
+                                <img src="images/author-2.jpg" alt="">
+                                <span class="testimonial-author">
+                                    <span><strong>{{ ref.contact }}</strong></span>
+                                    Parent
+                                </span>
+                            </div>
+                        </div>
+                        {% endfor %}
                         <p>{{ babysitter.biography }}</p>
                         <div class="light-green-tab tab-container">
                             <ul class="nav nav-tabs" role="tablist">
@@ -115,23 +128,6 @@
                                 {% endfor %}
                             </div>
                         </div>
-
-                        <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere.</p>
-                        {% for ref in reference_qs %}
-                        <div class="mbr-testimonial">
-                            <i class="rt-icon2-quotes-left blue"></i>
-                            <div class="mbr-testimonial-body">
-                                <p>{{ ref.reference }}.</p>
-                                <img src="images/author-2.jpg" alt="">
-                                <span class="testimonial-author">
-                                    <span><strong>{{ ref.contact }}</strong></span>
-                                    Parent
-                                </span>
-                            </div>
-                        </div>
-                        {% endfor %}
-                        <p>Proin eget tortor risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
-
                     </div>
                 </div>
             </div>

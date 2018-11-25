@@ -116,8 +116,13 @@
                     <img src="{% static 'images/payments.png' %}" style="width: 100%"/>
                         {% csrf_token %}
                         {{ form | as_bootstrap }}
-                    
+                    <br>
+                    <br>
+                    <br>
+                    <br>
                         <input class="name-filed" type="text" placeholder="Full name">
+                        <br>
+                    <br>
                         <input class="btn buttonPay" id="submit_payment_btn" name="commit" type="submit" value="Confirm">
                         <button type="button" class="btn buttonPay" data-dismiss="modal">Cancel Order</button>
                 </form>

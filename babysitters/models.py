@@ -15,6 +15,12 @@ class Babysitter(models.Model):
     city = models.CharField(max_length=20, null=True)
     county = models.CharField(max_length=100, null=True)
     postcode = models.CharField(max_length=7, null=True)
+    facebook = models.CharField(max_length=50, blank=True, null=True)
+    twitter = models.CharField(max_length=50, blank=True, null=True)
+    instagram = models.CharField(max_length=50, blank=True, null=True)
+    fact1 = models.CharField(max_length=140, null=True)
+    fact2 = models.CharField(max_length=140, null=True)
+    fact3 = models.CharField(max_length=140, null=True)
     biography = models.TextField(max_length=280,blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     def __str__(self):
