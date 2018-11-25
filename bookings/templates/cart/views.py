@@ -26,7 +26,7 @@ def user_cart(request):
     cartItems = CartItem.objects.filter(user=request.user)
     total = 0
     for item in cartItems:
-        total += item.quantity * item.babysitter.price
+        total += item.quantity * item.product.price
 
     if request.method == 'POST':
         form = MakePaymentForm(request.POST)
@@ -38,13 +38,13 @@ def user_cart(request):
                     description=request.user.email,
                     card=form.cleaned_data['stripe_id'],
                 )
-            except (stripe.error.CardError):
+            except (stripe.error.CardError, e):
                 messages.error(request, "Your card was declined!")
 
             if customer.paid:
                 messages.success(request, "You have successfully paid")
                 CartItem.objects.filter(user=request.user).delete()
-                return redirect(reverse('babysitters'))
+                return redirect(reverse('products'))
             else:
                 messages.error(request, "Unable to take payment")
         else:
@@ -68,17 +68,17 @@ def user_cart(request):
 
 @login_required(login_url="/accounts/login")
 def add_to_cart(request, id):
-    babysitter = get_object_or_404(Babysitter, pk=id)
+    product = get_object_or_404(Product, pk=id)
     quantity=int(request.POST.get('quantity'))
     
 
     try:
-        cartItem = CartItem.objects.get(user=request.user, babysitter=babysitter)
+        cartItem = CartItem.objects.get(user=request.user, product=product)
         cartItem.quantity += quantity
     except CartItem.DoesNotExist:
         cartItem = CartItem(
             user=request.user,
-            babysitter=babysitter,
+            product=product,
             quantity=quantity
         )
 
@@ -87,16 +87,16 @@ def add_to_cart(request, id):
 
 @login_required(login_url="/accounts/login")
 def add_plus(request, id):
-    babysitter = get_object_or_404(Babysitter, pk=id)
+    product = get_object_or_404(Product, pk=id)
     quantity= 1
 
     try:
-        cartItem = CartItem.objects.get(user=request.user, babysitter=babysitter)
+        cartItem = CartItem.objects.get(user=request.user, product=product)
         cartItem.quantity += 1
     except CartItem.DoesNotExist:
         cartItem = CartItem(
             user=request.user,
-            babysitter=babysitter,
+            product=product,
             quantity=quantity
         )
 
@@ -134,3 +134,4 @@ class CartItemViewSet(viewsets.ModelViewSet):
     """
     queryset = CartItem.objects.all()
     serializer_class = CartItemSerializer
+

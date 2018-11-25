@@ -118,34 +118,28 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12">
+        	
     <table class="table table-striped">
     <h3>Your order history</h3>
     <hr>
+    
   <tr>
     <th>Date</th>
     <th>Invoice ID</th> 
     <th>Description</th>
     <th>Total</th>
   </tr>
+  {% for orders in orders %}
   <tr>
-    <td>xxx</td>
+    <td scope="row">{{ order.quantity }}</td>
     <td>xxx</td>
     <td>xxx</td>
     <td>xxx</td>
   </tr>
-  <tr>
-    <td>xxx</td>
-    <td>xxx</td>
-    <td>xxx</td>
-    <td>xxx</td>
-  </tr>
-  <tr>
-    <td>xxx</td>
-    <td>xxx</td>
-    <td>xxx</td>
-    <td>xxx</td>
-  </tr>
+  {% endfor %}
+
 </table>
+  
 </div>
     </div>
 </div>

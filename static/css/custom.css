@@ -8889,7 +8889,7 @@ footer .menu li a:hover{
 .fa,fa-tumblr:hover,
 .fa.fa-google-plus:hover, 
 .fa.fa-tumblr:hover {
-	color:#6794c2;
+	color:#ffffff;
 }
 
 /* Buttons */
@@ -9103,4 +9103,1275 @@ button:hover {
 .avatar {
 	height: 60px;
 	width: 60px;
+}
+
+.gravatarImage{
+    width:25px; 
+    border-radius:50%;
+    margin-top:-7px;
+}
+
+/*credit card css, cart.html*/
+.payment-form{
+    display: inline-block;
+    width: 100%;
+}
+.modal-body-3{
+    text-align: center;
+}
+.modal-content-3 {
+    background-color: rgba(255,255,255,0);
+    border-radius: 0px;
+    text-align: center;
+    border: none;
+    box-shadow: none;
+}
+.card{
+    position: relative;
+    width: 100%;
+}
+label{
+    display: none;
+}
+.form-control{
+    width: 200px;
+    height: 30px;
+    font-size: 10px;
+    background-color: rgba(0,0,0,0.1);
+    border: none;
+    text-shadow: 2px;
+    color: black;
+}
+#id_credit_card_number {
+    font-size: 12px!important;
+    text-align: center;
+    display: inline-block;
+    width: 70%;
+    height: 40px;
+    letter-spacing: 4px;
+    position: relative;
+    margin-top: 20px;
+}
+#id_expiry_month {
+        left: 25px;
+    position: relative;
+    width: 20%;
+}
+#id_expiry_year {
+    left: 100px;
+    position: relative;
+    width: 25%;
+    top: -46px;
+}
+#id_cvv {
+    position: relative;
+    width: 15%;
+    left: 210px;
+    top: -92px;
+}
+.name-filed {
+    width: 70%;
+    height: 40px;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 4px;
+    color: black!important;
+    text-align: center;
+    top: -90px;
+    border: none;
+    font-size: 12px!important;
+    position: relative!important;
+}
+.address-box{
+    width: 70%;
+    text-align: center;
+    border: 1px solid whitesmoke;
+    font-size: 10px!important;
+}
+.address-place{
+    display: inline-block;
+    padding-left: 30px;
+    margin: auto;
+}
+.stripepay{
+    text-align: right;
+}
+.add-button{
+    height:20px;
+    width: 70%;
+    font-size: 10px;
+    margin-top: 10px;
+    border: 1px solid black; 
+}
+.paymentsPic{
+    width:90%;
+    position: relative;
+    left: -700px;
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 1s;
+    animation: slide 0.5s forwards;
+    animation-delay: 1s;
+}
+.paymentsSlide{
+    width:420px;
+    position: relative;
+    left: -700px;
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 1s;
+    animation: slide 0.5s forwards;
+    animation-delay: 1s;
+}
+@-webkit-keyframes slide {
+    100% { left: 0; }
+}
+@keyframes slide {
+    100% { left: 0; }
+}
+
+.deliverytable{
+    margin-left: 40px;
+    margin-top: -20px;
+}
+.header {
+  clear: both;
+  margin-bottom: 10px;
+  
+  height: 90px;
+}
+.sidebar {
+  float: left;
+  width: 350px;
+}
+.content {
+  float: right;
+  width: 640px;
+  
+  height: 800px;
+}
+.mySlides {display:none}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  display: none;
+}
+
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+
+@media (max-width: 1200px){
+.phone {
+    width: 400px;
+}
+.footerbarcontent h1{
+    transition: 1s ease-in;
+    font-size: 30px;
+}
+.footerbarcontent h3{
+    transition: 1s ease-in;
+    font-size: 15px;
+}}
+@media (max-width:1000px){
+.sidebar{
+    display: none;
+}}
+@media (max-width: 800px){
+.phone, .productshow {
+    display: none;
+}
+.sidebar{
+    display: none;
+}
+.footerbarcontent h1{
+    transition: 1s ease-in;
+    font-size: 30px;
+    margin-left: -40%;
+}
+.footerbarcontent h3{
+    transition: 1s ease-in;
+    font-size: 15px;
+    margin-left: -40%;
+}
+.pay{
+    transition: 1s ease-in;
+    font-size: 15px;
+    margin-left: -40%;
+}
+.pay h3{
+    padding-left: 130px;
+}}
+@media (max-width: 500px){
+.productwraper{
+    display: none;
+}
+.sticky, .sidebar{
+    display: none;
+}
+.userForm input, select{
+    width: 200px;
+}
+.kidForm input, select{
+    width: 200px;
+}
+.paymentsPic {
+    display: none;
+}
+.card{
+    width: 500px;
+    transform: rotate(90deg);
+    left: -90px;
+    top: 90px;
+}
+.card-details{
+    width: 150%;
+    transform: rotate(90deg);
+    left: -90px;
+    top: 80px;
+}
+input .name-field{
+    transform: rotate(90deg);
+    left: -160px;
+    top: 230px;
+}
+.delivery-logo{
+    display: none;
+}
+.video{
+    height: 760px;
+}
+.searchbar{
+    background-color: rgba(0,0,0,0);
+    margin-top: 25px;
+}
+.additionalinformation{
+    font-size: 10px;
+}
+.buttonlg {
+    border-radius: 0px;
+    width: 95%;
+    margin-left: 10px;
+}
+.buttonrs {
+    border-radius: 0px;
+    width: 95%;
+    margin-left: 5px;
+}
+}
+
+.modal-contentPay{
+    background-color: white;
+    border-radius: 0px;
+    text-align: right;
+    max-width: 300px;
+    margin: auto;
+    border-radius: 10px;
+}
+.modal-contentAdd{
+    background-color: rgba(0,0,0,0.8);
+    text-align: center;
+    max-width: 400px;
+    margin: auto;
+    border-radius: 10px;
+}
+.close {
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: white;
+    margin-top: -12px;
+    margin-right: 7px;
+}
+
+.close-card {
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: white;
+    margin-right: 7px;
+    color: gray;
+}
+input.placeholder{
+    color: red;
+}
+input.textfield{
+    background-color: transparent;
+    width: 100%;
+    height: 40px;
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #000000;
+    font-weight: bold;
+}
+input::placeholder {
+  color: red;
+}
+@-webkit-keyframes autofill {
+    to {
+        color: white;
+        background: transparent;
+    }
+}
+
+
+.table{
+    background-color: white!important;
+}
+.kidsTable {
+    width: 350px;
+    display: inline-block;
+}
+.kidsTableAdd{
+    width: 350px;
+    display: inline-block;
+}
+.kidz{
+    position: relative;
+    width: 350px;
+}
+.paymentTable{
+    margin-top: -40px;
+}
+.smallInput{
+    width: 40px;
+}
+.alert{
+    width: 200px;
+    float: right;
+    text-align: center;
+    margin-right: 30px;
+}
+
+.modal-contentPay{
+    background-color: white;
+    border-radius: 0px;
+    text-align: right;
+    max-width: 300px;
+    margin: auto;
+    border-radius: 10px;
+}
+.modal-contentAdd{
+    background-color: rgba(0,0,0,0.8);
+    text-align: center;
+    max-width: 400px;
+    margin: auto;
+    border-radius: 10px;
+}
+.pushthirtyzero{
+    padding-left: 30px;
+}
+.modal-height{
+    height: 420px;
+}
+#myModalLabel{
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    padding-top: 50px;
+}
+.close {
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: white;
+    margin-top: -12px;
+    margin-right: 7px;
+}
+
+.close-card {
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: white;
+    margin-right: 7px;
+    color: gray;
+}
+input.placeholder{
+    color: red;
+}
+
+input::placeholder {
+  color: red;
+}
+@-webkit-keyframes autofill {
+    to {
+        color: white;
+        background: transparent;
+    }
+}
+
+.reset-field{
+    margin-top: 20px;
+    background-color: transparent;
+    border: 1px solid white;
+    width: 100%;
+    height: 40px;
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: white;
+    font-weight: bold; 
+}
+.navbar-collapse {
+    text-align: center;
+}
+.navbar-collapse.in{
+    overflow-y: visible!important;
+}
+.reset-user{
+    padding-top: 20px;
+}
+.buttonlg {
+    width: 225px;
+    float: left;
+    border-radius: 0px;
+}
+.buttonrs{
+    width: 225px;
+    border-radius: 0px;
+    margin-left: 15px;
+}
+.buttonreg {
+    width: 225px;
+    float: left;
+    border-radius: 0px;
+    width: 100%
+}
+.buttonregs{
+    width: 225px;
+    border-radius: 0px;
+    margin-left: 15px;
+    float: right;
+}
+.buttonwr{
+    width: 100%;
+    border-radius: 0px;
+}
+
+.passreapeat{
+    position: absolute;
+    margin-top: 19px;
+    margin-left: 17px;
+    font-size: 9px;
+    color: black
+}
+.loginsize{
+    max-width: 500px;
+    min-height: 300px;
+    margin:auto;
+}
+/*profile page*/
+.img-circle {
+    border-radius: 50%;
+    margin-top: 20px;
+}
+.info-box{
+    padding: 30px;
+}
+.img-profile{
+    padding: 0px;
+}
+
+.delivery-logo{
+    width: 100%;
+    top: 60px;
+    position: relative
+}
+.profile-top{
+       vertical-align: middle;
+    color: white;
+    text-align: center;
+    font-family: 'Cousine';
+    display: inline-block;
+    margin: auto;
+}
+.userForm{
+    font-size: 12px;
+    margin: auto;
+}
+.kidForm{
+    font-size: 12px;
+    height: 180px;
+}
+.kidFormAdd{
+    font-size: 12px;
+    height: 180px;
+}
+.kidFormAdd td{
+    color: white;
+}
+.kidFormAdd input, select {
+    margin-left: 20px;
+    padding-left: 20px;
+    margin-bottom: 5px;
+    border: none;
+    height: 30px;
+    width: 200px;
+    color: black!important;
+    background-color: white!important;
+}
+.userForm input{
+    height: 30px;
+    width: 300px;
+    border: none;
+}
+.userForm select{
+    height: 30px;
+    border: none;
+    width: 80px;
+}
+.greating-message{
+    margin-top: 70px;
+    font-size: 40px;
+}
+.personalInfoProfile td{
+    font-family: 'Roboto Mono';
+}
+.personalInfoProfile input, select{
+    margin-left: 20px;
+    padding-left: 20px;
+    margin-top: 5px;
+    font-family: 'Roboto Mono';
+}
+.personalInfoProfile{
+    margin: auto;
+}
+.gravatarImage{
+    width:50px; 
+    border-radius:50%;
+    margin-top:-7px;
+}
+.profileImage{
+    width: 350px;
+    height: 350px;
+    margin-top: 80px;
+    text-align: center;
+}
+.kidsFormCenter{
+    text-align: center;
+    font-family: 'Roboto Mono';
+}
+.resetFormCenter{
+    text-align: center;
+    font-family: 'Roboto Mono';
+    display: inline-block;
+    margin-top: 20px;
+    width: 100%;
+}
+.kidForm td{
+    font-family: 'Roboto Mono';
+}
+.kidForm input, select{
+    margin-left: 20px;
+    padding-left: 20px;
+    margin-bottom: 5px;
+    border: none;
+    height: 30px;
+    width: 200px;
+}
+.inlineBlockLogin{
+    display: inline-block;
+}
+i.fa-stack-1x {
+    font-size: 11px;
+    top: -0.8px;
+}
+.plus{
+    margin-top: -40px;
+    color:#820f0f;
+    position: absolute;
+}
+.inlineButtons{
+    display: inline-flex;
+}
+.modal-content1{
+    background-color: white;
+    border-radius: 0px; 
+    text-align: center;
+    margin-top: 100px;
+}
+.imageprices{
+    width: 200px;
+    padding: 0px;
+    display: inline-block;
+    margin-top: 5px;
+    background-color: #efefef;
+    height: 300px;
+}
+.addItem{
+    width: 200px;
+    height: 30px;
+    margin-top: 52px;
+}
+.closed{
+    width:100%;
+}
+.pagination{
+    display: inline-block;
+    padding-left: 0;
+    margin: 0 0 20px 0;
+    width: 100%;
+    text-align: center;
+}
+a.post-meta{
+    color:gray;
+}
+.product-image{
+    width: 100px!important;
+    height: 100px!important;
+    display: block;
+    background-size: cover;
+    background-position: center;
+    padding: 4px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+.productmenu{
+    padding: 0px 0px 0px 20px;
+}
+.products-container{
+    /*margin-left: 0;*/
+    margin: 0 0px;
+    padding-left: 0;
+}
+.productshow{
+    padding-left: 0;
+    display: inline-block;
+}
+.productwraper{
+    display: absolute;
+
+}
+.size{
+    display: inline-block;
+    text-align: center;
+}
+.allProducts{
+    text-align: center;
+}
+.searchResults{
+    text-align: center;
+}
+.righticons{
+    font-weight: normal;
+    font-size: 11px;
+    vertical-align: center;
+    font-family: 'Roboto Mono';
+    color: white;
+}
+.resetLogin{
+    color:black; 
+    border:1px solid black; 
+    border-radius:10px; 
+    width:70px; 
+    height:40px; 
+    margin-bottom:100px; 
+}
+.ibox {
+    clear: both;
+    margin-bottom: 25px;
+    margin-top: 10px;
+    padding: 0;
+    margin: auto;
+}
+.ibox-title {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #ffffff;
+    border-color: #e7eaec;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 2px 0 0;
+    color: inherit;
+    margin-bottom: 0;
+    padding: 15px 15px 7px;
+    min-height: 48px;
+}
+.ibox-title h5 {
+    display: inline-block;
+    font-size: 14px;
+    margin: 0 0 7px;
+    padding: 0;
+    text-overflow: ellipsis;
+    float: left;
+}
+.ibox-content {
+    clear: both;
+}
+.ibox-content {
+    background-color: white;
+    color: inherit;
+    padding: 15px 20px 20px 20px;
+    border-color: #e7eaec;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 1px 0;
+}
+.text-center {
+    text-align: center;
+}
+.small, small {
+    font-size: 65%;
+}
+span.fa-stack.fa-lg{
+    position: relative;
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    vertical-align: middle;
+    margin-left: -10px;
+    font-size: small;
+    color: #820f0f;
+    font-weight: bold;
+    margin-top: 12px;
+}
+
+.stick-to-bottom{
+    bottom:0;
+}
+
+.paymenttype{
+    width:100%;
+}
+
+.footerimages{
+    display: inline-block;
+}
+.footerimages:hover{
+    cursor: pointer;
+}
+.footerbar{
+    text-align: center;
+}
+
+
+.footerbarcontent{
+    display: block;
+    padding-top: 30px;
+}
+.indexfooter{
+    background-color: black;
+    margin-top: 165px;
+}
+.phone{
+    /*width: 100%;*/
+    display: block;
+    margin-top: -80px;
+}
+footer{
+    width: 100%;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.8);
+    position: relative;
+    display: inline-block;   
+}
+.inline{
+    margin-top: 20px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    padding-top: 20px;
+}
+
+h6{
+    font-size: 9px;
+}
+.search-form-control{
+    vertical-align: middle;
+    text-align: center !important;
+   margin-right:5px;
+    max-width: 50%;
+    height: 50px;
+    font-size: 30px!important;
+    display: inline !important;
+    border-radius: 4px!important;
+    border: none;
+}
+.searchbar{
+    height: 300px;
+    width:100%;
+    background-color: rgba(0,0,0,0.5);
+    position: relative;
+    margin-top: 150px;
+}
+#search_button{
+    background-color: #e8a93c;
+    color: white;
+    font-size: 20px;
+}.search-inline{
+    display: inline;
+}
+button{
+    height: 50px;
+    
+    border: none;
+    background: none;
+}
+#banner{
+    margin-top: 28px;
+    margin-bottom: 20px;
+    border-radius: 25px;
+}
+h1{
+    text-align: center;
+}
+table.table.table-striped > tbody > tr{
+    background: none;
+}
+.pull-right {
+    float: right;
+    margin-top: 70px;
+    position: absolute;
+    margin-left: 400px;
+}
+.prof{
+    margin-left: 50px;
+    margin-top: 50px;
+}
+.icon-bar{
+    background-color: white;
+}
+.catnames{
+    display: inline-flex;
+}
+.category-name > a{
+    color: black;
+    padding-left: 10px;
+    font-size: 9px;
+}
+.category-name{
+    padding-top: 9px;
+}
+.bglayer{
+    background-image: rgba(0,0,0,0.2);
+    z-index: 1;
+    position: relative;
+}
+.bg{
+background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    z-index: -1;
+  
+}
+.navbar {
+    background-color: rgba(0,0,0,0.2);
+    background-image: none;
+    border: none;
+    border-radius: 0px;
+    z-index: 1;
+}
+.buttonAdd{
+    height: 40px!important;
+    width: 90px;
+    background-color: white;
+    color: gray;
+    border: 1px solid gray!important;
+    float: right;
+    margin-top: 10px;
+}
+.buttonAdd2{
+    height: 40px!important;
+    width: 90px;
+    background-color: white;
+    color: gray;
+    border: 1px solid gray!important;
+    float: right;
+    margin-top: 10px;
+}
+.buttonUpdate{
+    height: 40px!important;
+    width: 80px;
+    background-color: white;
+    color: gray;
+    border: 1px solid gray!important;
+    float: right;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+.buttonDelete{
+    height: 40px!important;
+    width: 80px;
+    background-color: white;
+    color: gray;
+    border: 1px solid gray!important;
+    float: right;
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+.buttonLogin{
+    height: 40px!important;
+    width: 80px;
+    background-color: white;
+    color: gray;
+    border: 1px solid gray!important;
+}
+.buttonPay{
+    height: 40px!important;
+    width: 130px;
+    background-color: white;
+    color: gray;
+    border: 1px solid gray!important;
+    text-align: center;
+    margin-top: -90px;
+}
+.btn{
+    
+    background-image: none;
+    border: none;
+    height: 50px;
+}
+
+a{
+    color: white;
+}
+a.blog{
+    color:#820f0f;
+}
+.cart{
+    padding-right:20px;
+}
+.emptyCart{
+    text-align: center;
+    height: 350px;
+}
+.goShop{
+    color: gray;
+}
+.navbar-brand:hover{
+    padding-left: 60px;
+    padding-top: 20px;
+    transform: scale(3);
+    transition: all 1s;
+}
+/*credit card css, cart.html*/
+#payment-form{
+    display: inline-block;
+    width: 100%;
+}
+.modal-body-3{
+    text-align: center;
+}
+.modal-content-3 {
+    background-color: rgba(255,255,255,0);
+    border-radius: 0px;
+    text-align: center;
+    border: none;
+    box-shadow: none;
+}
+.card{
+    position: relative;
+    width: 100%;
+}
+label{
+    display: none;
+}
+.form-control{
+    width: 200px;
+    height: 30px;
+    font-size: 10px;
+    background-color: rgba(0,0,0,0.1);
+    border: none;
+    text-shadow: 2px;
+    color: black;
+}
+#id_credit_card_number {
+    font-size: 12px!important;
+    text-align: center;
+    display: inline-block;
+    width: 70%;
+    height: 40px;
+    letter-spacing: 4px;
+    position: relative;
+    margin-top: 20px;
+}
+#id_expiry_month {
+        left: 25px;
+    position: relative;
+    width: 20%;
+}
+#id_expiry_year {
+    left: 100px;
+    position: relative;
+    width: 25%;
+    top: -46px;
+}
+#id_cvv {
+    position: relative;
+    width: 15%;
+    left: 210px;
+    top: -92px;
+}
+.name-filed {
+    width: 70%;
+    height: 40px;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 4px;
+    color: black!important;
+    text-align: center;
+    top: -90px;
+    border: none;
+    font-size: 12px!important;
+    position: relative!important;
+}
+.address-box{
+    width: 70%;
+    text-align: center;
+    border: 1px solid whitesmoke;
+    font-size: 10px!important;
+}
+.address-place{
+    display: inline-block;
+    padding-left: 30px;
+    margin: auto;
+}
+.stripepay{
+    text-align: right;
+}
+.add-button{
+    height:20px;
+    width: 70%;
+    font-size: 10px;
+    margin-top: 10px;
+    border: 1px solid black; 
+}
+.paymentsPic{
+    width:90%;
+    position: relative;
+    left: -700px;
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 1s;
+    animation: slide 0.5s forwards;
+    animation-delay: 1s;
+}
+.paymentsSlide{
+    width:420px;
+    position: relative;
+    left: -700px;
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 1s;
+    animation: slide 0.5s forwards;
+    animation-delay: 1s;
+}
+@-webkit-keyframes slide {
+    100% { left: 0; }
+}
+@keyframes slide {
+    100% { left: 0; }
+}
+
+.deliverytable{
+    margin-left: 40px;
+    margin-top: -20px;
+}
+.header {
+  clear: both;
+  margin-bottom: 10px;
+  
+  height: 90px;
+}
+.sidebar {
+  float: left;
+  width: 350px;
+}
+.content {
+  float: right;
+  width: 640px;
+  
+  height: 800px;
+}
+.mySlides {display:none}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  display: none;
+}
+
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+
+@media (max-width: 1200px){
+.phone {
+    width: 400px;
+}
+.footerbarcontent h1{
+    transition: 1s ease-in;
+    font-size: 30px;
+}
+.footerbarcontent h3{
+    transition: 1s ease-in;
+    font-size: 15px;
+}}
+@media (max-width:1000px){
+.sidebar{
+    display: none;
+}}
+@media (max-width: 800px){
+.phone, .productshow {
+    display: none;
+}
+.sidebar{
+    display: none;
+}
+.footerbarcontent h1{
+    transition: 1s ease-in;
+    font-size: 30px;
+    margin-left: -40%;
+}
+.footerbarcontent h3{
+    transition: 1s ease-in;
+    font-size: 15px;
+    margin-left: -40%;
+}
+.pay{
+    transition: 1s ease-in;
+    font-size: 15px;
+    margin-left: -40%;
+}
+.pay h3{
+    padding-left: 130px;
+}}
+@media (max-width: 500px){
+.productwraper{
+    display: none;
+}
+.sticky, .sidebar{
+    display: none;
+}
+.userForm input, select{
+    width: 200px;
+}
+.kidForm input, select{
+    width: 200px;
+}
+.paymentsPic {
+    display: none;
+}
+.card{
+    width: 500px;
+    transform: rotate(90deg);
+    left: -90px;
+    top: 90px;
+}
+.card-details{
+    width: 150%;
+    transform: rotate(90deg);
+    left: -90px;
+    top: 80px;
+}
+input .name-field{
+    transform: rotate(90deg);
+    left: -160px;
+    top: 230px;
+}
+.delivery-logo{
+    display: none;
+}
+.video{
+    height: 760px;
+}
+.searchbar{
+    background-color: rgba(0,0,0,0);
+    margin-top: 25px;
+}
+.additionalinformation{
+    font-size: 10px;
+}
+.buttonlg {
+    border-radius: 0px;
+    width: 95%;
+    margin-left: 10px;
+}
+.buttonrs {
+    border-radius: 0px;
+    width: 95%;
+    margin-left: 5px;
+}
+}
+.fa-lock, .fa-user, .fa-cogs, .fa-envelope {
+    padding-bottom: 20px;
+    position: absolute;
+    float: right;
+    margin-top: 6px;
+    margin-left: 2%;
 }

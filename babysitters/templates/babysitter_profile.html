@@ -11,7 +11,7 @@
                 
                     <div class="col-lg-5 col-sm-6">
                         <div class="member-meta">
-                            <img src="{{ MEDIA_URL }}{{ item.babysitter.image }}">
+                            <img src="{{ MEDIA_URL }}{{ babysitter.image }}">
                             <span class="mbr-vocation">Babysitter</span>
                             <h2>{{ babysitter.firstName }} {{babysitter.lastName}}</h2>
                             <span class="author-social">
@@ -36,7 +36,7 @@
                                     <i class="fas fa-euro light-blue large-icon"></i>
                                     <span>&nbsp {{ babysitter.price }} Per Hour</span>
                                 </div>
-                                <form method="post" action="{% url 'add_to_bookings' babysitter.id %}">
+                                <form method="post" action="{% url 'add_to_cart' babysitter.id %}">
                 {% csrf_token %}
                 <div class="input-group">
                     <input name='quantity' type="number" min="1" max="999" class="form-control" placeholder="Quantity">

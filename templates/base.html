@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="{% static 'css/animations.css' %}">
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/balloon.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
     {% block head_js %}
     {% endblock head_js %}
 </head>
@@ -34,25 +36,37 @@
                         <img src="{% static 'images/logo.png' %}" alt="Babysitter logo" class="top-logo">
                     </a>
                 </div>
-              <div class="col-sm-4 text-center ">
-							<a class="nav-link">
-								<span "loggedIn"><img src="{{ MEDIA_URL }}{{user.profile.image}}" alt="{{username}}"  class="rounded-circle avatar d-none d-md-inline-block"></span>
-								<a class="nav-link" href="{% url 'profile' %}"><h4>Welcome <strong>{{ user.username }}</strong></h4></a>
-							</a>
-		      </div>
+            
                
-              <div class="col-sm-4 text-center">
-				<a class="nav-link" href="{% url 'register' %}"><button type="button" class=" nav-link btn btn-primary"><i class="fas fa-user-plus">Register</i></button></a>
-				<a class="nav-link" href="{% url 'login' %}"><button type="button" class="btn btn-info"><i class="fas fa-sign-in-alt">Login</i></button></a>
-                <a class="nav-link text-right" href="{% url 'logout' %}"> <button type="button" class="btn btn-warning"><i class="fas fa-sign-out-alt">Logout</i></button></a>
-                <a class="nav-link text-right" href="{% url 'view_bookings' %}"> <button type="button" class="btn btn-default" ><i class="fas fa-shopping-cart">Bookings</i>{% if babysitter_count > 0 %}
-                <label class="badge badge-warning">{{ babysitter_count }}</label>
-                            {% endif %}</button></a>
+              <div class="nav navbar-nav navbar-right">
+			
+                {% if user.is_authenticated %}
+                    <li class="righticons"  data-balloon="You are logged in as {{ user.first_name }} {{ user.last_name }}" data-balloon-pos="down"><a href="{% url 'profile' %}"><span><img src="{{ MEDIA_URL }}{{user.profile.image}}" class="gravatarImage"></span></i><h4> Profile</h4></a></li>
+                    <li class="righticons"><a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt fa-3x"></i></i><h4>Log Out</h4></a></li>
+                {%  else %}
+                    <button type="button" class="righticons" data-toggle="modal" data-target="#modalLogin"><i class="fas fa-plus fa-3x" aria-hidden="true"></i><h4>Login</h4></button>
+                
+            <!-- Button trigger modal -->
+                    <button type="button" class="righticons" data-toggle="modal" data-target="#modalRegister"><i class="fas fa-sign-out-alt fa-3x"></i><h4> SignUp</h4></button>
+          {% endif %}
+          <div class="nav navbar-nav navbar-right cart">
+                {% if user.is_authenticated %}
+                    <li class="righticons"><a href="{% url 'cart' %}"><i class="fas fa-cart-plus fa-3x"></i> <h4>Cart</h4></a></li>
+                {% else %}
+                    <button type="button" class="righticons" data-toggle="modal" data-target="#modalLogin"><i class="fas fa-cart-plus fa-3x"></i><h4>Cart</h4>
+                {% endif %}
+                
+                {% if babysitter_count > 0 %}
+                            <label class="badge badge-warning">{{ babysitter_count }}</label>
+                {% endif %}
+                
+          </div>
+        </div>  
               
               </div>
             </div>
        </div>
-    </div>
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12 text-center">
@@ -113,22 +127,20 @@
         <form method="post" action="{% url 'register' %}">
                   {% csrf_token %}
   
-      <i class="fa fa-user fa-2x" style="color:white" aria-hidden="true"></i>
-      <input type="text" class="textfield" placeholder="User name" name="username" >
+      <i class="fas fa-user fa-2x"  aria-hidden="true"></i>
+      <input type="text" class="textfield" placeholder="Username" name="username" >
       
-      <i class="fa fa-envelope-o fa-2x" style="color:white" aria-hidden="true" ></i>
+      <i class="fas fa-envelope fa-2x" aria-hidden="true" ></i>
       <input type="email" class="textfield" placeholder="Email" name="email">
 
-      <i class="fa fa-lock fa-2x" style="color:white" aria-hidden="true" ></i>
+      <i class="fas fa-lock fa-2x"  aria-hidden="true" ></i>
       <input type="password" class="textfield" placeholder="Your password" name="password1">
       
       
-      <i class="fa fa-lock fa-2x" style="color:white" aria-hidden="true" ></i>
-      <i class="fa fa-repeat passreapeat" aria-hidden="true"></i>
-      
-      <input type="password" class="textfield" placeholder="Reapeat your password" name="password2">
+      <i class="fas fa-lock fa-2x"  aria-hidden="true" ></i>
+      <input type="password" class="textfield" placeholder="Repeat your password" name="password2">
 
-  <button type="submit" class="btn btn-success buttonreg" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Register</button>
+  <button type="submit" class="btn btn-success buttonreg" ><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>Register</button>
   <!--<button type="submit" class="btn btn-danger buttonrs"><i class="fa fa-link" aria-hidden="true"></i> Full Registration Form</button>-->
 </form>
       </div>
@@ -146,17 +158,17 @@
             <div class="modal-body">
               <form method="post" action="{% url 'login' %}">
                   {% csrf_token %}
-                    <i class="fa fa-user fa-2x" style="color:white" aria-hidden="true"></i>
-                    <input type="text" class="textfield" name="username_or_email" >
-                    <i class="fa fa-lock fa-2x" style="color:white" aria-hidden="true" ></i>
-                    <input type="password" class="textfield" name="password">
+                    <i class="fa fa-user fa-2x"  aria-hidden="true"></i>
+                    <input type="text" class="textfield" placeholder="Username or Email Address" name="username_or_email" >
+                    <i class="fa fa-lock fa-2x"  aria-hidden="true" ></i>
+                    <input type="password" class="textfield" placeholder="Password" name="password">
                     <button type="submit" class="btn btn-success buttonlg" >Login</button>
               </form>
                   <div class="footer">
                       <button type="submit" class="btn btn-danger buttonrs" data-toggle="collapse" data-target="#resetfield"><i class="fa fa-key fa-rotate-90" aria-hidden="true"></i> Reset</button>
                       <div id="resetfield" class="collapse">
                     {% csrf_token %}
-                        <i class="fa fa-cogs fa-2x reset-user" style="color:white" aria-hidden="true"></i>
+                        <i class="fa fa-cogs fa-2x reset-user" aria-hidden="true"></i>
                         <input type="email" class="textfield reset-field" name="email" name="csrfmiddlewaretoken">
                         <button type="submit" name="password_reset" class="btn btn-warning buttonwr"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Reset confirmation</button>
               </form>
@@ -271,6 +283,7 @@
 <script src="{% static 'js/main.js' %}"></script> 
 <script src="{% static 'js/plugins.js' %}"></script>
 <script src="{% static 'js/compressed.js' %}"></script>
+<script src="{% static 'js/customize.js' %}"></script>
 <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
 
 
