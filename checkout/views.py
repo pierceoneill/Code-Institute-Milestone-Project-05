@@ -28,7 +28,7 @@ def buy_now(request, id):
 
             if customer.paid:
                 messages.success(request, "You have successfully paid")
-                return redirect(reverse('babysitters'))
+                return redirect(reverse('products'))
             else:
                 messages.error(request, "Unable to take payment")
         else:

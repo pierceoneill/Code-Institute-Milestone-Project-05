@@ -11,4 +11,4 @@ class CartItem(models.Model):
     quantity = models.IntegerField()
 
     def __str__(self):
-        return "{0} ({1})".format(self.babysitter.name, self.quantity)
+        return "{0} ({1})".format(self.babysitter.firstName, self.quantity)

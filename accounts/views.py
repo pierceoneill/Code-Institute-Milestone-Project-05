@@ -1,6 +1,6 @@
 from django.contrib import messages, auth
 from accounts.forms import UserRegistrationForm, UserLoginForm, FullUserDetailsForm, KidDetailsForm
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse, reverse_lazy
 from django.shortcuts import render, redirect, HttpResponseRedirect, HttpResponse, get_object_or_404
 from django.template.context_processors import csrf
 from django.contrib.auth.decorators import login_required
@@ -29,8 +29,8 @@ def update_profile(request):
         request.user.profile.instagram=form.cleaned_data['instagram']
         request.user.save()
         return redirect(reverse('profile'))
-    else:
-        return HttpResponse("Error")
+    else: 
+        return redirect('profile')
 
 def update_profile_kid(request, id):
     kid = get_object_or_404(KidProfile, pk=id)
@@ -42,8 +42,8 @@ def update_profile_kid(request, id):
         kid.needs=form.cleaned_data['needs']
         kid.save()
         return redirect(reverse('profile'))
-    else:
-        return HttpResponse("Error")
+    else: 
+        return redirect('profile')
         
 def create_profile_kid(request):
     form=KidDetailsForm(request.POST, request.FILES)
@@ -56,8 +56,6 @@ def create_profile_kid(request):
         kid.parent=request.user
         kid.save()
         return redirect(reverse('profile'))
-    else:
-        return HttpResponse("Error")
         
 def delete_profile_kid(request, id):
     kid = get_object_or_404(KidProfile, pk=id)

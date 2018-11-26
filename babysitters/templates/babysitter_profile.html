@@ -1,5 +1,7 @@
 
-    {% extends 'base.html' %} {% block page_title %}{{ user }}'s Profile{% endblock %} {% block page_heading %}{{ user }}'s Profile{% endblock %} {% block content %}
+    {% extends 'base.html' %} 
+    {% load static %}
+    {% block page_title %}{{ user }}'s Profile{% endblock %} {% block page_heading %}{{ user }}'s Profile{% endblock %} {% block content %}
 <p>{{ babysitters.firstName }}</p>
 
 <section>
@@ -11,7 +13,7 @@
                 
                     <div class="col-lg-5 col-sm-6">
                         <div class="member-meta">
-                            <img src="{{ MEDIA_URL }}{{ babysitter.image }}">
+                            <img class="rounded-circle profile-image my-2 img-fluid" src="{{ MEDIA_URL }}{{ babysitter.image }}">
                             <span class="mbr-vocation">Babysitter</span>
                             <h2>{{ babysitter.firstName }} {{babysitter.lastName}}</h2>
                             <span class="author-social">
@@ -20,21 +22,49 @@
                                 <a href="#" class="social-icon color-bg-icon rounded-icon soc-instagram"></a>
                             </span>
                             <div class="member-contacts">
-                                <div class="mbr-addres">
-                                    <i class="rt-icon2-location-outline pink large-icon"></i>
-                                    <span>{{ babysitter.city }}</span>
-                                </div>
                                 <div class="mbr-phone">
-                                    <i class="rt-icon2-mail2 blue large-icon"></i>
-                                    <span>{{ babysitter.email }}</span>
+                                    <i class="fas fa-mars fa-2x" style="color:#9cc0e5;"></i><i class="fas fa-venus fa-2x" style="color:#f5abcb;"></i>
+                                    <span>&nbsp &nbsp{{ babysitter.gender }}</span>
                                 </div>
                                 <div class="mbr-email">
-                                    <i class="rt-icon2-phone-outline light-green large-icon"></i>
-                                    <span>{{ babysitter.phone }}</span>
+                                    <i class="fas fa-birthday-cake fa-2x" style="color:#c2dc71;"></i>
+                                    <span>&nbsp &nbsp{{ babysitter.age }} </span>
+                                </div>
+                                <div class="mbr-addres">
+                                    <i class="fas fa-map-marker-alt fa-2x" style="color:#f5abcb;"></i>
+                                    <span>&nbsp &nbsp{{ babysitter.city }}</span>
+                                </div>
+                                <div class="mbr-phone">
+                                    <i class="fas fa-envelope-open fa-2x" style="color:#9cc0e5;"></i>
+                                    <span>&nbsp {{ babysitter.email }}</span>
+                                </div>
+                                <div class="mbr-email">
+                                    <i class="fas fa-phone light-green fa-2x" style="color:#c2dc71;"></i>
+                                    <span>&nbsp &nbsp{{ babysitter.phone }} </span>
+                                </div>
+                                <div class="mbr-addres">
+                                    <i class="fas fa-smoking fa-2x" style="color:#666566;"></i>
+                                    <span>&nbsp &nbsp{{ babysitter.smoking }}</span>
+                                </div>
+                                <div class="mbr-phone">
+                                    <i class="fas fa-id-card fa-2x" style="color:#f5abcb;"></i>
+                                    <span>&nbsp &nbsp{{ babysitter.driver }}</span>
+                                </div>
+                                <div class="mbr-phone">
+                                    <i class="fas fa-car-side light-pink fa-2x" style="color:#9cc0e5;"></i>
+                                    <span>&nbsp &nbsp{{ babysitter.car }}</span>
+                                </div>
+                                <div class="mbr-email">
+                                    <i class="fas fa-award fa-2x" style="color:#c2dc71;"></i>
+                                    <span>&nbsp &nbsp &nbsp{{ babysitter.experience}} Years Experience</span>
+                                </div>
+                                <div class="mbr-price">
+                                    <i class="fas fa-check-double blue fa-2x"></i>
+                                    <span>&nbsp &nbsp {{ babysitter.verified }}</span>
                                 </div>
                                 <div class="mbr-price">
                                     <i class="fas fa-euro light-blue large-icon"></i>
-                                    <span>&nbsp {{ babysitter.price }} Per Hour</span>
+                                    <span>&nbsp &nbsp{{ babysitter.price }} Per Hour</span>
                                 </div>
                                 <form method="post" action="{% url 'add_to_cart' babysitter.id %}">
                 {% csrf_token %}
@@ -44,7 +74,42 @@
                             <button class="btn btn-success" type="submit">Add Hours</button>
                           </span>
                 </div>
-                <!-- /input-group -->
+                <br>
+                <br>
+               <!-- input-group -->
+<section class='rating-widget'>
+  
+  <!-- Rating Stars Box -->
+  <div class='rating-stars text-center'>
+    <ul id='stars'>
+      <li class='star' title='Poor' data-value='1'>
+        <i class='fa fa-star fa-fw'></i>
+      </li>
+      <li class='star' title='Fair' data-value='2'>
+        <i class='fa fa-star fa-fw'></i>
+      </li>
+      <li class='star' title='Good' data-value='3'>
+        <i class='fa fa-star fa-fw'></i>
+      </li>
+      <li class='star' title='Excellent' data-value='4'>
+        <i class='fa fa-star fa-fw'></i>
+      </li>
+      <li class='star' title='WOW!!!' data-value='5'>
+        <i class='fa fa-star fa-fw'></i>
+      </li>
+    </ul>
+  </div>
+  
+  <div class='success-box'>
+    <div class='clearfix'></div>
+    <div alt='tick image' src="{% static 'images/green-tick.png' %}">
+    <div class='text-message'></div>
+    <div class='clearfix'></div>
+  </div>
+  
+  
+  
+</section>
 
             </form>
                             </div>
@@ -54,9 +119,9 @@
                         <h1 class="poppins">Meet <span class="pink">{{ babysitter.firstName }}</span></h1>
                         <p>{{ babysitter.description }}</p>
                         <ul class="list2">
-                            <li><p class="blue">Sed porttitor lectus nibh.</p></li>
-                            <li><p class="blue">Quisque velit nisi, pretium ut lacinia in, elementum id enim.</p></li>
-                            <li><p class="blue">Donec rutrum congue leo eget malesuada.</p></li>
+                            <li><p class="blue">{{ babysitter.fact1 }}</p></li>
+                            <li><p class="blue">{{ babysitter.fact2 }}</p></li>
+                            <li><p class="blue">{{ babysitter.fact3 }}</p></li>
                         </ul>
                         {% for ref in reference_qs %}
                         <div class="mbr-testimonial">
@@ -128,9 +193,14 @@
                                 {% endfor %}
                             </div>
                         </div>
+                        </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
         </section>
-
+</div>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src="{% static 'js/ratings.js' %}"></script> 
 {% endblock %}

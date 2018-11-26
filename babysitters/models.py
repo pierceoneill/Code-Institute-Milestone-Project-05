@@ -15,14 +15,25 @@ class Babysitter(models.Model):
     city = models.CharField(max_length=20, null=True)
     county = models.CharField(max_length=100, null=True)
     postcode = models.CharField(max_length=7, null=True)
-    facebook = models.CharField(max_length=50, blank=True, null=True)
-    twitter = models.CharField(max_length=50, blank=True, null=True)
-    instagram = models.CharField(max_length=50, blank=True, null=True)
+    facebook = models.CharField(max_length=50, null=True)
+    twitter = models.CharField(max_length=50, null=True)
     fact1 = models.CharField(max_length=140, null=True)
     fact2 = models.CharField(max_length=140, null=True)
     fact3 = models.CharField(max_length=140, null=True)
-    biography = models.TextField(max_length=280,blank=True)
-    price = models.DecimalField(max_digits=6, decimal_places=2)
+    description = models.CharField(max_length=140, null=True)
+    price = models.DecimalField(max_digits=6, decimal_places=0)
+    smoking = models.CharField(max_length=140, null=True)
+    driver = models.CharField(max_length=140, null=True)
+    car = models.CharField(max_length=140, null=True)
+    experience = models.CharField(max_length=140, null=True)
+    expAges = models.CharField(max_length=140, null=True)
+    prefLoc = models.CharField(max_length=140, null=True)
+    verified = models.CharField(max_length=8,blank=True, null=True)
+    donator = models.CharField(max_length=140, null=True)
+    gender = models.CharField(max_length=6, null=True)
+    age = models.CharField(max_length=2, null=True)
+    
+    
     def __str__(self):
         return self.firstName + ' ' + self.lastName
         
