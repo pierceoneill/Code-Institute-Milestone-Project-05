@@ -17,21 +17,22 @@
 				<img class="rounded-circle profile-image my-2 img-fluid" src="{{ MEDIA_URL }}{{user.profile.image}}" alt="{{user.username}}">
 				<br>
 				<div class="text-center">
-					
+				<br>
   				<a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalRegisterForm">Edit Profile</a>
-
+				<br>
+				<br>
 				<ul class="list-group">
 					<li class="list-group-item d-flex justify-content-between align-items-center">
-						<span><i class="fas fa-user-alt fa-lg"></i> Name:</span>
+						<span><i class="fas fa-user-alt fa-lg" style="color:#9cc0e5;"></i> Name:</span>
 						{{ user.first_name }} {{user.last_name}}
 					</li>
 					
 					<li class="list-group-item d-flex justify-content-between align-items-center">
-						<span><i class="fas fa-map-marker-alt fa-lg"></i> Address</span>
+						<span><i class="fas fa-map-marker-alt fa-lg" style="color:#c2dc71;"></i> Address</span>
 						{{ user.profile.address1 }}, {{ user.profile.address2 }}, {{ user.profile.city }}, {{ user.profile.county }}, {{ user.profile.postcode }}
 					</li>
 					<li class="list-group-item d-flex justify-content-between align-items-center">
-						<span><i class="fas fa-envelope-open-text fa-lg"></i> Email:</span>
+						<span><i class="fas fa-envelope-open-text fa-lg" style="color:#f5abcb;"></i> Email:</span>
 						{{ user.profile.email }}
 					</li>
 					<li class="list-group-item d-flex justify-content-between align-items-center">
@@ -39,24 +40,24 @@
 						{{ user.profile.phone }}
 					</li>
 					<li class="list-group-item d-flex justify-content-between align-items-center">
-						<span><i class="fas fa-calendar-alt fa-lg"></i> Date of Birth:</span>
+						<span><i class="fas fa-calendar-alt fa-lg" style="color:#9cc0e5;"></i> Date of Birth:</span>
 						{{user.profile.dob}}
 					</li>
 					<li class="list-group-item d-flex justify-content-between align-items-center">
-						<span><i class="fas fa-book-reader fa-lg"></i> Biography:</span>
+						<span><i class="fas fa-book-reader fa-lg" style="color:#f5abcb;"></i> Biography:</span>
 						{{user.profile.biography}}
 					</li>
 					<li class="list-group-item d-flex justify-content-between align-items-center">
 						<span>Social Links:</span>
 						<div class="social-profile">
 							<a href="https://www.facebook.com/{{user.profile.facebook}}" target="_blank" placement="top">
-								<i class="fab fa-facebook"></i>
+								<i class="fab fa-facebook" style="color:#9cc0e5;"></i>
 							</a>
 							<a href="https://www.twitter.com/{{user.profile.twitter}}" target="_blank" placement="top">
-								<i class="fab fa-twitter"></i>
+								<i class="fab fa-twitter" style="color:#c2dc71;"></i>
 							</a>
 							<a href="https://www.instagram.com/{{user.profile.instagram}}" target="_blank" placement="top">
-								<i class="fab fa-instagram"></i>
+								<i class="fab fa-instagram" style="color:#f5abcb;"></i>
 							</a>
 							    
 						</div>
@@ -95,6 +96,7 @@
 											<td scope="row">
 												
                                 <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#kiddyupdate">Edit</a>
+                                
                                     <form action="{% url 'delete_profile_kid' kid.id %}" method="POST">
                                         {% csrf_token %}<button class="btn btn-info" formaction="{% url 'delete_profile_kid' kid.id %}" type="submit">Delete</button>
                                     </form>        
@@ -150,6 +152,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
+      	<span><img src="{{ MEDIA_URL }}{{user.profile.image}}" class="gravatarImage"></span>
           <h4 class="modal-title w-100 font-weight-bold">Edit your profile <strong>{{user.first_name}}</strong></h4>
         
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -157,9 +160,9 @@
         </button>
       </div>
       <div class="modal-body">
-         <form class="" action="{% url 'update_profile' kid.id %}" method="post">
+         <form class="" action="{% url 'update_profile' %}" method="post">
                     {% csrf_token %}
-             	<i class="fas fa-user fa-2x" aria-hidden="true"></i>
+             	<i class="fas fa-users fa-2x" aria-hidden="true"></i>
 							<div class="form-group row">
 								<div class="col-sm-6 ">
 									<input
@@ -182,27 +185,23 @@
 									>
 								</div>
 							</div>
-							<i class="fas fa-camera fa-2x" aria-hidden="true"></i>
-							<div class="form-group">
+				<i class="fas fa-camera fa-2x" aria-hidden="true"></i>
+					<div class="form-group">
 								<input
-								 formControlName="profilepic"
-								 name="profilepic"
+								 formControlName="image"
+								 name="image"
 								 type="text"
 								 value="{{ user.profile.image }}"
 								 class="form-control form-control-lg"
 								 placeholder="Upload your Profile Picture"
 								>
-							</div>
-							<i class="fas fa-calendar-alt fa-2x"></i>
-							<div class="form-group">
-								<input
-								 formControlName="dob"
-								 name="dob"
-								 type="text"
-								 value="{{user.profile.dob}}"
-								 class="form-control form-control-lg"
-								 placeholder="Date of Birth"
-								>
+					</div>
+				<i class="fas fa-calendar-alt fa-2x"></i>
+					<div class="input-group date">
+								<input formControlName="dob" name="dob" type="text" value="{{user.profile.dob}}" class="form-control form-control-lg" placeholder="Date of Birth">
+								 <div class="input-group-addon" >
+              					<span class="glyphicon glyphicon-th"></span>
+           						 </div>
 							</div>
 							<i class="fas fa-mars fa-2x"></i><i class="fas fa-venus fa-2x"></i>
 							<div class="form-group">
@@ -332,23 +331,23 @@
 									 placeholder="Instagram Handle"
 									>
 								</div>
-							
-							<div>
+						<div class="row">
+							<div class="col-md-6 text-center">
 								<input
 								 type="submit"
 								 class="btn btn-success btn-rounded mb-2"
 								 value="Update"
 								>
 							</div>
-							<div>
+							<div class="col-md-6 text-center">
 								<input
 								 type="submit"
 								 class="btn btn-danger"
 								 [disabled]="!profileForm.valid"
-								 value="Exit Without Saving"
+								 value="Cancel"
 								>
 							</div>
-					
+						</div>
 							</form>
 							
     </div>
@@ -370,6 +369,105 @@
       </div>
       <div class="modal-body">
          <form class="" action="{% url 'create_profile_kid' %}" method="post">
+         					<i class="fas fa-users fa-2x" aria-hidden="true"></i>
+							<div class="form-group row">
+								<div class="col-sm-6 ">
+									<input
+									 formControlName="name"
+									 name="name"
+									 type="text"
+									 value="{{kid.name}}"
+									 class="form-control form-control-lg"
+									 placeholder="Childs Name">
+								</div>
+							</div>
+							<i class="fas fa-mars fa-2x"></i><i class="fas fa-venus fa-2x"></i>
+          						<div class="input-group">
+            						<select placeholder="Select a gender..." class="form-control chosen-select" style="width:350px;" tabindex="2"
+            						name="gender"
+								 type="text"
+								 value="{{kid.gender}}">
+              							<option value="Select Gender">
+              								Select a Gender
+              							</option>
+              							<option value="F">
+                							Female
+              							</option>
+              							<option value="M">
+                							Male
+              							</option>
+            						</select>
+		   						</div>
+		   					<br>
+							<i class="fas fa-calendar-alt fa-2x"></i>
+							<div class="input-group date">
+								<input formControlName="dob" name="dob" type="text" value="{{user.profile.dob}}" class="form-control form-control-lg"placeholder="Date of Birth">
+								 <div class="input-group-addon" >
+              					<span class="glyphicon glyphicon-th"></span>
+           						 </div>
+							</div>
+							<br>
+							<i class="fab fa-accessible-icon fa-2x"></i>
+          						<div class="input-group">
+            						<select placeholder="Special Requirements..." class="form-control chosen-select" style="width:350px;" tabindex="2"
+            							name="needs"
+								 type="text"
+								 value="{{kid.needs}}">
+              							<option value="Select Needs">
+              								Special Requirements
+              							</option>
+              							<option value="Yes">
+                							Yes
+              							</option>
+              							<option value="No">
+               								 No
+              							</option>
+            						</select>
+		   						</div>
+		   					<br>
+		   					<br>
+							 <div class="row">
+							<div class="col-md-6 text-center">
+								<input
+								 type="submit"
+								 class="btn btn-success btn-rounded mb-2"
+								 value="Add"
+								>
+							</div>
+							<div class="col-md-6 text-center">
+								<input
+								 type="submit"
+								 class="btn btn-danger"
+								 [disabled]="!profileForm.valid"
+								 value="Cancel"
+								>
+							</div>
+						</div>
+						</form>
+							
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Update Kid Modal -->
+
+<div class="modal fade" id="kiddyupdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+      	{% for kid in kids %}
+          <h4 class="modal-title w-100 font-weight-bold">Update<strong> {{kid.name}}</strong></h4>
+        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	
+         <form class="" formaction="{% url 'update_profile'%}" method="post" >
+                    {% csrf_token %}
          					<i class="fas fa-user fa-2x" aria-hidden="true"></i>
 							<div class="form-group row">
 								<div class="col-sm-6 ">
@@ -442,14 +540,13 @@
 							</div>
 							 
 						</form>
-							
+					{% endfor %}		
     </div>
   </div>
 </div>
 </div>
 
 
-
-
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/js/bootstrap-datepicker.min.js'></script>
 {% endblock %}

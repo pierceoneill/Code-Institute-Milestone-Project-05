@@ -1,4 +1,5 @@
 from django import forms
+from bootstrap_datepicker_plus import DatePickerInput, TimePickerInput, DateTimePickerInput, MonthPickerInput, YearPickerInput
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
@@ -23,6 +24,9 @@ class FullUserDetailsForm(forms.Form):
     image = forms.ImageField(max_length=None, required=False)
     address1 = forms.CharField(max_length=255, required=False)
     address2 = forms.CharField(max_length=255, required=False)
+    city = forms.CharField(max_length=255, required=False)
+    county = forms.CharField(max_length=255, required=False)
+    biography = forms.CharField(max_length=255, required=False)
     postcode = forms.CharField(max_length=7, required=False)
     email = forms.CharField(max_length=50, required=False)
     phone = forms.CharField(max_length=10, required=False)
@@ -79,3 +83,4 @@ class UserRegistrationForm(UserCreationForm):
             instance.save()
 
         return instance
+        

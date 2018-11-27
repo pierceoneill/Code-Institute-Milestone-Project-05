@@ -13,7 +13,8 @@ def profile(request):
     return render(request, 'profile.html', {'kids': kids}, {'adults': adults})
 
 def update_profile(request):
-    form=FullUserDetailsForm(request.POST, request.FILES)
+    form=FullUserDetailsForm(data=request.POST,
+                                       files=request.FILES)
     if form.is_valid():
         request.user.first_name=form.cleaned_data['first_name']
         request.user.last_name=form.cleaned_data['last_name']
@@ -27,10 +28,15 @@ def update_profile(request):
         request.user.profile.facebook=form.cleaned_data['facebook']
         request.user.profile.twitter=form.cleaned_data['twitter']
         request.user.profile.instagram=form.cleaned_data['instagram']
+        request.user.profile.city=form.cleaned_data['city']
+        request.user.profile.county=form.cleaned_data['county']
+        request.user.gender=form.cleaned_data['gender']
+        request.user.profile.biography=form.cleaned_data['biography']
         request.user.save()
-        return redirect(reverse('profile'))
-    else: 
-        return redirect('profile')
+    else:
+        form = FullUserDetailsForm()
+
+    return render(request, 'profile.html', {'form': form})
 
 def update_profile_kid(request, id):
     kid = get_object_or_404(KidProfile, pk=id)
@@ -42,8 +48,9 @@ def update_profile_kid(request, id):
         kid.needs=form.cleaned_data['needs']
         kid.save()
         return redirect(reverse('profile'))
-    else: 
-        return redirect('profile')
+    else:
+        form = KidDetailsForm()
+  
         
 def create_profile_kid(request):
     form=KidDetailsForm(request.POST, request.FILES)
@@ -55,7 +62,10 @@ def create_profile_kid(request):
         kid.needs=form.cleaned_data['needs']
         kid.parent=request.user
         kid.save()
-        return redirect(reverse('profile'))
+    else:
+        form = KidDetailsForm()
+
+    return render(request, 'profile.html', {'form': form})
         
 def delete_profile_kid(request, id):
     kid = get_object_or_404(KidProfile, pk=id)
