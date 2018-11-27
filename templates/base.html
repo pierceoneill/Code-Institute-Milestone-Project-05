@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/balloon.css' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker.min.css'>
+   
     {% block head_js %}
     {% endblock head_js %}
 </head>
@@ -80,10 +82,6 @@
                         <li>
                             <a href="{% url 'profile' %}">Client Dashboard</a>
                         </li>
-
-                        <li>
-                            <a href="about.html">About</a>
-                        </li>
                         <li>
                             <a href="{% url 'babysitters' %}">Babysitters</a>
                         </li>
@@ -102,6 +100,9 @@
 
                         <li>
                             <a href="contacts.html">Contacts</a>
+                        </li>
+                        <li>
+                            <a href="about.html">About</a>
                         </li>
                     </ul>
                 </nav>
@@ -181,10 +182,7 @@
 </div>
 
 
-
-
-
-    <div class="container">
+   <div class="container">
          {% if messages %}
         <div class="alert alert-success">
             <div class="messages">
@@ -197,6 +195,7 @@
     </div>
         
         {% block content %} {% endblock %}
+        
         
 
 <!-- Footer 1 - Left Social/Right Menu -->
@@ -285,7 +284,6 @@
 <script src="{% static 'js/plugins.js' %}"></script>
 <script src="{% static 'js/compressed.js' %}"></script>
 <script src="{% static 'js/customize.js' %}"></script>
-<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
 
 
 </body>

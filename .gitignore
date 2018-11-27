@@ -1,5 +1,3 @@
-*.sqlite3
+
 __pycache__
 media
-~.c9*
-.env

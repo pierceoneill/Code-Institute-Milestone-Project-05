@@ -22,7 +22,7 @@ class UserProfile(models.Model):
     biography = models.TextField(max_length=280,blank=True)
     email = models.CharField(max_length=50, blank=True, null=True)
     phone = models.CharField(max_length=10, blank=True)
-    dob = models.CharField(max_length=10, blank=True)
+    dob = models.CharField(max_length=10, null=True, blank=True)
     gender = models.CharField(max_length=1, blank=True)
     facebook = models.CharField(max_length=50, blank=True, null=True)
     twitter = models.CharField(max_length=50, blank=True, null=True)
