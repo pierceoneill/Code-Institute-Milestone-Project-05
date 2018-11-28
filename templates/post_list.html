@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+    {% for posts in post_list%}
+   
+<section class="small-post-section text-center">
+                        <div class="single-item blog-post-small">
+                            <img src="{{ MEDIA_URL }}{{ post.image }}">
+                            <div class="single-item-body">
+                                <p class="post-date">{{ post.published_date|date:"D M Y"}}</p>
+                                <h3>
+                                    <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
+                                </h3>
+                                <p class="post-category"><a href="#">{{ post.category }}</a></p>
+                                <p class="post-descr">{{ post.description}}</p>
+                                <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approve_comments.count }}</a>
+                                <a href="#" class="btn-type2">+</a>
+                            </div>
+                        </div>
+
+                        <div class="single-item blog-post-small">
+                            <img src="images/blog-post-02.jpg" alt="">
+                            <div class="single-item-body">
+                                <p class="post-date">February 27, 2016</p>
+                                <h3>
+                                    <a href="#">Consetetur sadipingred diam nonumy</a>
+                                </h3>
+                                <p class="post-category"><a href="#">Games</a></p>
+                                <p class="post-descr">A pellentesque nec, egestas non nisi. Vivamus suscipit tortor eget felrttitor.</p>
+                                <a href="#" class="btn-type2">+</a>
+                            </div>
+                        </div>
+
+                        <div class="single-item blog-post-small">
+                            <img src="images/blog-post-03.jpg" alt="">
+                            <div class="single-item-body">
+                                <p class="post-date">March 03, 2016</p>
+                                <h3>
+                                    <a href="#">Consetetur sadipingred diam nonumy</a>
+                                </h3>
+                                <p class="post-category"><a href="#">Education</a></p>
+                                <p class="post-descr">Auctor sit amet aliquam elorper sit amet ligula. Praesent sapien massa, convallis.</p>
+                                <a href="#" class="btn-type2">+</a>
+                            </div>
+                        </div>
+
+                        <div class="single-item blog-post-small">
+                            <img src="images/blog-post-04.jpg" alt="">
+                            <div class="single-item-body">
+                                <p class="post-date">February 27, 2016</p>
+                                <h3>
+                                    <a href="#">Consetetur sadipingred diam nonumy</a>
+                                </h3>
+                                <p class="post-category"><a href="#">Games</a></p>
+                                <p class="post-descr">A pellentesque nec, egestas non nisi. Vivamus suscipit tortor eget felrttitor.</p>
+                                <a href="#" class="btn-type2">+</a>
+                            </div>
+                        </div>
+
+                        <div class="single-item blog-post-small">
+                            <img src="images/blog-post-05.jpg" alt="">
+                            <div class="single-item-body">
+                                <p class="post-date">March 03, 2016</p>
+                                <h3>
+                                    <a href="#">Consetetur sadipingred diam nonumy</a>
+                                </h3>
+                                <p class="post-category"><a href="#">Education</a></p>
+                                <p class="post-descr">Auctor sit amet aliquam elorper sit amet ligula. Praesent sapien massa, convallis.</p>
+                                <a href="#" class="btn-type2">+</a>
+                            </div>
+                        </div>
+
+                        <div class="single-item blog-post-small">
+                            <img src="images/blog-post-06.jpg" alt="">
+                            <div class="single-item-body">
+                                <p class="post-date">February 27, 2016</p>
+                                <h3>
+                                    <a href="#">Consetetur sadipingred diam nonumy</a>
+                                </h3>
+                                <p class="post-category"><a href="#">Games</a></p>
+                                <p class="post-descr">A pellentesque nec, egestas non nisi. Vivamus suscipit tortor eget felrttitor.</p>
+                                <a href="#" class="btn-type2">+</a>
+                            </div>
+                        </div>
+                    </section>
+                    {% endfor %}
+{% endblock %}

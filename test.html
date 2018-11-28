@@ -1,66 +1,59 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <![endif]-->
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{% load static %}
-{% block content %}
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-<section class="page_breadcrumbs">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12 text-center">
-                        <h3>Blog</h3>
-                        <ol class="breadcrumb">
-                            <li class="active">
-                                <a href="blog.html">
-                                    Blog
-                                </a>
-                            </li>
-                            <li>
-                                <a href="blog_post.html">Blog Post</a>
-                            </li>
-                            <li>
-                                <a href="blog_video_post.html">Blog Video</a>
-                            </li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css" id="color-switcher-link">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/fonts.css">
+
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="js/vendor/html5shiv.min.js"></script>
+    <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+
+    <!--Fonts for Babysitter-->
+    <link href='https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:900,700' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
 
 
+<!-- wrappers for visual page editor and boxed version of template -->
+<div id="canvas">
+    <div id="box_wrapper">
 
-<div class="container padding-v100">
-    <div class="row">
-    <div class="col-sm-7 col-md-8 col-lg-8 zero-font">
+
+
+ 
+        <div class="container">
             <div class="row">
-    
-{% for post in post_list%}
-                
-                <article class="blog-post single-item image-post">
-                        <div class="item-media entry-thumbnail">
-                            <img src="{{ MEDIA_URL }}{{ post.image }}">
-                            <div class="media-links">
-                                <a class="abs-link" title="" href="{% url 'post_detail' pk=post.pk %}"></a>
-                            </div>
-                        </div>
-                        <div class="single-item-body">
-                            <p class="post-category"><a href="#">{{ post.category }}</a></p>
-                            <h3>
-                                <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
-                            </h3>
-                            <p class="post-date">{{ post.published_date|date:"D M Y"}}</p>
-                            <p class="post-descr">{{ post.description}}</p>
-                            <a href="{% url 'post_detail' pk=post.pk %}" class="btn-type1">Read More</a>
-                        </div>
-                    </article>
-               
-{% endfor %}     <br>
-<br>
 
-                </div>
-            </div>
+                <div class="col-sm-7 col-md-8 col-lg-8 zero-font text-center">
 
 
-    <aside class="col-sm-5 col-md-4 col-lg-4">
+
+                </div> <!--eof .col-sm-8 (main content)-->
+
+
+
+                <aside class="col-sm-5 col-md-4 col-lg-4">
 
                     <div class="widget widget_text">
                         <div class="text-center">
@@ -79,7 +72,7 @@
                             </a>
                         </div>
                     </div>
-                    <!-- Mailchimp Account Setup but needs to be activated once custom url is set for this feature to work -->
+
                     <div class="widget widget_mailchimp text-center">
                         <h3 class="widget-title">Newsletter</h3>
                         <p>Subscribe to Newsletter to be updated.</p>
@@ -192,12 +185,65 @@
                             </select>
                             <i class="rt-icon2-chevron-thin-down"></i>
                         </div>
-                    </aside>
+                    </div>
 
+                </aside> <!-- eof aside sidebar -->
+
+            </div>
+        </div>
+
+        <footer class="page_footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <div class="open-hours">
+                            <h3>Open <span>Hours</span></h3>
+                            <div>Monday - Friday <span>9:00 - 17:00</span></div>
+                            <div>Saturday <span>11:00 - 15:00</span></div>
+                            <div>Sunday <span>Closed</span></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="widget widget_flickr">
+                            <h3 class="widget-title">Flickr</h3>
+                            <ul id="flickr"></ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="widget widget_mailchimp">
+                            <h3 class="widget-title">Mailchimp</h3>
+                            <form class="signup form-inline" action="/" method="get">
+                                <div class="form-group">
+                                    <input name="email" type="email" class="mailchimp_email form-control" placeholder="Email">
+                                </div>
+                                <button type="submit" class="theme_button rt-icon2-pen2"></button>
+                                <div class="response"></div>
+                            </form>
+                            <p>Subscribe to our latest news to be updated, we promise not to spam!</p>
+                        </div>
+                    </div>
                 </div>
-</aside>
-</div>
-</div>
-<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/436be29a921b6a968772e88e2/f80f1cbe9089756748fc067bc.js");</script>
-{% endblock %}
+            </div>
+            <img src="images/logo-footer.png" alt="Babysitter logo" class="logo-footer">
+        </footer>
+
+        <section class="page_copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <p>&copy; Copyright 2016 by <a href="#">MW Templates</a>. All Rights Reserved</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div><!-- eof #box_wrapper -->
+</div><!-- eof #canvas -->
+
+
+<script src="js/compressed.js"></script>
+<script src="js/main.js"></script>
+<script src="js/jquery-ui.js"></script>
+
+</body>
+</html>

@@ -6,12 +6,12 @@ from django.core.urlresolvers import reverse
 class Post(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
-    image = models.ImageField(upload_to='media/images', blank=True, null=True)
-    category = models.CharField(max_length=200)
-    description = models.CharField(max_length=340)
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
+    image = models.ImageField(upload_to='images', default='Upload Picture')
+    category = models.CharField(max_length=200)
+    description = models.CharField(max_length=340)
 
     def publish(self):
         self.published_date = timezone.now()
