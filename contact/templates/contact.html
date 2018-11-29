@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+        <section class="page_breadcrumbs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <h3>Get In Touch</h3></h3>
+                        <ol class="breadcrumb">
+                            <li>
+                                <a href="{% url 'contact' %}">
+                                    Contact Us
+                                </a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+<br>
+        <!-- Google Map -->
+			<div class="container">
+  <h1>Our Location</h1>
+  <div id="map_container"></div>
+  <div id="map"></div>
+</div>
+
+
+        <section class="contacts">
+        <div class="container">
+            <div class="row text-center">
+                <!--Section heading-->
+    <h3 class="poppins text-center">Contact <span class="pink">Us</span></h3>
+    <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
+        a matter of hours to help you.</p>
+                <div class="col-md-4">
+                    
+                    <span class="rt-icon2-location-outline pink"></span>
+                    <p>Kenmare, Co. Kerry</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="rt-icon2-mail2 blue"></span>
+                    <a href="#">info@minderfinder.ie</a>
+                </div>
+                <div class="col-md-4">
+                    <span class="rt-icon2-phone-outline light-green"></span>
+                    <p>(089) 424 0146</p>
+                </div>
+            </div>
+        </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-wrap">
+                            <form class="contact-form" method="post" action="/">
+                                <input type="text" aria-required="true" size="30" value="" name="name" id="name" class="form-control" placeholder="Full Name">
+                                <input type="email" aria-required="true" size="30" value="" name="email" id="email" class="form-control" placeholder="Email Adress">
+                                <input type="text" aria-required="true" size="30" value="" name="phone" id="phone" class="form-control" placeholder="Phone Number">
+                                <div class="form-control-group">
+                                    <input type="text" aria-required="true" class="form-control" value="" name="date" id="datepicker" placeholder="Date">
+                                </div>
+                                <select aria-required="true" id="time" name="time">
+                                    <option value="" disabled selected>Time</option>
+                                    <option value="12:00 AM">12:00 AM</option>
+                                    <option value="12:30 AM">12:30 AM</option>
+                                    <option value="1:00 AM">1:00 AM</option>
+                                    <option value="1:30 AM">1:30 AM</option>
+                                    <option value="2:00 AM">2:00 AM</option>
+                                    <option value="2:30 AM">2:30 AM</option>
+                                    <option value="3:00 AM">3:00 AM</option>
+                                    <option value="3:30 AM">3:30 AM</option>
+                                    <option value="4:00 AM">4:00 AM</option>
+                                    <option value="4:30 AM">4:30 AM</option>
+                                    <option value="5:00 AM">5:00 AM</option>
+                                    <option value="5:30 AM">5:30 AM</option>
+                                    <option value="6:00 AM">6:00 AM</option>
+                                    <option value="6:30 AM">6:30 AM</option>
+                                    <option value="7:00 AM">7:00 AM</option>
+                                    <option value="7:30 AM">7:30 AM</option>
+                                    <option value="8:00 AM">8:00 AM</option>
+                                    <option value="8:30 AM">8:30 AM</option>
+                                    <option value="9:00 AM">9:00 AM</option>
+                                    <option value="9:30 AM">9:30 AM</option>
+                                    <option value="10:00 AM">10:00 AM</option>
+                                    <option value="10:30 AM">10:30 AM</option>
+                                    <option value="11:00 AM">11:00 AM</option>
+                                    <option value="11:30 AM">11:30 AM</option>
+                                    <option value="12:00 PM">12:00 PM</option>
+                                    <option value="12:30 PM">12:30 PM</option>
+                                    <option value="1:00 PM">1:00 PM</option>
+                                    <option value="1:30 PM">1:30 PM</option>
+                                    <option value="2:00 PM">2:00 PM</option>
+                                    <option value="2:30 PM">2:30 PM</option>
+                                    <option value="3:00 PM">3:00 PM</option>
+                                    <option value="3:30 PM">3:30 PM</option>
+                                    <option value="4:00 PM">4:00 PM</option>
+                                    <option value="4:30 PM">4:30 PM</option>
+                                    <option value="5:00 PM">5:00 PM</option>
+                                    <option value="5:30 PM">5:30 PM</option>
+                                    <option value="6:00 PM">6:00 PM</option>
+                                    <option value="6:30 PM">6:30 PM</option>
+                                    <option value="7:00 PM">7:00 PM</option>
+                                    <option value="7:30 PM">7:30 PM</option>
+                                    <option value="8:00 PM">8:00 PM</option>
+                                    <option value="8:30 PM">8:30 PM</option>
+                                    <option value="9:00 PM">9:00 PM</option>
+                                    <option value="9:30 PM">9:30 PM</option>
+                                    <option value="10:00 PM">10:00 PM</option>
+                                    <option value="10:30 PM">10:30 PM</option>
+                                    <option value="11:00 PM">11:00 PM</option>
+                                    <option value="11:30 PM">11:30 PM</option>
+                                </select>
+                                <textarea rows="6" cols="45" name="message" id="message" placeholder="Additional Info"></textarea>
+                                <button type="submit" id="contact_form_submit" name="contact_submit" class="btn-type1">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       
+
+    </div><!-- eof #box_wrapper -->
+</div><!-- eof #canvas -->
+
+
+<script src="js/compressed.js"></script>
+<script src="js/main.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="{% static 'js/main.js' %}"></script> 
+<script src="{% static 'js/maps.js' %}"></script> 
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9iwsdqrIArHrcEvQ5P0veFPDk_CqkaVc&callback=initMap"></script>
+
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+{% endblock %}

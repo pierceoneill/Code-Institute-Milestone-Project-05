@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'blog',
     'bookings',
     'babysitters',
+    'contact',
     'django_gravatar',
     'search',
     'checkout',

@@ -10630,3 +10630,17 @@ border-radius: 4px;
     margin-top: -40px;
     top: 50%;
 }
+.map_container{
+  position: relative;
+}
+.map{
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 22.25%;
+    padding-top: 30px;
+    position: relative;
+}
+/*--------------------------------------------Map*/
+div#map {
+    min-height: 360px;
+}
