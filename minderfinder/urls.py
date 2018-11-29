@@ -25,6 +25,7 @@ from blog import urls as urls_blog
 from bookings import urls as urls_bookings
 from search import urls as urls_search
 from checkout import urls as urls_checkout
+from about import urls as urls_about
 from django.views import static
 from django.contrib.auth import views
 from .settings import MEDIA_ROOT
@@ -38,5 +39,6 @@ urlpatterns = [
     url(r'^checkout/', include(urls_checkout)),
     url(r'^search/', include(urls_search)),
     url(r'^media/(?P<path>.*)$', static.serve,{'document_root': MEDIA_ROOT}),
-    url(r'^blog/', include(urls_blog))
+    url(r'^blog/', include(urls_blog)),
+    url(r'^about/', include(urls_about))
 ]

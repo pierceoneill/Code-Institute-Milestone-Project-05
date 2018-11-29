@@ -1749,7 +1749,7 @@ End of Contact-info
 }
 
     .mainmenu_wrapper {
-        margin: 0 -15px;
+        margin: 0 -350px;
     }
 
     .sf-menu {
@@ -3443,7 +3443,7 @@ totop
     margin-top: 25px;
     font-size: 30px;
     font-weight: 700;
-    color: #fff;
+    color: #c2dc71;
 }
 
 .breadcrumb {
@@ -3472,7 +3472,7 @@ totop
 }
 
 .breadcrumb li.active a {
-    color: #fff;
+    color: #9cc0e5;
     font-weight: 500;
 }
 /* ==========
@@ -3600,8 +3600,8 @@ totop
    Welcome section
    ========== */
 .welcome {
-    margin-top: 170px;
-    margin-bottom: 120px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .welcome .poppins {
@@ -4288,7 +4288,6 @@ item media block
    ========== */
 .testimonials {
     position: relative;
-    padding: 100px 0 120px;
     background-image: url(../images/testimonials-bg.jpg);
 }
 

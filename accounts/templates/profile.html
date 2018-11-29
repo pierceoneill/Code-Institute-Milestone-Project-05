@@ -3,12 +3,24 @@
 {% load gravatar %}
 {% block content %}
 
-<section class="container-fluid">
-    <div class="page-header text-center">
-        <h1>Client Dashboard</h1>
-    </div>
-    
 
+<section class="page_breadcrumbs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <h3>Client Dashboard</h3>
+                        <ol class="breadcrumb">
+                            <li>
+                                <a href="{% url 'profile' %}">
+                                    Client Profile
+                                </a>
+                            </li>
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 <div class="container-fluid">
 		<div class="row">

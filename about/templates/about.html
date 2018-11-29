@@ -1,0 +1,227 @@
+{% extends 'base.html'%}
+{% load static %}
+{% load bootstrap_tags %}
+{% block content %}
+
+<section class="page_breadcrumbs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <h3>How It Works</h3>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <a href="{% url 'about' %}">
+                                    About
+                                </a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+        </section>
+        
+<section class="welcome">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p class="grand-hotel">Learn more!</p>
+                    <h3 class="poppins">
+                        Client <span class="pink">Testimonials</span>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<section class="testimonials">
+        <div class="testimonials parallax">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <i class="rt-icon2-quotes-left"></i>
+                    <div id="carousel-media" class="carousel slide testimonials-carousel" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-media" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-media" data-slide-to="1"></li>
+                            <li data-target="#carousel-media" data-slide-to="2"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <p>
+                                    Fantastic service. I would highly recommend.
+                                </p>
+                                <div class="media">
+                                    <div class="media-body">
+                                        <h4><a href="#">I.P. Freely</a></h4>
+                                        <p>
+                                            Parent
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <p>
+                                    So easy, it makes you want to go out more!
+                                </p>
+                                <div class="media">
+                                    <div class="media-body">
+                                        <h4><a href="#">Amanda Hugandkiss</a></h4>
+                                        <p>
+                                            Parent
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <p>
+                                    I dont know what I did before. My social life has never been so good.
+                                </p>
+                                <div class="media">
+                                    <div class="media-body">
+                                        <h4><a href="#">Max Power</a></h4>
+                                        <p>
+                                            Parent
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="info">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 for-nannies">
+                    <p class="grand-hotel">Information</p>
+                    <h3 class="poppins">For <span class="pink">Babysitters</span></h3>
+                    <ul>
+                        <li>
+                            <div class="step-icon">
+                                <i class="rt-icon2-edit"></i>
+                            </div>
+                            <div class="step-descr">
+                                <h4>Register on our Website</h4>
+                                <p>Fill in the steps and update your information</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="step-icon">
+                                <i class="rt-icon2-lightbulb3"></i>
+                            </div>
+                            <div class="step-descr">
+                                <h4>Create Profile & Portfolio</h4>
+                                <p>Upload your references and the relevant vetting forms.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="step-icon">
+                                <i class="rt-icon2-watch"></i>
+                            </div>
+                            <div class="step-descr">
+                                <h4>Wait for Employers</h4>
+                                <p>Potential clients will contact you.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6 for-parents">
+                    <p class="grand-hotel">Information</p>
+                    <h3 class="poppins">For <span>Parents</span></h3>
+                    <ul>
+                        <li>
+                            <div class="step-icon">
+                                <i class="rt-icon2-group-outline"></i>
+                            </div>
+                            <div class="step-descr">
+                                <h4>Choose Babysitter or Nanny</h4>
+                                <p>Select the babysitter who matches your criteria.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="step-icon">
+                                <i class="rt-icon2-eye-outline"></i>
+                            </div>
+                            <div class="step-descr">
+                                <h4>Pre-Screen Nanny</h4>
+                                <p>All our babysitters must supply up to date police vetting forms anf references from previous clients.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="step-icon">
+                                <i class="rt-icon2-message"></i>
+                            </div>
+                            <div class="step-descr">
+                                <h4>Contact & Hire</h4>
+                                <p>Book your babysitter via the site.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+       <style>
+    #hero2 {
+        background: url("{% static 'images/bg-white.png' %}") no-repeat center;
+        background-size: cover;
+    }
+    </style>
+     <section class="pricing" id="hero2">
+        <div class="container">
+            <p class="grand-hotel text-center">Get Started!</p>
+            <h3 class="poppins text-center">Sample <span class="pink">Rates</span></h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="price-1 text-center">
+                        <div class="head">One<br><strong>Child</strong></div>
+                        <div class="price"><span class="poppins">€10</span>/hour</div>
+                        <div class="about-price">
+                            <p>
+                                Rate based on a single child being looked after in your home.
+                            </p>
+                        </div>
+                        <a href="{% url 'babysitters' %}" class="purchase">Purchase</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="price-2 text-center">
+                        <div class="head">Two<br><strong>Children</strong></div>
+                        <div class="price"><span class="poppins">€15</span>/hour</div>
+                        <div class="about-price">
+                            <p>
+                                Rate based on a two children being looked after in your home.
+                            </p>
+                        </div>
+                        <a href="{% url 'babysitters' %}" class="purchase">Purchase</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="price-3 text-center">
+                        <div class="head">Three<br><strong>Children</strong></div>
+                        <div class="price"><span class="poppins">€20</span>/hour</div>
+                        <div class="about-price">
+                            <p>
+                                Rate based on a three children being looked after in your home.
+                            </p>
+                        </div>
+                        <a href="{% url 'babysitters' %}" class="purchase">Purchase</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+{% endblock %}

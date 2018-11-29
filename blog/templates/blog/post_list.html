@@ -2,7 +2,6 @@
 
 {% load static %}
 {% block content %}
-
 <section class="page_breadcrumbs">
             <div class="container">
                 <div class="row">
@@ -10,16 +9,11 @@
                         <h3>Blog</h3>
                         <ol class="breadcrumb">
                             <li class="active">
-                                <a href="blog.html">
+                                <a href="{% url 'post_list' %}">
                                     Blog
                                 </a>
                             </li>
-                            <li>
-                                <a href="blog_post.html">Blog Post</a>
-                            </li>
-                            <li>
-                                <a href="blog_video_post.html">Blog Video</a>
-                            </li>
+                            
                         </ol>
                     </div>
                 </div>
@@ -92,10 +86,6 @@
                         </form>
                     </div>
 
-                    <div class="widget widget_flickr">
-                        <h3 class="widget-title">Flickr</h3>
-                        <ul id="side-flickr"></ul>
-                    </div>
 
                     <div class="widget widget_banner">
                         <div class="vertical-item content-absolute text-center">
@@ -131,45 +121,6 @@
                             </select>
                             <i class="rt-icon2-chevron-thin-down"></i>
                         </div>
-                    </div>
-
-                    <div class="widget widget_recent_posts">
-                        <h3 class="widget-title">Popular</h3>
-                        <ul class="media-list darklinks">
-                            <li class="media">
-                                <a class="media-left" href="#">
-                                    <img class="media-object" src="images/recent-post-1.jpg" alt="">
-                                </a>
-                                <div class="media-body">
-                                    <p>
-                                        <a href="#">Quisque velit nisi, pretium lacinia in, elementum id enim</a>
-                                    </p>
-                                <p class="post-date">March 03, 2016</p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <a class="media-left" href="#">
-                                    <img class="media-object" src="images/recent-post-2.jpg" alt="">
-                                </a>
-                                <div class="media-body">
-                                    <p>
-                                        <a href="#">Quisque velit nisi, pretium lacinia in, elementum id enim</a>
-                                    </p>
-                                    <p class="post-date">March 03, 2016</p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <a class="media-left" href="#">
-                                    <img class="media-object" src="images/recent-post-3.jpg" alt="">
-                                </a>
-                                <div class="media-body">
-                                    <p>
-                                        <a href="#">Quisque velit nisi, pretium lacinia in, elementum id enim</a>
-                                    </p>
-                                    <p class="post-date">March 03, 2016</p>
-                                </div>
-                            </li>
-                        </ul>
                     </div>
 
                     <div class="widget widget_archive text-center">

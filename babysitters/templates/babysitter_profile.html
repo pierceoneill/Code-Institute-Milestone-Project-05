@@ -2,7 +2,27 @@
     {% extends 'base.html' %} 
     {% load static %}
     {% block page_title %}{{ user }}'s Profile{% endblock %} {% block page_heading %}{{ user }}'s Profile{% endblock %} {% block content %}
-<p>{{ babysitters.firstName }}</p>
+
+
+<section class="page_breadcrumbs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <h3>Babysitter Profile</h3>
+                        <ol class="breadcrumb">
+                            <li>
+                                <a href="{% url 'babysitters' %}">
+                                    Babysitter
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href="{% url 'babysitter_profile'">Babysitter Profile</a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 <section>
 
