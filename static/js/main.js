@@ -981,3 +981,35 @@ jQuery(window).scroll(function() {
 
 
  $('.input-group.date').datepicker({format: "dd.mm.yyyy"});
+ 
+ ///////////////
+//Datepicker//
+///////////////
+
+function cleanDatepicker() {
+	var old_fn = $.datepicker._updateDatepicker;
+
+	$.datepicker._updateDatepicker = function(inst) {
+		old_fn.call(this, inst);
+
+		var buttonPane = $(this).datepicker("widget").find(".ui-datepicker-buttonpane");
+
+		$("<button type='button' class='ui-datepicker-clean ui-state-default ui-priority-primary ui-corner-all'>Clear</button>").appendTo(buttonPane).click(function(ev) {
+			$.datepicker._clearDate(inst.input);
+		}) ;
+	}
+}
+
+
+jQuery(function() {
+	cleanDatepicker();
+	jQuery( "#datepicker" ).datepicker({
+		showButtonPanel: true,
+		showOn: 'button',
+		closeText: "Close",
+		showOtherMonths: true,
+		prevText: "",
+		nextText: ""
+	});
+});
+

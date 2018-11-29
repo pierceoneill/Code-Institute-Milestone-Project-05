@@ -7,7 +7,7 @@ function initMap() {
         }
     });
 
-    var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var labels = "We Are Here";
 
     var locations = [
         { lat: 51.880500, lng: -9.584360 },
