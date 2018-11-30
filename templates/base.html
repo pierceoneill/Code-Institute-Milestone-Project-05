@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}Minder Finder{% endblock %}</title>
+    <script type="text/javascript">
+   (function(){
+      emailjs.init("user_qJXaF94HXnPoNO9bg3uYy");
+   })();
+</script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/v4-shims.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700' rel='stylesheet' type='text/css'>
@@ -17,9 +22,9 @@
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/balloon.css' %}">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker.min.css'>
-   
+    <link rel="stylesheet" href="{% static 'css/toastr.css' %}">
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+   <script src="http: //cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css"></script>
     {% block head_js %}
     {% endblock head_js %}
 </head>
@@ -170,18 +175,14 @@
         </div>
     </div>
 </div>
-
+<script type="text/javascript">
+    $().toastmessage('showSuccessToast', "Hello there! Message is shown.");
+</script>
 
    <div class="container">
-         {% if messages %}
-        <div class="alert alert-success">
-            <div class="messages">
-                {% for message in messages %}
-                    {{ message }}
-                {% endfor %}
+
             </div>
         </div>
-    {% endif %}
     </div>
         
         {% block content %} {% endblock %}
@@ -268,13 +269,10 @@
     </div>
 </div>
 <!-- End -->
-
-<script src="{% static 'js/modernizr-2.8.3.min.js' %}"></script> 
+<script src="{% static 'js/toastr.js' %}"></script> 
 <script src="{% static 'js/main.js' %}"></script> 
-<script src="{% static 'js/plugins.js' %}"></script>
-<script src="{% static 'js/compressed.js' %}"></script>
-<script src="{% static 'js/customize.js' %}"></script>
-
-
+<script src="{% static 'js/compressed.js' %}"></script> 
+<script src="{% static 'js/jquery-ui.js' %}"></script> 
+<script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.js"></script>
 </body>
 </html
