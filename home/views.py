@@ -1,6 +1,17 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+from babysitters.choices import numbers_choices, minder_choices, county_choices
 
-# Create your views here.
+from babysitters.models import Babysitter
+
 def get_index(request):
-    """A view that displays the index page"""
-    return render(request, "index.html")
+    babysitters = Babysitter.objects.order_by('-list_date').filter(county=True)[:3]
+
+    context = {
+        'babysitters': babysitters,
+        'county_choices': county_choices,
+        'minder_choices': minder_choices,
+        'numbers_choices': numbers_choices
+    }
+
+    return render(request, 'index.html', context)

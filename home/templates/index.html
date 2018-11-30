@@ -4,29 +4,71 @@
 {% block content %}
 
 
-<div class="container-fluid callout-container">
-        <div class="opaque-overlay">&nbsp;</div>
-        <!-- Callout -->
-        <div class="row">
-            <div class="col-xs-12">
-                <section class="callout jumbotron text-center">
-                    <p class="grand-hotel">Hello, Parents!</p>
-                    <h3 class="poppins">
-                        Welcome to <span class="pink">Our Website</span>
-                    </h3>
-                    <p class="about-site">
-                        Wheter you are looking for an hour to yourself or a full time nanny, we have the right candidates for you and your family.
-                    </p>
-                    <h1>Book a babysitter with confidence and peace of mind.</h1>
-                    <hr class='block-divider block-divider--orange'>
-                    <p class="lead">Sign up today to find fully vetted, qualified & responsible childcare. <s class="hidden-xs">€2.99 per Month</s> <span class="visible-xs"><br></span> <strong><mark>First one is free!</mark></strong></p>
-                    <p><button class="btn btn-lg btn--cta btn--red" data-toggle='modal' data-target='#signUpModal'>Sign Up!</button></p>
-                    <p class="text-muted"><small>You must be over 18 to sign up to our service.</small></p>
-                </section>
-            </div>
+<!-- Showcase -->
+<section id="showcase">
+    <div class="container text-center">
+      <div class="home-search p-5">
+        <div class="overlay p-5">
+          <h1 class="display-4 mb-4">
+            Finding a Babysitter Just Got Easy!
+          </h1>
+          <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae quas, asperiores eveniet vel nostrum magnam
+            voluptatum tempore! Consectetur, id commodi!</p>
+          <div class="search">
+            <form action="{% url 'search' %}">
+              <!-- Form Row 1 -->
+              <div class="form-row">
+                <div class="col-md-4 mb-3">
+                  <label class="sr-only">Keywords</label>
+                  <input type="text" name="keywords" class="form-control" placeholder="Keyword (Pool, Garage, etc)">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                  <label class="sr-only">City</label>
+                  <input type="text" name="city" class="form-control" placeholder="City">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                  <label class="sr-only">State</label>
+                  <select name="state" class="form-control">
+                    <option selected="true" disabled="disabled">County (All)</option>
+                    {% for key,value in county_choices.items %}
+                      <option value="{{ key }}">{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+              <!-- Form Row 2 -->
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label class="sr-only">Bedrooms</label>
+                  <select name="bedrooms" class="form-control">
+                    <option selected="true" disabled="disabled">Minder Type (All)</option>
+                    {% for key,value in minder_choices.items %}
+                      <option value="{{ key }}">{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <select name="price" class="form-control" id="type">
+                    <option selected="true" disabled="disabled">Max No. of Children (Any)</option>
+                    {% for key,value in numbers_choices.items %}
+                      <option value="{{ key }}">{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+              <button class="btn btn-primary btn-block" type="submit">Submit form</button>
+            </form>
+          </div>
         </div>
-        <!-- /.callout -->
+      </div>
     </div>
+  </section>
+<br>
+  <!-- Alerts -->
+  {% include 'alerts.html' %}
+ 
 
 <main class="page-content">
     <section class="skills-cont">
