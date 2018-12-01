@@ -41,7 +41,7 @@
                             <h3>
                                 <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
                             </h3>
-                            <p class="post-date">{{ post.published_date|date:"D M Y"}}</p>
+                            <p class="post-date">{{ post.published_date}}</p>
                             <p class="post-descr">{{ post.description}}</p>
                             <a href="{% url 'post_detail' pk=post.pk %}" class="btn-type1">Read More</a>
                         </div>

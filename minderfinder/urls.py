@@ -19,6 +19,7 @@ from django.contrib import admin
 from home.views import get_index
 from blog.views import PostListView
 from accounts import urls as urls_accounts
+from accounts import url_reset
 from babysitters import urls as urls_babysitters
 from babysitters.views import all_babysitters
 from blog import urls as urls_blog
@@ -40,5 +41,6 @@ urlpatterns = [
     url(r'^media/(?P<path>.*)$', static.serve,{'document_root': MEDIA_ROOT}),
     url(r'^blog/', include(urls_blog)),
     url(r'^about/', include(urls_about)),
-    url(r'^contact/', include(urls_contact))
+    url(r'^contact/', include(urls_contact)),
+    url(r'^password-reset/', include(url_reset))
 ]

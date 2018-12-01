@@ -1,12 +1,17 @@
 {% extends "base.html" %}
 {% load bootstrap_tags %}
-
+{% load static %}
 {% block content %}
- <section class="container">
+ 
+<section class="container">
     <div class="page-header">
         <h1>Parents / Guardian Login</h1><br>
           
     </div>
+</section>
+
+<section class="container text-center">
+    <img src="{% static 'images/logo.png' %}" alt="">
 </section>
 
 <section class="container">
@@ -28,4 +33,11 @@
     </div>
 </section>
 
+<section>
+<div class="separator">
+                    <h1 class="text-center"><span class="blue">Want to book a </span> <span class="pink">sitter?</span></h1>
+                    <p class="text-center"><a href="{% url 'register' %}">Create Account</a></p>
+                    <p class="text-center"><a href="{% url 'password_reset' %}">Forgot your password?</a></p>
+</div>
+</section>
 {% endblock %}

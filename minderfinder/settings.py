@@ -58,7 +58,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    #'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -173,3 +173,9 @@ STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE')
 STRIPE_SECRET = os.getenv('STRIPE_SECRET')
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'pierceoneillky@gmail.com'
+EMAIL_HOST_PASSWORD = 'Mountain01'
+EMAIL_PORT = 587
