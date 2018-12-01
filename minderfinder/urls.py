@@ -23,7 +23,6 @@ from babysitters import urls as urls_babysitters
 from babysitters.views import all_babysitters
 from blog import urls as urls_blog
 from bookings import urls as urls_bookings
-from search import urls as urls_search
 from checkout import urls as urls_checkout
 from about import urls as urls_about
 from contact import urls as urls_contact
@@ -38,7 +37,6 @@ urlpatterns = [
     url(r'^babysitters/', include(urls_babysitters)),
     url(r'^bookings/', include(urls_bookings)),
     url(r'^checkout/', include(urls_checkout)),
-    url(r'^search/', include(urls_search)),
     url(r'^media/(?P<path>.*)$', static.serve,{'document_root': MEDIA_ROOT}),
     url(r'^blog/', include(urls_blog)),
     url(r'^about/', include(urls_about)),

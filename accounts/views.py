@@ -129,4 +129,4 @@ def register(request):
 
     args = {'form': form}
 
-    return render(request, 'profile.html', args)
+    return render(request, 'register.html', args)

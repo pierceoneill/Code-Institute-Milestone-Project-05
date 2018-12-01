@@ -100,7 +100,7 @@
               class="nav-item mr-3"
             {% endif %}
           >
-             <a class="nav-link" href="{% url 'about' %}">Blog</a>
+             <a class="nav-link" href="{% url 'post_list' %}">Blog</a>
           </li>
           <li
             {% if 'Blog' in request.path %}
@@ -109,7 +109,7 @@
               class="nav-item mr-3"
             {% endif %}
           >
-            <a class="nav-link" href="{% url 'babysitters' %}">About</a>
+            <a class="nav-link" href="{% url 'about' %}">About</a>
           </li>
           <li
             {% if 'about' in request.path %}
@@ -118,7 +118,7 @@
               class="nav-item mr-3"
             {% endif %}
           >
-            <a class="nav-link" href="{% url 'about' %}">Contact</a>
+            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
           </li>
           <li
             {% if 'contact' in request.path %}
@@ -139,7 +139,7 @@
             {% endif %}
             >
               <a class="nav-link" href="{% url 'profile' %}">
-               Welcome {{ user.username }} (Dashboard)</a>
+               Welcome {{ user.username }}</a>
             </li>
             <li class="nav-item mr-3">
               <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
@@ -172,8 +172,22 @@
                 <i class="fas fa-sign-in-alt"></i>
 
                 Login</a>
+            {% endif %} <!-- Put endif here -->
+            <li
+            {% if 'cart' in request.path %}
+              class="nav-item active mr-3"
+            {% else %}
+              class="nav-item mr-3"
+            {% endif %}
+            >
+              <a class="nav-link" href="{% url 'cart' %}">
+                <i class="fas fa-cart-plus"></i>
+
+                Cart</a>
             </li>
-          {% endif %}
+            {% if num_cart_items > 0 %}
+                            <label class="badge badge-warning">{{ num_cart_items }}</label>
+                {% endif %}
         </ul>
       </div>
     </div>
@@ -242,9 +256,6 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    $().toastmessage('showSuccessToast', "Hello there! Message is shown.");
-</script>
 
    <div class="container">
 

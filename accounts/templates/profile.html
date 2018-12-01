@@ -3,7 +3,6 @@
 {% load gravatar %}
 {% block content %}
 
-
 <section class="page_breadcrumbs">
             <div class="container">
                 <div class="row">
@@ -167,7 +166,7 @@
       	<span><img src="{{ MEDIA_URL }}{{user.profile.image}}" class="gravatarImage"></span>
           <h4 class="modal-title w-100 font-weight-bold">Edit your profile <strong>{{user.first_name}}</strong></h4>
         
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -353,9 +352,8 @@
 							</div>
 							<div class="col-md-6 text-center">
 								<input
-								 type="submit"
-								 class="btn btn-danger"
-								 [disabled]="!profileForm.valid"
+								data-dismiss="modal"
+								 class="btn btn-danger btn-rounded mb-2 close"
 								 value="Cancel"
 								>
 							</div>
@@ -461,6 +459,7 @@
   </div>
 </div>
 </div>
+
 
 <!-- Update Kid Modal -->
 

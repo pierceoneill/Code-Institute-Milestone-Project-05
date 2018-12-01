@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ['milestone-project-05-minder-finder-pierceoneill.c9users.io']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'django.contrib.humanize',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -49,9 +50,8 @@ INSTALLED_APPS = [
     'babysitters',
     'contact',
     'django_gravatar',
-    'search',
     'checkout',
-    'storages',
+    'storages'
 ]
 
 MIDDLEWARE = [

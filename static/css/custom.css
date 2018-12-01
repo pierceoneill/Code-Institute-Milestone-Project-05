@@ -348,12 +348,11 @@ body {
 }
 .poppins {
     font-family: 'Poppins', sans-serif;
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 700;
     letter-spacing: -1px;
     color: #9cc0e5;
     line-height: 50px;
-    margin: 5px 0;
     word-wrap: break-word;
 }
 
@@ -4400,10 +4399,7 @@ item media block
     padding-bottom: 100px;
 }
 
-.contacts .container span {
-    /*display: block;*/
-    font-size: 48px;
-}
+
 
 .contacts .container a,
 .contacts .container p {
@@ -9388,15 +9384,7 @@ input .name-field{
     margin: auto;
     border-radius: 10px;
 }
-.close {
-    float: right;
-    font-size: 21px;
-    font-weight: 700;
-    line-height: 1;
-    color: white;
-    margin-top: -12px;
-    margin-right: 7px;
-}
+
 
 .close-card {
     font-size: 21px;
@@ -9484,15 +9472,7 @@ input::placeholder {
     text-align: center;
     padding-top: 50px;
 }
-.close {
-    float: right;
-    font-size: 21px;
-    font-weight: 700;
-    line-height: 1;
-    color: white;
-    margin-top: -12px;
-    margin-right: 7px;
-}
+
 
 .close-card {
     font-size: 21px;

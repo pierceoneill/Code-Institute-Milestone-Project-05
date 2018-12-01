@@ -32,7 +32,8 @@ class Babysitter(models.Model):
     donator = models.CharField(max_length=140, null=True)
     gender = models.CharField(max_length=6, null=True)
     age = models.CharField(max_length=2, null=True)
-    
+    max_num =  models.IntegerField(max_length=20, blank=True, null=True)
+    list_date = models.DateTimeField(default=datetime.now, blank=True)
     
     def __str__(self):
         return self.firstName + ' ' + self.lastName

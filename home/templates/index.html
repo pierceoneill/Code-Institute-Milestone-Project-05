@@ -12,15 +12,14 @@
           <h1 class="display-4 mb-4">
             Finding a Babysitter Just Got Easy!
           </h1>
-          <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae quas, asperiores eveniet vel nostrum magnam
-            voluptatum tempore! Consectetur, id commodi!</p>
+          <p class="lead">Minder Finder Babysitters & Childminders will take the stress out of finding the precfect sitter for your precious ones.</p>
           <div class="search">
             <form action="{% url 'search' %}">
               <!-- Form Row 1 -->
               <div class="form-row">
                 <div class="col-md-4 mb-3">
                   <label class="sr-only">Keywords</label>
-                  <input type="text" name="keywords" class="form-control" placeholder="Keyword (Pool, Garage, etc)">
+                  <input type="text" name="keywords" class="form-control" placeholder="Keyword">
                 </div>
 
                 <div class="col-md-4 mb-3">
@@ -29,8 +28,8 @@
                 </div>
 
                 <div class="col-md-4 mb-3">
-                  <label class="sr-only">State</label>
-                  <select name="state" class="form-control">
+                  <label class="sr-only">County</label>
+                  <select name="county" class="form-control">
                     <option selected="true" disabled="disabled">County (All)</option>
                     {% for key,value in county_choices.items %}
                       <option value="{{ key }}">{{ value }}</option>
@@ -41,7 +40,7 @@
               <!-- Form Row 2 -->
               <div class="form-row">
                 <div class="col-md-6 mb-3">
-                  <label class="sr-only">Bedrooms</label>
+                  <label class="sr-only">Minder Type</label>
                   <select name="bedrooms" class="form-control">
                     <option selected="true" disabled="disabled">Minder Type (All)</option>
                     {% for key,value in minder_choices.items %}
@@ -50,7 +49,7 @@
                   </select>
                 </div>
                 <div class="col-md-6 mb-3">
-                  <select name="price" class="form-control" id="type">
+                  <select name="max_num" class="form-control" id="type">
                     <option selected="true" disabled="disabled">Max No. of Children (Any)</option>
                     {% for key,value in numbers_choices.items %}
                       <option value="{{ key }}">{{ value }}</option>
@@ -65,7 +64,6 @@
       </div>
     </div>
   </section>
-<br>
   <!-- Alerts -->
   {% include 'alerts.html' %}
  
@@ -134,15 +132,15 @@
         a matter of hours to help you.</p>
                 <div class="col-md-4">
                     
-                    <span class="rt-icon2-location-outline pink"></span>
+                    <span class="fas fa-map-marker-alt fa-2x" style="color:#f5abcb;"></span>
                     <p>Kenmare, Co. Kerry</p>
                 </div>
                 <div class="col-md-4">
-                    <span class="rt-icon2-mail2 blue"></span>
+                    <span class="fas fa-envelope-open fa-2x" style="color:#9cc0e5;"></span>
                     <a href="#">info@minderfinder.ie</a>
                 </div>
                 <div class="col-md-4">
-                    <span class="rt-icon2-phone-outline light-green"></span>
+                    <span class="fas fa-phone light-green fa-2x" style="color:#c2dc71;"></span>
                     <p>(089) 424 0146</p>
                 </div>
             </div>

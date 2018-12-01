@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from .models import Babysitter, Education, Reference, Work
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from .choices import numbers_choices, minder_choices, county_choices
+
 
 # Create your views here.
 def all_babysitters(request):
@@ -20,8 +22,32 @@ def babysitter_profile(request, id):
         'work_qs': work_qs}
     )
 
+
+def index(request):
+  babysitters = Babysitter.objects.order_by('-list_date').filter(is_published=True)
+
+  paginator = Paginator(babysitters, 6)
+  page = request.GET.get('page')
+  paged_listings = paginator.get_page(page)
+
+  context = {
+    'babysitters': paged_listings
+  }
+
+  return render(request, 'babysitters.html', context)
+
+def babysitter(request, babysitter_id):
+  babysitter = get_object_or_404(Babysitter, pk=babysitter_id)
+
+  context = {
+    'babysitter': babysitter
+  }
+
+  return render(request, 'babysitter_profile.html', context)
+    
+
 def search(request):
-  queryset_list = Babysitter.objects.order_by('-list_date')
+  queryset_list = Babysitter.objects.order_by()
 
   # Keywords
   if 'keywords' in request.GET:
@@ -56,9 +82,9 @@ def search(request):
   context = {
     'county_choices': county_choices,
     'minder_choices': minder_choices,
-    'price_choices': price_choices,
+    'numbers_choices':numbers_choices,
     'babysitters': queryset_list,
     'values': request.GET
   }
 
-  return render(request, 'listings/search.html', context)
+  return render(request, 'search.html', context)

@@ -27,35 +27,39 @@
 <body>
 <!-- Google Map -->
 <div class="container">
-  <h1>Our Location</h1>
+  <h3 class="poppins text-center">Our <span class="pink">Location</span></h3>
   <div id="map_container"></div>
   <div id="map"></div>
 </div>
 
 <section class="contacts">
-    <div class="container">
-        <div class="row text-center">
+        <div class="container">
+            <div class="row text-center">
                 <!--Section heading-->
-                <h3 class="poppins text-center">Contact <span class="pink">Us</span></h3>
-                <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within a matter of hours to help you.</p>
+    <h3 class="poppins text-center">Contact <span class="pink">Us</span></h3>
+    <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
+        a matter of hours to help you.</p>
                 <div class="col-md-4">
-                     <span class="rt-icon2-location-outline pink"></span>
-                        <p>Kenmare, Co. Kerry</p>
+                    
+                    <span class="fas fa-map-marker-alt fa-2x" style="color:#f5abcb;"></span>
+                    <p>Kenmare, Co. Kerry</p>
                 </div>
                 <div class="col-md-4">
-                    <span class="rt-icon2-mail2 blue"></span>
+                    <span class="fas fa-envelope-open fa-2x" style="color:#9cc0e5;"></span>
                     <a href="#">info@minderfinder.ie</a>
                 </div>
                 <div class="col-md-4">
-                    <span class="rt-icon2-phone-outline light-green"></span>
+                    <span class="fas fa-phone light-green fa-2x" style="color:#c2dc71;"></span>
                     <p>(089) 424 0146</p>
                 </div>
-        </div>
+            </div>
+       
+
     <div class="col-md-12">
         <div class="form-area">  
             <form role="form" onsubmit="return sendMail(this);">
                 <br style="clear:both">
-                    <h3 style="margin-bottom: 25px; text-align: center;">Book My Appointment</h3>
+                    <h3 style="margin-bottom: 25px; text-align: center; "class="poppins text-center">Make <span class="pink">Enquiry</span></h3>
     				<div class="form-group">
 						<input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
 					</div>
@@ -76,10 +80,10 @@
                     </div>
                    <div class="form-group">
             <select name="branch" class="form-control">
-                <option name="branch" value="">--select branch--</option>
-                <option name="branch"  value="option1">Madhapur</option>
-                <option name="branch"  value="option2" >Hitech city</option>
-    	        <option name="branch"  value="option3">Gachibowli</option>
+                <option name="branch" value="">--Select Venue--</option>
+                <option name="branch"  value="option1">At Home</option>
+                <option name="branch"  value="option2" >Babysitters/ Childminders Home</option>
+    	        <option name="branch"  value="option3">Other Location</option>
             </select>
         </div>
     
