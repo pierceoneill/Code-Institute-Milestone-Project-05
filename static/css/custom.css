@@ -9918,12 +9918,7 @@ h1{
 table.table.table-striped > tbody > tr{
     background: none;
 }
-.pull-right {
-    float: right;
-    margin-top: 70px;
-    position: absolute;
-    margin-left: 400px;
-}
+
 .prof{
     margin-left: 50px;
     margin-top: 50px;
@@ -10968,6 +10963,15 @@ button.toast-close-button {
 
 img {
   width: 50%; }
+  
+img2 {
+  width: 100%; }
+
+.blog {
+    width: 190px;
+    padding-top: 20px;
+    padding-left: 10px;
+}
 
 .logo {
   width: 80px; }
@@ -11059,3 +11063,17 @@ img {
     font-size: 30px; }
   #showcase-inner h1 {
     font-size: 40px; } }
+
+.btn-type100, a.btn-type100 {
+    display: inline-block;
+    margin-top: 14px;
+    color: #fafafa;
+    /* width: 170px; */
+    background: #88d4f2;
+    height: 60px;
+    /* font-size: 16px; */
+    font-weight: 500;
+    text-align: center;
+    line-height: 56px;
+    border: 2px solid #fafafa;
+}

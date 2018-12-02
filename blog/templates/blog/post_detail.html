@@ -42,13 +42,13 @@
                                         <i class="rt-icon2-arrow-forward-outline"></i>
                                     </a>
                                     <a href="#" class="theme_button inverse">
-                                        <i class="rt-icon2-heart-outline"></i>
+                                        <i class="fas fa-tags"></i>
                                     </a>
                                 <span class="item-likes">
-                                76 likes
+                                {{ post.tag }}
                                 </span>
                                 <span class="views-count pull-right">
-                                    <strong>29,456</strong> views
+                                    <strong>{{post.views}}</strong> views
                                 </span>
                                 </div>
                             </header>
@@ -64,13 +64,13 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="item-media">
-                                        <img src="images/blog-post-author.jpg" alt="">
+                                        <img class="blog" src="{% static 'images/logo.png' %}">
                                     </div>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="item-content">
-                                        <h4 class="entry-title">Ruthie Wolf</h4>
-                                        <p>Nulla porttitor accumsan tincidunt msk aliquet elit, eget tincidunt nibh.</p>
+                                        <h4 class="entry-title">{{ post.author }}</h4>
+                                        <p>Posts by the Minder Finder admin account.</p>
                                     <span class="author-social">
                                         <a href="#" class="social-icon color-bg-icon rounded-icon soc-facebook"></a>
                                         <a href="#" class="social-icon color-bg-icon rounded-icon soc-twitter"></a>
@@ -115,7 +115,7 @@
                                     </div>
                                 </div>
                                 <p class="form-submit">
-                                    <button type="submit" id="submit" name="submit" class="btn-type1 colore-blue">Send Comment</button>
+                                    <button type="submit" id="submit" name="submit" class="btn-type100 color-blue">Send Comment</button>
                                 </p>
                             </form>
                         </div>
@@ -144,6 +144,39 @@
                                     </article>
                                     <!-- .comment-body -->
 
+      {% if user.is_authenticated %}
+          <a class="btn btn-primary" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+          <a class="btn btn-primary" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+      {% endif %}
+
+
+
+  <hr>
+  <a class="btn btn-primary btn-comment" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
+  <div class="container">
+
+
+  {% for comment in post.comments.all %}
+  <br>
+      {% if user.is_authenticated or comment.approved_comment %}
+
+              {{ comment.created_date }}
+              {% if not comment.approved_comment %}
+                  <a class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+                  <a class="btn btn-default" href="{% url 'comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
+              {% endif %}
+
+          <p>{{ comment.text|safe|linebreaks }}</p>
+          <p>Posted by: <strong>{{ comment.author }}</strong></p>
+
+      {% endif %}
+  {% empty %}
+      <p>No comments posted.</p>
+  {% endfor %}
+</div>
+
+{% for comment in comments %}
+
                                     <ol class="children">
                                         <li class="comment byuser odd alt depth-2 parent">
                                             <article class="comment-body media">
@@ -157,7 +190,7 @@
                                                 </a>
                                             </span>
                                                     <div class="comment-meta darklinks">
-                                                        <a class="author_url" rel="external nofollow" href="#">Alan Smith</a>
+                                                        <a class="author_url" rel="external nofollow" href="#">{{ comment.author }}</a>
                                                 <span class="comment-date">
                                                     <span class="entry-date">March 03, 2016 at 13:45</span>
                                                 </span>
@@ -166,7 +199,7 @@
                                                 </div>
                                             </article>
                                             <!-- .comment-body -->
-
+{% endfor %}
                                             <ol class="children">
                                                 <li class="comment byuser even depth-3">
                                                     <article class="comment-body media">
