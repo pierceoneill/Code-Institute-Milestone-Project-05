@@ -5826,6 +5826,13 @@ form.searchform {
     background-color: #f0f1eb;
 }
 
+.team-person-main {
+    position: relative;
+    min-height: 300px;
+    width: 350px;
+    background-color: #f0f1eb;
+}
+
 .team-person:not(:last-of-type) {
     margin-bottom: 40px;
 }
@@ -5836,6 +5843,14 @@ form.searchform {
     width: 270px;
     z-index: 5;
 }
+
+.team-person-main > img {
+    float: left;
+    height: 300px;
+    width: 350px;
+    z-index: 5;
+}
+
 
 .person-social {
     position: absolute;
@@ -9334,17 +9349,7 @@ label{
 .paymentsPic {
     display: none;
 }
-.card{
-    width: 500px;
-    transform: rotate(90deg);
-    left: -90px;
-    top: 90px;
-}
-.card-details{
-    width: 150%;
-    transform: rotate(90deg);
-    left: -90px;
-    top: 80px;
+
 }
 input .name-field{
     transform: rotate(90deg);
@@ -10281,17 +10286,7 @@ label{
 .paymentsPic {
     display: none;
 }
-.card{
-    width: 500px;
-    transform: rotate(90deg);
-    left: -90px;
-    top: 90px;
-}
-.card-details{
-    width: 150%;
-    transform: rotate(90deg);
-    left: -90px;
-    top: 80px;
+
 }
 input .name-field{
     transform: rotate(90deg);
@@ -11087,3 +11082,27 @@ img2 {
 .fa-twitter-square:before {
   content: "\f081"; }
   
+.pt-5,
+.py-5 {
+  padding-top: 3rem !important; }
+
+.pr-5,
+.px-5 {
+  padding-right: 3rem !important; }
+
+.pb-5,
+.py-5 {
+  padding-bottom: 3rem !important; }
+  
+.badge-latest {
+    display: inline-block;
+    padding: 0.25em 0.4em;
+    font-size: 20;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 10px;
+    background-color: #c2dc71;
+}

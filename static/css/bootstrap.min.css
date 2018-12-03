@@ -5895,16 +5895,13 @@ a.label:hover {
 .badge {
     display: inline-block;
     min-width: 10px;
-    padding: 3px 7px;
-    font-size: 12px;
     font-weight: 700;
     line-height: 1;
     color: #fff;
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
-    background-color: #e17c8e;
-    border-radius: 10px
+    background-color: #c2dc71;
 }
 
 .badge:empty {
@@ -10897,22 +10894,6 @@ textarea.form-control {
   border-top-right-radius: 0.2rem;
   border-bottom-right-radius: 0.2rem; }
 
-.badge {
-  display: inline-block;
-  padding: 0.25em 0.4em;
-  font-size: 75%;
-  font-weight: 700;
-  line-height: 1;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: baseline;
-  border-radius: 0.25rem; }
-  .badge:empty {
-    display: none; }
-
-.btn .badge {
-  position: relative;
-  top: -1px; }
 
 .badge-pill {
   padding-right: 0.6em;
@@ -10928,7 +10909,6 @@ textarea.form-control {
     background-color: #071224; }
 
 .badge-secondary {
-  color: #212529;
   background-color: #30caa0; }
   .badge-secondary[href]:hover, .badge-secondary[href]:focus {
     color: #212529;
@@ -12473,12 +12453,6 @@ button.bg-dark:focus {
   left: 0;
   z-index: 1030; }
 
-@supports (position: sticky) {
-  .sticky-top {
-    position: sticky;
-    top: 0;
-    z-index: 1020; } }
-
 .sr-only {
   position: absolute;
   width: 1px;
@@ -13606,7 +13580,7 @@ a.text-primary:hover, a.text-primary:focus {
   color: #071224 !important; }
 
 .text-secondary {
-  color: #30caa0 !important; }
+  color: #666566 !important; }
 
 a.text-secondary:hover, a.text-secondary:focus {
   color: #26a17f !important; }

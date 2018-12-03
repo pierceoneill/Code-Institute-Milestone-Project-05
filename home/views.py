@@ -5,7 +5,7 @@ from babysitters.choices import numbers_choices, minder_choices, county_choices
 from babysitters.models import Babysitter
 
 def get_index(request):
-    babysitters = Babysitter.objects.order_by('-list_date').filter(verified=True)[:3]
+    babysitters = Babysitter.objects.order_by('-list_date').filter()[:3]
 
     context = {
         'babysitters': babysitters,
