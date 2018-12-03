@@ -1,4 +1,7 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+{% load humanize %}
+
+{% block content %}
 {% for babysitter in babysitters %}
 
         <section class="team-page">
@@ -44,4 +47,100 @@
 </div>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 </section>
+ <!-- babysitters -->
+ 
+ 
+  <section id="babysitters" class="py-4">
+    <div class="container"
+      <div class="row">
+        {% if babysitters %}
+          {% for babysitter in babysitters %}
+          <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card babysitter-preview">
+                <img class="card-img-top" src="{{ babysitter.photo_main.url }}" alt="">
+                <div class="card-img-overlay">
+                  <h2>
+                    <span class="badge badge-secondary text-white">${{ babysitters.price }}</span>
+                  </h2>
+                </div>
+                <div class="card-body">
+                  <div class="babysitter-heading text-center">
+                    <h4 class="text-primary">{{ babysitter.title }}</h4>
+                    <p>
+                      <i class="fas fa-map-marker text-secondary"></i> {{ babysitter.city }} {{ babysitter.state }}, {{ babysitter.zipcode }}</p>
+                  </div>
+                  <hr>
+                  <div class="row py-2 text-secondary">
+                    <div class="col-6">
+                      <i class="fas fa-th-large"></i> Sqft: {{ babysitter.smoking}}</div>
+                    <div class="col-6">
+                      <i class="fas fa-car"></i> Garage: {{ babysitter.driver }}</div>
+                  </div>
+                  <div class="row py-2 text-secondary">
+                    <div class="col-6">
+                      <i class="fas fa-bed"></i> Bedrooms: {{ babysitter.car }}</div>
+                    <div class="col-6">
+                      <i class="fas fa-bath"></i> Bathrooms: {{ babysitter.experience }}</div>
+                  </div>
+                  <hr>
+                  <div class="row py-2 text-secondary">
+                    <div class="col-12">
+                      <i class="fas fa-user"></i> {{ babysitter.verified }}</div>
+                  </div>
+                  <div class="row text-secondary pb-2">
+                    <div class="col-6">
+                      <i class="fas fa-clock"></i> {{ babysitter.list_date }}</div>
+                  </div>
+                  <hr>
+                  <a href="{% url 'babysitters' babysitter.id %}" class="btn btn-primary btn-block">More Info</a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <div class="col-md-12">
+            <p>No babysitters Available</p>
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          {% if babysitters.has_other_pages %}
+            <ul class="pagination">
+              {% if lshas_previous %}
+                <li class="page-item">
+                  <a href="?page={{babysitters.previous_page_number}}" class="page-link">&laquo;</a>
+                </li>
+              {% else %}
+                <li class="page-item disabled">
+                  <a class="page-link">&laquo;</a>
+                </li>
+              {% endif %}
+              {% for i in babysitter.paginator.page_range %}
+                {% if babysitters.number == i %}
+                  <li class="page-item active">
+                    <a class="page-link">{{i}}</a>
+                  </li>
+                {% else %}
+                  <li class="page-item">
+                    <a href="?page={{i}}" class="page-link">{{i}}</a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+              {% if babysitters.has_next %}
+                <li class="page-item">
+                  <a href="?page={{babysitters.next_page_number}}" class="page-link">&raquo;</a>
+                </li>
+              {% else %}
+                <li class="page-item disabled">
+                  <a class="page-link">&raquo;</a>
+                </li>
+              {% endif %}
+            </ul>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
 {% endblock %}

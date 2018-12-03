@@ -7,6 +7,12 @@ from .choices import numbers_choices, minder_choices, county_choices
 # Create your views here.
 def all_babysitters(request):
     babysitters = Babysitter.objects.all()
+    
+    paginator = Paginator(babysitters, 3)
+  
+    page = request.GET.get('page')
+    babysitters = paginator.get_page(page)
+    
     return render(request, "babysitters.html", {"babysitters": babysitters})
     
 def babysitter_profile(request, id):
@@ -22,19 +28,6 @@ def babysitter_profile(request, id):
         'work_qs': work_qs}
     )
 
-
-def index(request):
-  babysitters = Babysitter.objects.order_by('-list_date').filter(is_published=True)
-
-  paginator = Paginator(babysitters, 6)
-  page = request.GET.get('page')
-  paged_listings = paginator.get_page(page)
-
-  context = {
-    'babysitters': paged_listings
-  }
-
-  return render(request, 'babysitters.html', context)
 
 def babysitter(request, babysitter_id):
   babysitter = get_object_or_404(Babysitter, pk=babysitter_id)

@@ -1,6 +1,6 @@
 {% extends 'base.html'%}
 {% load static %}
-{% load bootstrap_tags %}
+{% load humanize %}
 {% block content %}
 
 
@@ -123,7 +123,70 @@
     <br>
     <br>
     
-    <section class="contacts">
+    <!-- Alerts -->
+  {% include 'alerts.html' %}
+
+  <!-- Listings -->
+  <section id="babysitters" class="py-5">
+    <div class="container">
+      <h3 class="text-center mb-3">Latest Babysitters</h3>
+      <div class="row">
+        {% if babysitters %}
+          {% for babysitter in babysitters %}
+            <!-- Listing 1 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card listing-preview">
+                <img class="card-img-top" src="{{ babysitter.photo_main.url }}" alt="">
+                <div class="card-img-overlay">
+                  <h2>
+                    <span class="badge badge-secondary text-white">${{ babysitter.price }}</span>
+                  </h2>
+                </div>
+                <div class="card-body">
+                  <div class="listing-heading text-center">
+                    <h4 class="text-primary">{{ babysitter.firstName }}</h4>
+                    <p>
+                      <i class="fas fa-map-marker text-secondary"></i> {{ babysitter.city }} {{ babysitter.county }}, {{ babysitter.postcode }}</p>
+                  </div>
+                  <hr>
+                  <div class="row py-2 text-secondary">
+                    <div class="col-6">
+                      <i class="fas fa-th-large"></i> Sqft: {{ babysitter.smoking}}</div>
+                    <div class="col-6">
+                      <i class="fas fa-car"></i> Garage: {{ babysitter.driver }}</div>
+                  </div>
+                  <div class="row py-2 text-secondary">
+                    <div class="col-6">
+                      <i class="fas fa-bed"></i> Bedrooms: {{ babysitter.car}}</div>
+                    <div class="col-6">
+                      <i class="fas fa-bath"></i> Bathrooms: {{ babysitter.experience }}</div>
+                  </div>
+                  <hr>
+                  <div class="row py-2 text-secondary">
+                    <div class="col-6">
+                      <i class="fas fa-user"></i> {{ babysitter.verified }}</div>
+                  </div>
+                  <div class="row text-secondary pb-2">
+                    <div class="col-6">
+                      <i class="fas fa-clock"></i> {{ babysitter.list_date }}</div> 
+                  </div>
+                  <hr>
+                  <a href="{% url 'babysitters' babysitter.id %}"  class="btn btn-primary btn-block">More Info</a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <div class="col-md-12">
+            <p>No Babysitters Available</p>
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </section>
+    
+  <section class="contacts">
         <div class="container">
             <div class="row text-center">
                 <!--Section heading-->
@@ -146,7 +209,8 @@
             </div>
         </div>
     </section>
-    <style>
+  
+  <style>
     #hero {
         background: url("{% static 'images/bg-stiky.jpg' %}") no-repeat center;
         background-size: cover;

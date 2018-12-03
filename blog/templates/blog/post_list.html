@@ -43,7 +43,7 @@
                             </h3>
                             <p class="post-date">{{ post.published_date}}</p>
                             <p class="post-descr">{{ post.description}}</p>
-                            <a href="{% url 'post_detail' pk=post.pk %}" class="btn-type1">Read More</a>
+                            <a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-primary">Read More</a>
                         </div>
                     </article>
                
@@ -90,59 +90,34 @@
                     <div class="widget widget_banner">
                         <div class="vertical-item content-absolute text-center">
                             <a href="#" class="item-media">
-                                <img src="images/aside-banner.jpg" alt="">
+                                <img src="{% static 'images/blog-widget.jpg' %}" alt="">
                             </a>
                         </div>
                     </div>
 
                     <div class="widget widget_tag_cloud">
                         <h3 class="widget-title">Featured Tags</h3>
+                        {% for post in post_list%}
                         <div class="tagcloud text-center">
-                            <a href="#" title="" class="btn-type1">Children</a>
-                            <a href="#" title="" class="btn-type1">Games</a>
-                            <a href="#" title="" class="btn-type1">Education</a>
-                            <a href="#" title="" class="btn-type1">Babysitters</a>
-                            <a href="#" title="" class="btn-type1">Teachers</a>
-                            <a href="#" title="" class="btn-type1">Kids Center</a>
+                            <a href="#" title="" class="btn-type1">{{post.tag}}</a>
                         </div>
-                    </div>
-
-                    <div class="widget widget_categories text-center">
-                        <h3 class="widget-title">Categories</h3>
-                        <div class="select-group">
-                            <select aria-required="true" id="time" name="time">
-                                <option value="" disabled selected>Choose Category</option>
-                                <option value="games">Games</option>
-                                <option value="babysitters">Babysitters</option>
-                                <option value="nanny">Nanny</option>
-                                <option value="education">Education</option>
-                                <option value="children">Children</option>
-                                <option value="kids-center">Kids Center</option>
-                            </select>
-                            <i class="rt-icon2-chevron-thin-down"></i>
-                        </div>
+                        {% endfor %} 
                     </div>
 
                     <div class="widget widget_archive text-center">
-                        <h3 class="widget-title">Archives</h3>
+                        <h3 class="widget-title">Categories</h3>
                         <div class="select-group">
-                            <select aria-required="true" id="month" name="time">
-                                <option value="" disabled selected>Choose Month</option>
-                                <option value="january">January</option>
-                                <option value="february">February</option>
-                                <option value="march">March</option>
-                                <option value="april">April</option>
-                                <option value="may">May</option>
-                                <option value="june">June</option>
-                                <option value="july">July</option>
-                                <option value="august">August</option>
-                                <option value="september">September</option>
-                                <option value="october">October</option>
-                                <option value="november">November</option>
-                                <option value="december">December</option>
+                            <select aria-required="true" id="time" name="time">
+                                
+                                <option value="" disabled selected>Choose Category</option>
+                                {% for post in post_list%}
+                                <option value="games">{{post.category}}</option>
+                                {% endfor %} 
                             </select>
                             <i class="rt-icon2-chevron-thin-down"></i>
                         </div>
+                    </div>
+ 
                     </aside>
 
                 </div>

@@ -1,7 +1,11 @@
 from django.db import models
 from django.utils import timezone
 from django.core.urlresolvers import reverse
-
+from django.conf import settings
+from django.contrib.auth.models import User
+from django.db.models.signals import pre_save
+from django.utils.text import slugify
+import datetime
 
 class Post(models.Model):
     author = models.ForeignKey('auth.User')
@@ -14,6 +18,7 @@ class Post(models.Model):
     description = models.CharField(max_length=340)
     views = models.IntegerField(default=0)
     tag = models.CharField(max_length=30, blank=True, null=True)
+    likes = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='post_likes', blank=True)
 
     def publish(self):
         self.published_date = timezone.now()
@@ -23,7 +28,10 @@ class Post(models.Model):
         return self.comments.filter(approved_comment=True)
 
     def get_absolute_url(self):
-        return reverse("post_detail",kwargs={'pk':self.pk})
+        return reverse('post_detail', kwargs={"slug": self.slug})
+
+    def get_like_url(self):
+        return reverse('like', kwargs={"slug": self.slug})
 
 
     def __str__(self):
