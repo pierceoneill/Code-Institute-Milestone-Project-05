@@ -1,19 +1,8 @@
 # Code Institute Milestone Project 5
 
-Are you a lonesome developer? Sitting at work or maybe in your own room typing away the code? Do you wish that you could meet fellow developers instead of hundreds of Facebook groups and LinkedIn Groups? Well, Developers Hangout have ya covered, it’s a community made by a developer for developers!
+## Minder Finder - Babysitting Finder
 
-
-# [Developers Hangout Website](https://www.devhangout.co)
-### [More indept documentation created with compodoc](https://eventyret.github.io/DevHangout)
-#### This documentation will cover the following
-- Methods and functions in detail
-- Components
-- Services
-- Injections
-- Guards
-- Interfaces
-
-*This is built with [Compodoc - The missing documentation tool for your Angular application](https://compodoc.app/)*
+Having consulted with my mentor Chris Zielinski, I decided to build a babysitter app where parents or guardians could search and book a babysitter or childcare for their children. The babysitters apply to be registered on the site. 
 
 ## UX
 
