@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/pierceoneill/Code-Institute-Milestone-Project-05.svg?branch=master)](https://travis-ci.org/pierceoneill/Code-Institute-Milestone-Project-05)
+
 # Code Institute Milestone Project 5
 
 ## Minder Finder - Babysitting Finder
