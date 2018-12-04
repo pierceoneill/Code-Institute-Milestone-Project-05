@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'django_gravatar',
     'checkout',
     'storages',
+    
 ]
 
 MIDDLEWARE = [
@@ -179,8 +180,6 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'pierceoneillky@gmail.com'
 EMAIL_HOST_PASSWORD = 'Mountain01'
 EMAIL_PORT = 587
-
-CSRF_FAILURE_VIEW = 'minderfinder.views.csrf_failure'
 
 # Messages
 from django.contrib.messages import constants as messages

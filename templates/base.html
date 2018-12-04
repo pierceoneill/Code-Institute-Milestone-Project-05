@@ -28,6 +28,17 @@
     {% endblock head_js %}
 </head>
 <body>
+  <div class="container">
+         {% if messages %}
+        <div class="alert alert-success">
+            <div class="messages">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+    </div>
 
 <!-- Top Bar -->
 <section id="top-bar" class="p-3">
@@ -68,7 +79,6 @@
       <a class="navbar-brand" href="{% url 'index' %}">
         <img src="{% static 'images/logo.png' %}" class="logo" alt="">
       </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">

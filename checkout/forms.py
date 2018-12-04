@@ -1,4 +1,5 @@
 from django import forms
+from .models import Order
 
 class MakePaymentForm(forms.Form):
 
@@ -13,3 +14,8 @@ class MakePaymentForm(forms.Form):
     cvv = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'cvv'}),
     max_length=3, label='Security code (CVV)', required=True)
     stripe_id = forms.CharField(widget=forms.HiddenInput)
+    
+class OrderForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = ('first_name', 'last_name', 'phone', 'postcode', 'city', 'address1', 'address2', 'county')

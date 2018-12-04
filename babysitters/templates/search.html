@@ -14,21 +14,21 @@
             <div class="form-row">
               <div class="col-md-4 mb-3">
                 <label class="sr-only">Keywords</label>
-                <input type="text" name="keywords" class="form-control" placeholder="Keyword" value="{{ values.keywords }}">
+                <input type="text" name="keywords" class="form-control" placeholder="Keyword" value="{{ babysitter.keywords }}">
               </div>
 
               <div class="col-md-4 mb-3">
                 <label class="sr-only">City</label>
-                <input type="text" name="city" class="form-control" placeholder="City" value="{{ values.city }}">
+                <input type="text" name="city" class="form-control" placeholder="City" value="{{ babysitter.city }}">
               </div>
 
               <div class="col-md-4 mb-3">
                 <label class="sr-only">County</label>
-                <select name="state" class="form-control">
+                <select name="county" class="form-control">
                   <option selected="true" disabled="disabled">County (All)</option>
                   {% for key,value in county_choices.items %}
                       <option value="{{ key }}" 
-                      {% if key == values.county %}
+                      {% if key == babysitter.county %}
                         selected
                       {% endif %}
                       >{{ value }}</option>
@@ -40,11 +40,11 @@
             <div class="form-row">
               <div class="col-md-6 mb-3">
                 <label class="sr-only">Minder Type</label>
-                <select name="bedrooms" class="form-control">
+                <select name="minderType" class="form-control">
                   <option selected="true" disabled="disabled">Minder Type (Any)</option>
                   {% for key,value in minder_choices.items %}
                       <option value="{{ key }}"
-                      {% if key == values.bedrooms %}
+                      {% if key == babysitter.minderType %}
                         selected
                       {% endif %}
                       >{{ value }}</option>
@@ -52,11 +52,11 @@
                 </select>
               </div>
               <div class="col-md-6 mb-3">
-                <select name="price" class="form-control">
+                <select name="max_num" class="form-control">
                   <option selected="true" disabled="disabled">Max No. of Children (All)</option>
                   {% for key,value in numbers_choices.items %}
                       <option value="{{ key }}"
-                      {% if key == values.numbers %}
+                      {% if key == babysitter.max_num %}
                         selected
                       {% endif %}
                       >{{ value }}</option>
@@ -90,59 +90,90 @@
   </section>
 
   <!-- babysitters -->
-  <section id="babysitters" class="py-4">
-    <div class="container">
-      <div class="row">
+  <section class="team-page">
         {% if babysitters %}
           {% for babysitter in babysitters %}
-          <div class="col-md-6 col-lg-4 mb-4">
-              <div class="card babysitter-preview">
-                <img class="card-img-top" src="{{ babysitter.photo_main.url }}" alt="">
-                <div class="card-img-overlay">
-                  <h2>
-                    <span class="badge badge-secondary text-white">${{ babysitter.price | intcomma }}</span>
-                  </h2>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="team-person">
+                            <img src="{{ MEDIA_URL }}{{ babysitter.image }}">
+                            <div class="about-person">
+                                <p class="grand-hotel">{{ babysitter.minderType }}</p>
+                                <h3>{{ babysitter.firstName }} {{ babysitter.lastName }}</h3>
+                                <div class="person-divider"></div>
+                                <p>
+                                    {{ babysitter.city }}
+                                </p>
+                                 <p>
+                                    <i class="fas fa-euro light-blue "></i>
+                                    <span>&nbsp {{ babysitter.price }} Per Hour</span>
+                                </p>
+                                <a href="{% url 'babysitter_profile' babysitter.id %}" class="btn btn-default">More Info</a>
+                            </div>
+                            <div class="person-social">
+                                <p>
+                                   {{ babysitter.description }}
+                                </p>
+                                <div class="social-icons">
+                                    <a href="#" class="social-icon color-bg-icon rounded-icon soc-facebook"></a>
+                                    <a href="#" class="social-icon color-bg-icon rounded-icon soc-twitter"></a>
+                                    <a href="#" class="social-icon color-bg-icon rounded-icon soc-skype"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
                 </div>
-                <div class="card-body">
-                  <div class="babysitter-heading text-center">
-                    <h4 class="text-primary">{{ babysitter.title }}</h4>
-                    <p>
-                      <i class="fas fa-map-marker text-secondary"></i> {{ babysitter.city }} {{ babysitter.state }}, {{ babysitter.zipcode }}</p>
-                  </div>
-                  <hr>
-                  <div class="row py-2 text-secondary">
-                    <div class="col-6">
-                      <i class="fas fa-th-large"></i> Sqft: {{ babysitter.sqft }}</div>
-                    <div class="col-6">
-                      <i class="fas fa-car"></i> Garage: {{ babysitter.garage }}</div>
-                  </div>
-                  <div class="row py-2 text-secondary">
-                    <div class="col-6">
-                      <i class="fas fa-bed"></i> Bedrooms: {{ babysitter.bedrooms }}</div>
-                    <div class="col-6">
-                      <i class="fas fa-bath"></i> Bathrooms: {{ babysitter.bathrooms }}</div>
-                  </div>
-                  <hr>
-                  <div class="row py-2 text-secondary">
-                    <div class="col-12">
-                      <i class="fas fa-user"></i> {{ babysitter.realtor }}</div>
-                  </div>
-                  <div class="row text-secondary pb-2">
-                    <div class="col-6">
-                      <i class="fas fa-clock"></i> {{ babysitter.age}}</div>
-                  </div>
-                  <hr>
-                  <a href="{% url 'babysitter' babysitter.id %}" class="btn btn-primary btn-block">More Info</a>
-                </div>
-              </div>
             </div>
-          {% endfor %}
+            <br>
+            <br>
+           {% endfor %}
         {% else %}
           <div class="col-md-12">
-            <p>No babysitters Available</p>
+            <p>No Listings Available</p>
           </div>
         {% endif %}
       </div>
     </div>
+    
+    <div class="row">
+        <div class="col-md-12">
+          {% if babysitters.has_other_pages %}
+            <ul class="pagination">
+              {% if babysitters.has_previous %}
+                <li class="page-item">
+                  <a href="?page={{babysitters.previous_page_number}}" class="page-link">&laquo;</a>
+                </li>
+              {% else %}
+                <li class="page-item disabled">
+                  <a class="page-link">&laquo;</a>
+                </li>
+              {% endif %}
+              {% for i in babysitters.paginator.page_range %}
+                {% if babysitters.number == i %}
+                  <li class="page-item active">
+                    <a class="page-link">{{i}}</a>
+                  </li>
+                {% else %}
+                  <li class="page-item">
+                    <a href="?page={{i}}" class="page-link">{{i}}</a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+              {% if babysitters.has_next %}
+                <li class="page-item">
+                  <a href="?page={{babysitters.next_page_number}}" class="page-link">&raquo;</a>
+                </li>
+              {% else %}
+                <li class="page-item disabled">
+                  <a class="page-link">&raquo;</a>
+                </li>
+              {% endif %}
+            </ul>
+          {% endif %}
+        </div>
+      </div>
+    </div>
   </section>
-  {% endblock %}
+  </section>
+ {% endblock %}

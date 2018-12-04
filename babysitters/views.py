@@ -6,8 +6,17 @@ from .choices import numbers_choices, minder_choices, county_choices
 
 # Create your views here.
 def all_babysitters(request):
-    babysitters = Babysitter.objects.all()
-    return render(request, "babysitters.html", {"babysitters": babysitters})
+    queryset_list = Babysitter.objects.order_by()
+   
+    context = {
+    'county_choices': county_choices,
+    'minder_choices': minder_choices,
+    'numbers_choices':numbers_choices,
+    'babysitters': queryset_list,
+    'values': request.GET
+   } 
+
+    return render(request, 'babysitters.html', context)
     
 def babysitter_profile(request, id):
     """A view that displays the profile page of a registered babysitter"""
@@ -34,7 +43,7 @@ def babysitter(request, babysitter_id):
     
 
 def search(request):
-  queryset_list = Babysitter.objects.order_by()
+  queryset_list = Babysitter.objects.order_by('-list_date')
 
   # Keywords
   if 'keywords' in request.GET:
@@ -48,23 +57,23 @@ def search(request):
     if city:
       queryset_list = queryset_list.filter(city__iexact=city)
 
-  # State
-  if 'state' in request.GET:
-    state = request.GET['state']
-    if state:
-      queryset_list = queryset_list.filter(state__iexact=state)
+  # County
+  if 'county' in request.GET:
+    county = request.GET['county']
+    if county:
+      queryset_list = queryset_list.filter(county__iexact=county)
 
-  # Bedrooms
-  if 'bedrooms' in request.GET:
-    bedrooms = request.GET['bedrooms']
-    if bedrooms:
-      queryset_list = queryset_list.filter(bedrooms__lte=bedrooms)
+  # MinderType
+  if 'minderType' in request.GET:
+    minderType = request.GET['minderType']
+    if minderType:
+      queryset_list = queryset_list.filter(minderType__lte=minderType)
 
-  # Price
-  if 'price' in request.GET:
-    price = request.GET['price']
-    if price:
-      queryset_list = queryset_list.filter(price__lte=price)
+  # Max num
+  if 'numbers' in request.GET:
+    max_num = request.GET['max_num']
+    if max_num:
+      queryset_list = queryset_list.filter(max_num__lte=max_num)
 
   context = {
     'county_choices': county_choices,

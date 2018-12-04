@@ -1,5 +1,6 @@
+
 function sendMail(contactForm) {
-    emailjs.send("gmail", "minderfinder", {
+    emailjs.send("gmail", "babysitter", {
         "from_name": contactForm.name.value,
         "from_email": contactForm.emailaddress.value,
         "booking_request": contactForm.booking_request.value,
@@ -7,10 +8,12 @@ function sendMail(contactForm) {
         "date": contactForm.date.value,
         "time": contactForm.time.value
     })
-    .then(function(response) {
-       console.log('SUCCESS!', response.status, response.text);
-    }, function(error) {
-       console.log('FAILED...', error);
+    .then(
+        function(response) {
+          messages.success(request, 'Form submission successful')
+        },
+        function(error) {
+            console.log("FAILED", error);
         }
     );
 }

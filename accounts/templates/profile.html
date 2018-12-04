@@ -135,7 +135,14 @@
     <table class="table table-striped">
     <h3>Your order history</h3>
     <hr>
-    
+    {% for order in orders %}
+<tr>
+    <td scope="row">{{ order.quantity }}</td>
+    <td>xxx</td>
+    <td>xxx</td>
+    <td>xxx</td>
+</tr>
+{% endfor %}
   <tr>
     <th>Date</th>
     <th>Invoice ID</th> 

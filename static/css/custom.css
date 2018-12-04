@@ -11106,3 +11106,10 @@ img2 {
     border-radius: 10px;
     background-color: #c2dc71;
 }
+
+.sidebar-cart > img {
+    float: left;
+    height: 300px;
+    width: 350px;
+    z-index: 5;
+}
