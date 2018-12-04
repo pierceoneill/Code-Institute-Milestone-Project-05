@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_forms_bootstrap',
-    'bootstrap_datepicker_plus',
     'django_gravatar',
     'home',
     

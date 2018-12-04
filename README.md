@@ -8,16 +8,14 @@ Having consulted with my mentor Chris Zielinski, I decided to build a babysitter
 
 The UX is made with simplicity in mind, it's meant to be easy to navigate and simple information with icons to process.
 
-### The Dashboard
+### The Client Dashboard
 
-The Dashboard is the main area for a user to edit all of their profile. Simple buttons that provide the user with a modal for editing, adding skills, experience, education and their profile details.
-
-It also comes with a simple table in desktop mode to have an overview of all the information. As tables are not good looking for the user experience on mobile, I chose to switch this to cards as its easier for the user to identify and work with.
+The Dashboard is the main area for the clients to edit their information and and information on their children. Simple buttons that provide the user with a modal for editing their own personal information and also adding children to their profiles.
 
 
-### Developers List
+### The Babysitters List
 
-The Developers list is a simple card list showing all developers registered + 1000 fake users. We have added infinite scroll to make the user experience more pleasant. The displayed data will start with 8 and for each scroll, it will add 8 more to see. 
+The Babysitters list displays the basic information for each of the babysitters who are available.
 
 This then improves loading speed as we don't load a 1000 users at once, but only 8 at a time, as the user requests information.
 
