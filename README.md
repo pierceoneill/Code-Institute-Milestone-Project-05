@@ -1,4 +1,4 @@
-![Developers Hangout](https://raw.githubusercontent.com/Eventyret/DevHangout/develop/src/assets/logo-share.png)
+# Code Institute Milestone Project 5
 
 Are you a lonesome developer? Sitting at work or maybe in your own room typing away the code? Do you wish that you could meet fellow developers instead of hundreds of Facebook groups and LinkedIn Groups? Well, Developers Hangout have ya covered, it’s a community made by a developer for developers!
 
