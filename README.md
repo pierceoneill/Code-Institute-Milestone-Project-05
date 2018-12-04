@@ -10,17 +10,18 @@ The UX is made with simplicity in mind, it's meant to be easy to navigate and si
 
 ### The Client Dashboard
 
-The Dashboard is the main area for the clients to edit their information and and information on their children. Simple buttons that provide the user with a modal for editing their own personal information and also adding children to their profiles.
+The Dashboard is the main area for the clients to edit their information and and information on their children. Simple buttons that provide the user with a modal for editing their own personal information and also 
+adding children to their profiles.
 
 
 ### The Babysitters List
 
-The Babysitters list displays the basic information for each of the babysitters who are available.
+The Babysitters list displays the basic information for each of the babysitters who are available with a small profiel picture along with their name and a short description. thei price per hosue is also displayed.
 
-This then improves loading speed as we don't load a 1000 users at once, but only 8 at a time, as the user requests information.
+There is a search table at the top which leads to the search results page once selected.
 
 
-### Your Profile
+### Blog
 
 This is where a user can make themselves stand out. As information is added, it displayed dynamically. A registered user with no information will have a more or less blank profile, but a user with more information will then stand out!
 
