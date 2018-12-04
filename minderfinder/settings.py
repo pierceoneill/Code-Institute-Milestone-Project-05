@@ -33,6 +33,14 @@ ALLOWED_HOSTS = [os.environ.get('C9_HOSTNAME'), 'ci-milestone-05-minderfiner.her
 # Application definition
 
 INSTALLED_APPS = [
+    'about',
+    'accounts',
+    'blog',
+    'bookings',
+    'babysitters',
+    'contact',
+    'checkout',
+    'storages',
     'django.contrib.admin',
     'django.contrib.humanize',
     'django.contrib.auth',
@@ -42,17 +50,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_forms_bootstrap',
     'bootstrap_datepicker_plus',
-    'home',
-    'about',
-    'accounts',
-    'blog',
-    'bookings',
-    'babysitters',
-    'babysitter',
-    'contact',
     'django_gravatar',
-    'checkout',
-    'storages',
+    'home',
+    
     
 ]
 
