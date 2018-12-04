@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['milestone-project-05-minder-finder-pierceoneill.c9users.io']
+ALLOWED_HOSTS = ['milestone-project-05-minder-finder-pierceoneill.c9users.io', 'ci-milestone-05-minderfiner.herokuapp.com']
 
 
 # Application definition
