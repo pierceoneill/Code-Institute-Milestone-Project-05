@@ -23,11 +23,14 @@ djangorestframework==3.9.0
 docutils==0.14
 factory-boy==2.11.1
 flask-paginate==0.5.1
+gunicorn==19.9.0
 html5lib==0.999
 itsdangerous==1.1.0
 jmespath==0.9.3
 psycopg2==2.7.5
 pycurl==7.19.3
+pygobject==3.12.0
+python-apt==0.9.3.5ubuntu2
 python-dateutil==2.7.5
 pytz==2018.7
 requests==2.2.1
@@ -35,5 +38,6 @@ s3transfer==0.1.13
 six==1.11.0
 stripe==2.11.0
 text-unidecode==1.2
+unattended-upgrades==0.1
 urllib3==1.24.1
 wheel==0.24.0
