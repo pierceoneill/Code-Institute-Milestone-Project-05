@@ -22,12 +22,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('-d$q5mdq#1)n#6kl0frh$ocrk^eo2r7#u89$web^#f=+oc)i*e')
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['milestone-project-05-minder-finder-pierceoneill.c9users.io', 'ci-milestone-05-minderfiner.herokuapp.com']
+ALLOWED_HOSTS = [os.environ.get('C9_HOSTNAME'), 'ci-milestone-05-minderfiner.herokuapp.com']
 
 
 # Application definition
