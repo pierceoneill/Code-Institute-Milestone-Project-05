@@ -23,17 +23,14 @@ There is a search table at the top which leads to the search results page once s
 
 ### Blog
 
-This is where a user can make themselves stand out. As information is added, it displayed dynamically. A registered user with no information will have a more or less blank profile, but a user with more information will then stand out!
+This is a simple Django blog with some saple posts regarding childcare and childcare information. The users can post comments which have to be approved or deleted byt he ADMIN and only the admin can post a new story to the blog.
 
 
-### Fake Github Pages
+### About
 
-When a real user adds their Github Handle we search the Github API for the user's repo with the provided their handle and display their last 5 repos, with their stars, watch and followers. If they have added a live URL site we also will link to that.
+the About Page gives a brief rundown of how the site works for both babysitters and the potential clients. There is a testimonial slider at the top and also some sample payment rates at the bottom with a link to the babysitters main page to encourage a booking.
 
-BUT we have fake users and I didn't want to stop there, so I created a "look-alike" Github repo. Every fake user has 2 different templates they use, with all fake data. But it was more the aesthetics of getting things to look better.
-
-
-### Page Not Found
+### Contact
 
 I always love good 404 pages; they are supposed to be fun but still have a meaning for the user. 
 This will ruin the surprise with a screenshot so please do visit the live demo <a href="https://www.devhangout.co/not-found" target="_blank">here</a>
