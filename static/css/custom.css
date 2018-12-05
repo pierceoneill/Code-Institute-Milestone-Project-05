@@ -1,52 +1,4 @@
-/*Table of contents
-* Base styles
-* Paddings and Margins
-* Common Styles
-* Intro Section Flex Slider
-* Top Line
-* Header Styles
-* Main Menu Styles
-* jQuery Plugins
-* Breadcrumbs
-* Home Page content
-* Footer
-* Widgets
-* Copyright
-* Faq section
-* About Page
-* 404 Page
-* Terms
-* Team
-* Services
-* Gallery Fullwidth
-* Gallery Regular
-* Gallery Extended
-* Calendar
-* Appointment
-* Blog
-* Blog Sidebar
-* Blog Post
-* Blog Video Post
-* Team Member
-* Courses
-* Calculator
-* Typography
-* Elements
-*
-*/
 
-/* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
-
-
-/*
- * Remove text-shadow in selection highlight:
- * https://twitter.com/miketaylr/status/12228805301
- *
- * These selection rule sets have to be separate.
- * Customize the background color to match your design.
- */
 
 ::-moz-selection {
     background: #b3d4fc;
@@ -58,11 +10,6 @@
     text-shadow: none;
 }
 
-/*
- * Remove the gap between audio, canvas, iframes,
- * images, videos and the bottom of their containers:
- * https://github.com/h5bp/html5-boilerplate/issues/440
- */
 
 audio,
 canvas,
@@ -119,9 +66,6 @@ a:focus {
   text-decoration: none;
 }
 
-/* ==========================================================================
-  Template styles
-   ========================================================================== */
 /*parallax*/
 .parallax {
   background-attachment: fixed !important;
