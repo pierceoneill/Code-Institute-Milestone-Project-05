@@ -103,6 +103,34 @@
     </table>
 </div>
 </div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-contentPay">
+        <button type="button" class="close-card" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <div class="modal-body-3">
+                <form role="form" method="post" id="payment-form" action="{% url 'cart' %}">
+                    <div id="credit-card-errors" style="display:none">
+                        <div class="alert-message block-message error" id="stripe-error-message"></div>
+                    </div>
+        
+                    <img src="{% static 'images/payments.png' %}" style="width: 100%"/>
+                        {% csrf_token %}
+                        {{ form | as_bootstrap }}
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                        <input class="name-filed" type="text" placeholder="Full name">
+                        <br>
+                    <br>
+                        <input class="btn buttonPay" id="submit_payment_btn" name="commit" type="submit" value="Confirm">
+                        <button type="button" class="btn buttonPay" data-dismiss="modal">Cancel Order</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 {% endblock %}

@@ -234,37 +234,6 @@
   </div>
 </div>
 
-
-<!-- Log in Modal -->
-<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content loginsize">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Login</h4>
-            <div class="modal-body">
-              <form method="post" action="{% url 'login' %}">
-                  {% csrf_token %}
-                    <i class="fa fa-user fa-2x"  aria-hidden="true"></i>
-                    <input type="text" class="textfield" placeholder="Username or Email Address" name="username_or_email" >
-                    <i class="fa fa-lock fa-2x"  aria-hidden="true" ></i>
-                    <input type="password" class="textfield" placeholder="Password" name="password">
-                    <button type="submit" class="btn btn-success buttonlg" >Login</button>
-              </form>
-                  <div class="footer">
-                      <button type="submit" class="btn btn-danger buttonrs" data-toggle="collapse" data-target="#resetfield"><i class="fa fa-key fa-rotate-90" aria-hidden="true"></i> Reset</button>
-                      <div id="resetfield" class="collapse">
-                    {% csrf_token %}
-                        <i class="fa fa-cogs fa-2x reset-user" aria-hidden="true"></i>
-                        <input type="email" class="textfield reset-field" name="email" name="csrfmiddlewaretoken">
-                        <button type="submit" name="password_reset" class="btn btn-warning buttonwr"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Reset confirmation</button>
-              </form>
-                      </div>
-                  </div>
-            </div>
-        </div>
-    </div>
-</div>
-
    <div class="container">
 
             </div>

@@ -27,7 +27,6 @@ from bookings import urls as urls_bookings
 from checkout import urls as urls_checkout
 from about import urls as urls_about
 from contact import urls as urls_contact
-
 from django.views import static
 from django.contrib.auth import views
 from .settings import MEDIA_ROOT
