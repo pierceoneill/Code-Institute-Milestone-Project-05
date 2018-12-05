@@ -65,7 +65,17 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'minderfinder.urls'
+ROOT_URLCONF = 'minderfinder.urls',
+
+# Do not import anything for the handler404,
+# or whatnot from the django.conf.urls
+# Just list them below
+
+handler404 = 'main.views.not_found'
+handler500 = 'main.views.server_error'
+handler403 = 'main.views.permission_denied'
+handler400 = 'main.views.bad_request'
+
 
 TEMPLATES = [
     {

@@ -28,6 +28,7 @@ from checkout import urls as urls_checkout
 from about import urls as urls_about
 from contact import urls as urls_contact
 from django.views.defaults import page_not_found
+from django.conf.urls import handler404, handler500
 from django.views import static
 from django.contrib.auth import views
 from .settings import MEDIA_ROOT
@@ -45,4 +46,7 @@ urlpatterns = [
     url(r'^contact/', include(urls_contact)),
     url(r'^password-reset/', include(url_reset)),
     url(r'^404/$', page_not_found, {'exception': Exception()})
+    
 ]
+    handler404 = views.error_404,
+    handler500 = views.error_404
