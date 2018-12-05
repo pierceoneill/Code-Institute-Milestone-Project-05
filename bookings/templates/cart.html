@@ -19,8 +19,8 @@
 <div class="row">
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
         <div class="productwraper">
-            <div class="sidebar sticky sidebar-cart">
-                <img src="{% static 'images/pay.png' %}"  alt="pay">
+            <div class="sidebar sticky">
+                <img src="{% static 'images/pay.png' %}" alt="pay">
                 <div class="ibox paymentsSlide">
                     <div class="ibox-title">
                         <h5>Support</h5>
@@ -48,7 +48,7 @@
         <tbody>
             {% for item in items %}
                 <tr>
-                    <td><img class="team-person-main" height="100" width="100" src="{{ MEDIA_URL }}{{ item.babysitter.image }}"></td>
+                    <td><img height="50" width="50" src="{{ MEDIA_URL }}{{ item.babysitter.image }}"></td>
                     <td>{{ item.babysitter.firstName }} {{ item.babysitter.lastName }}</div></td>
                     <td>€{{ item.babysitter.price }}</td>
                     <td>{{ item.quantity }}</td>
@@ -89,11 +89,9 @@
                         </div>
                     </td>
                     <td>
-                       <div class="row">
-    <p>Total</p>
-    <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</p>
-    <a href="{% url 'checkout' %}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Checkout</a>
-</div>
+                        <div class="stripepay">
+                        <img src="{% static "images/stripe.png" %}" style="cursor:pointer" width="200px" data-toggle="modal" data-target="#exampleModal">
+                    </div>
                     </td>
                 </tr>
                 </thead>
@@ -103,6 +101,7 @@
     </table>
 </div>
 </div>
+
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -131,6 +130,3 @@
         </div>
     </div>
 </div>
-
-
-{% endblock %}
