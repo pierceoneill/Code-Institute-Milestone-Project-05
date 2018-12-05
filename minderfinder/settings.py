@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-TEMPLATE_DEBUG = DEBUG
+
 ALLOWED_HOSTS = [os.environ.get('C9_HOSTNAME'), 'ci-milestone-05-minderfiner.herokuapp.com']
 
 
