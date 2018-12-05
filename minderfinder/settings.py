@@ -65,9 +65,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'minderfinder.urls',
-
-
+ROOT_URLCONF = 'minderfinder.urls'
 
 TEMPLATES = [
     {
