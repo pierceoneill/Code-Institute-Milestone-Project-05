@@ -27,8 +27,7 @@ from bookings import urls as urls_bookings
 from checkout import urls as urls_checkout
 from about import urls as urls_about
 from contact import urls as urls_contact
-from django.views.defaults import page_not_found
-from django.conf.urls import handler404, handler500
+
 from django.views import static
 from django.contrib.auth import views
 from .settings import MEDIA_ROOT
@@ -44,9 +43,6 @@ urlpatterns = [
     url(r'^blog/', include(urls_blog)),
     url(r'^about/', include(urls_about)),
     url(r'^contact/', include(urls_contact)),
-    url(r'^password-reset/', include(url_reset)),
-    url(r'^404/$', page_not_found, {'exception': Exception()})
+    url(r'^password-reset/', include(url_reset))
     
 ]
-    handler404 = views.error_404,
-    handler500 = views.error_404
