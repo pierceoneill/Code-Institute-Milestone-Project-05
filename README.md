@@ -1,4 +1,4 @@
-![Build Status](https://travis-ci.org/pierceoneill/Code-Institute-Milestone-Project-05.svg?branch=master)](https://travis-ci.org/pierceoneill/Code-Institute-Milestone-Project-05)
+[![Build Status](https://travis-ci.org/pierceoneill/Code-Institute-Milestone-Project-05.svg?branch=master)](https://travis-ci.org/pierceoneill/Code-Institute-Milestone-Project-05)
 # Code Institute - Stream 3 Project 
 ### By Pierce O'Neill
 
@@ -73,6 +73,8 @@ This is a simple Django blog with some saple posts regarding childcare and child
 - Programming Language
 #### GitHub 
 -for version control and backup of code
+#### GitKraken
+-for version control and project management
 #### Bootstrap 
 - A framework for developing responsive, mobile first websites.
 #### Django 
@@ -150,7 +152,19 @@ def babysitter_profile(request, id):
 - [Stripe Documentation](https://stripe.com/docs) - helped me with my stripe payments and testing
 - [Stack Overflow](https://stackoverflow.com) helped me with some of the logic dealing with multiple models
 
+## Content
 
+Javascript logic necessary for payment processing via Stripe has been lifted from the Stripe API.
+
+## Media
+
+- Images and media used within this project were accessed via a Google search for images labeled for noncommercial reuse.
+
+- Colour scheme was generated using https://coolors.co/
+
+- Stock images - Pexels.com
+
+- Avatars - https://pixabay.com
 
 ## Thank You
 
