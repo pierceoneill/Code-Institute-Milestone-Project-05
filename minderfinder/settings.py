@@ -85,7 +85,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'minderfinder.wsgi.application'
+WSGI_APPLICATION = 'maureenssupermarket.wsgi.application'
 
 
 # Database
