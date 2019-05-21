@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/pierceoneill/Code-Institute-Milestone-Project-05.svg?branch=master)](https://travis-ci.org/pierceoneill/Code-Institute-Milestone-Project-05)
-# Code Institute - Stream 3 Project 
+# Code Institute - Milestone Project 5
 ### By Pierce O'Neill
 
 ## Deployment
@@ -7,7 +7,7 @@
 
 ## About this project
 
-I am currently a student at the Code Institute doing a Full Stack Diploma in Software Development. This is the third of three projects which I must complete in order to be awarded the globally recognised Diploma from Edinburgh Napier University. This project will cover the Full Stack i.e all sections of the course both frontend and backend web development.
+I am currently a student at the Code Institute doing a Full Stack Diploma in Software Development. This is the fifth of five projects which I must complete in order to be awarded the globally recognised Diploma from Edinburgh Napier University. This project will cover the Full Stack i.e all sections of the course both frontend and backend web development.
 
 Having consulted with my mentor Chris Zielinski, I decided to build a babysitter app where parents or guardians could search and book a babysitter or childcare for their children. The babysitters apply to be registered on the site. 
 
