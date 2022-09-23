@@ -146,7 +146,7 @@ AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=94608000',
 }
 
-AWS_STORAGE_BUCKET_NAME = 'ci-milestone-05-minderfiner'
+AWS_STORAGE_BUCKET_NAME = 'minderfinderapp'
 AWS_S3_REGION_NAME = 'eu-west-1'
 AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
